@@ -1,0 +1,1218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ACPI</key>
+	<dict>
+		<key>#HaltEnabler</key>
+		<false/>
+		<key>DSDT</key>
+		<dict>
+			<key>#Fixes</key>
+			<dict>
+				<key>AddDTGP_0001</key>
+				<true/>
+				<key>AddHDMI_8000000</key>
+				<true/>
+				<key>AddIMEI_80000</key>
+				<false/>
+				<key>AddMCHC_0008</key>
+				<false/>
+				<key>AddPNLF_1000000</key>
+				<true/>
+				<key>DeleteUnused_400000</key>
+				<true/>
+				<key>FIX_ACST_4000000</key>
+				<true/>
+				<key>FIX_ADP1_800000</key>
+				<true/>
+				<key>FIX_DARWIN_10000</key>
+				<false/>
+				<key>FIX_INTELGFX_100000</key>
+				<false/>
+				<key>FIX_RTC_20000</key>
+				<true/>
+				<key>FIX_S3D_2000000</key>
+				<true/>
+				<key>FIX_TMR_40000</key>
+				<true/>
+				<key>FIX_WAK_200000</key>
+				<true/>
+				<key>FakeLPC_0020</key>
+				<false/>
+				<key>FixAirport_4000</key>
+				<false/>
+				<key>FixDarwin_0002</key>
+				<true/>
+				<key>FixDisplay_0100</key>
+				<true/>
+				<key>FixFirewire_0800</key>
+				<true/>
+				<key>FixHDA_8000</key>
+				<true/>
+				<key>FixHPET_0010</key>
+				<true/>
+				<key>FixIDE_0200</key>
+				<false/>
+				<key>FixIPIC_0040</key>
+				<false/>
+				<key>FixLAN_2000</key>
+				<true/>
+				<key>FixRegions_10000000</key>
+				<true/>
+				<key>FixSATA_0400</key>
+				<false/>
+				<key>FixSBUS_0080</key>
+				<true/>
+				<key>FixShutdown_0004</key>
+				<false/>
+				<key>FixUSB_1000</key>
+				<true/>
+				<key>NewWay_80000000</key>
+				<true/>
+			</dict>
+			<key>Debug</key>
+			<false/>
+			<key>DropOEM_DSM</key>
+			<false/>
+			<key>Name</key>
+			<string>DSDT.aml</string>
+			<key>ReuseFFFF</key>
+			<false/>
+		</dict>
+		<key>DropTables</key>
+		<array>
+			<dict>
+				<key>Signature</key>
+				<string>DMAR</string>
+			</dict>
+			<dict>
+				<key>Signature</key>
+				<string>MATS</string>
+			</dict>
+		</array>
+		<key>PatchAPIC</key>
+		<true/>
+		<key>SSDT</key>
+		<dict>
+			<key>DropOem</key>
+			<true/>
+			<key>EnableC2</key>
+			<true/>
+			<key>EnableC4</key>
+			<true/>
+			<key>EnableC6</key>
+			<true/>
+			<key>Generate</key>
+			<dict>
+				<key>CStates</key>
+				<false/>
+				<key>PStates</key>
+				<false/>
+			</dict>
+		</dict>
+	</dict>
+	<key>Boot</key>
+	<dict>
+		<key>Arguments</key>
+		<string>dart=0 darkwake=0 -v LogEveryBoot=Yes ngfxcompat=1 npci=0x2000 kext-dev-mode=1 -liludbgall -lilubetaall -wegbeta -raddvi -cdfon</string>
+		<key>Debug</key>
+		<false/>
+		<key>DefaultVolume</key>
+		<string>SSD</string>
+		<key>Legacy</key>
+		<string>PBR</string>
+		<key>NeverHibernate</key>
+		<false/>
+		<key>Secure</key>
+		<false/>
+		<key>Timeout</key>
+		<integer>2</integer>
+		<key>XMPDetection</key>
+		<string>Yes</string>
+	</dict>
+	<key>CPU</key>
+	<dict>
+		<key>C2</key>
+		<true/>
+		<key>C4</key>
+		<true/>
+		<key>C6</key>
+		<true/>
+	</dict>
+	<key>Devices</key>
+	<dict>
+		<key>Audio</key>
+		<dict>
+			<key>Inject</key>
+			<string>No</string>
+		</dict>
+		<key>USB</key>
+		<dict>
+			<key>AddClockID</key>
+			<array>
+				<string></string>
+			</array>
+			<key>FixOwnership</key>
+			<true/>
+			<key>HighCurrent</key>
+			<true/>
+			<key>Inject</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>DisableDrivers</key>
+	<array>
+		<string>VBoxHfs</string>
+	</array>
+	<key>GUI</key>
+	<dict>
+		<key>Language</key>
+		<string>en:0</string>
+		<key>Mouse</key>
+		<dict>
+			<key>Enabled</key>
+			<false/>
+			<key>Speed</key>
+			<integer>8</integer>
+		</dict>
+		<key>Scan</key>
+		<dict>
+			<key>Entries</key>
+			<true/>
+			<key>Legacy</key>
+			<true/>
+			<key>Linux</key>
+			<true/>
+			<key>Tool</key>
+			<false/>
+		</dict>
+		<key>Theme</key>
+		<string>bootcamp</string>
+	</dict>
+	<key>Graphics</key>
+	<dict>
+		<key>#LoadVBios</key>
+		<false/>
+		<key>#PatchVBios</key>
+		<false/>
+		<key>EDID</key>
+		<dict>
+			<key>Inject</key>
+			<false/>
+		</dict>
+		<key>Inject</key>
+		<dict>
+			<key>ATI</key>
+			<false/>
+			<key>Intel</key>
+			<false/>
+			<key>NVidia</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>#KernelAndKextPatches-EXAMPLES</key>
+	<dict>
+		<key>ATIConnectorsController</key>
+		<string>6000</string>
+		<key>ATIConnectorsData</key>
+		<string>000400000403000000010000210302040400000014020000000100000000040310000000100000000001000000000001</string>
+		<key>ATIConnectorsPatch</key>
+		<string>040000001402000000010000000004040004000004030000000100001102010500000000000000000000000000000000</string>
+		<key>BootPatches</key>
+		<array>
+			<dict>
+				<key>Comment</key>
+				<string>Example</string>
+				<key>Disabled</key>
+				<true/>
+				<key>Find</key>
+				<data>RXh0ZXJuYWw=</data>
+				<key>MatchOS</key>
+				<string>All</string>
+				<key>Replace</key>
+				<data>SW50ZXJuYWw=</data>
+			</dict>
+		</array>
+		<key>ForceKextsToLoad</key>
+		<array>
+			<string>\System\Library\Extensions\AppleHDA.kext</string>
+			<string>\Extra\Extensions</string>
+		</array>
+		<key>KextsToPatch</key>
+		<array>
+			<dict>
+				<key>Comment</key>
+				<string>Allow booting with a MacPro4,1 or MacPro5,1 SMBIOS definition without ECC memory</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>cgoATWFjUHJvNCwxAE1hY1BybzUsMQBY</data>
+				<key>InfoPlistPatch</key>
+				<false/>
+				<key>Name</key>
+				<string>AppleTyMCEDriver</string>
+				<key>Replace</key>
+				<data>cgoAAAAAAAAAAAAAAAAAAAAAAAAAAABY</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Enable TRIM for non-Apple SSD (from config-sample)</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>QVBQTEUgU1NEAA==</data>
+				<key>InfoPlistPatch</key>
+				<false/>
+				<key>Name</key>
+				<string>com.apple.iokit.IOAHCIBlockStorage</string>
+				<key>Replace</key>
+				<data>AAAAAAAAAAAAAA==</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Fresco FL1009 USB 3.0 Device ID Patch by bu11etpr00f</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>PHN0cmluZz4weDExMDAxYjczPC9zdHJpbmc+</data>
+				<key>InfoPlistPatch</key>
+				<true/>
+				<key>Name</key>
+				<string>AppleUSBXHCIPCI</string>
+				<key>Replace</key>
+				<data>PHN0cmluZz4weDEwMDkxYjczPC9zdHJpbmc+</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Disable USB Port Limit 10.13.4+ by PMHeart &amp; FredWst</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>g/sPD4MDBQAA</data>
+				<key>InfoPlistPatch</key>
+				<false/>
+				<key>Name</key>
+				<string>com.apple.driver.usb.AppleUSBXHCI</string>
+				<key>Replace</key>
+				<data>g/sPkJCQkJCQ</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Sierra Radeon 7970 Connectors Patch</string>
+				<key>Disabled</key>
+				<true/>
+				<key>Find</key>
+				<data>AAQAAAQDAAAAAQEBAAAAABIEBQEAAAAAAAQAAAQDAAAAAQIBAAAAACIFBAIAAAAABAAAABQCAAAAAQMAAAAAAAAAAwYAAAAAAAgAAAQCAAAAAQQAAAAAABECAQQAAAAA</data>
+				<key>Name</key>
+				<string>AMD7000Controller</string>
+				<key>Replace</key>
+				<data>AAQAAAQDAAAAAQEBAAAAABIEAQEAAAAAAAQAAAQDAAAAAQIBAAAAACIFAgIAAAAABAAAABQCAAAAAQMAAAAAACEDBgQAAAAAAAIAAAQCAAAAAQQAAAAAABAABAYAAAAA</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>ATI Connector patch new way</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>AAQAAAQDAAAAAQAAIQMCBAQAAAAUAgAAAAEAAAAABAMQAAAAEAAAAAABAAAAAAAB</data>
+				<key>MatchOS</key>
+				<string>10.9,10.10,10.11</string>
+				<key>Name</key>
+				<string>AMD6000Controller</string>
+				<key>Replace</key>
+				<data>BAAAABQCAAAAAQAAAAAEBAAEAAAEAwAAAAEAABECAQUAAAAAAAAAAAAAAAAAAAAA</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>AppleAHCIPort patch to fix internal disks displayed as external (Orange Icon) by Slice (from config-sample)</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>RXh0ZXJuYWw=</data>
+				<key>Name</key>
+				<string>AppleAHCIPort</string>
+				<key>Replace</key>
+				<data>SW50ZXJuYWw=</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>Patch_to_not_load_this_driver</string>
+				<key>Find</key>
+				<string>0x04020000</string>
+				<key>InfoPlistPatch</key>
+				<true/>
+				<key>Name</key>
+				<string>AppleHDAController</string>
+				<key>Replace</key>
+				<string>0x44220000</string>
+			</dict>
+			<dict>
+				<key>Disabled</key>
+				<true/>
+				<key>Find</key>
+				<data>SGVhZHBob25lcwA=</data>
+				<key>Name</key>
+				<string>VoodooHDA</string>
+				<key>Replace</key>
+				<data>VGVsZXBob25lcwA=</data>
+			</dict>
+		</array>
+	</dict>
+	<key>#KernelAndKextPatches-COMMENTS</key>
+	<dict>
+		<key>AppleIntelCPUPM</key>
+		<array>
+			<string>Recommended Setting for Sandy/Ivy Bridge:</string>
+			<true/>
+			<string></string>
+			<string>Default:</string>
+			<string>???</string>
+			<string></string>
+			<string>AsusAICPUPM key was renamed to AppleIntelCPUPM.</string>
+			<string></string>
+			<string>Some vendors, like ASUS, restrict the use of MSR register 0xE2 in their power</string>
+			<string>management module to ReadOnly. On Sandy/Ivy Bridge systems the kext</string>
+			<string>AppleIntelCpuPowerManagement will try to write to this register and cause a</string>
+			<string>kernel panic. This patch will eliminate the kext&apos;s write operations.</string>
+			<string></string>
+		</array>
+		<key>AppleRTC</key>
+		<array>
+			<string>Recommended Setting:</string>
+			<true/>
+			<string></string>
+			<string>Default:</string>
+			<string>???</string>
+			<string></string>
+			<string>macOS has compatibility issues with a BIOS CMOS resulting in its reset on each</string>
+			<string>wake after sleep and reboot, which is noticeable in a loss of BIOS settings. Mostly</string>
+			<string>Gigabyte motherboards are affected. Usually it can be solved by patching</string>
+			<string>Device(RTC) in the DSDT.</string>
+			<string>If this does not help, the kext itself can be patched, which is done here.</string>
+			<string></string>
+		</array>
+		<key>ATIConnectorsController</key>
+		<array>
+			<string>Optional Setting for AMD Video Cards:</string>
+			<string>See #KernelAndKextPatches-EXAMPLES</string>
+			<string></string>
+			<string>This method works for systems using Mac OS X 10.7 or newer.</string>
+			<string></string>
+			<string>For a fully working AMD Video Card injecting properties into the registry is not</string>
+			<string>enough. Additionally a modification of the connectors in the according controller</string>
+			<string>binary file is necessary.</string>
+			<string></string>
+			<string>More info in the post of bcc9 on insanelymac.</string>
+			<string>http://www.insanelymac.com/forum/topic/249642-editing-custom-personalities-for-ati-radeon-hd45xxx/</string>
+			<string></string>
+		</array>
+		<key>ATIConnectorsData</key>
+		<array>
+			<string>Optional Setting for AMD Video Cards:</string>
+			<string>See #KernelAndKextPatches-EXAMPLES</string>
+			<string></string>
+			<string>For Description See ATIConnectorsController</string>
+			<string></string>
+		</array>
+		<key>ATIConnectorsPatch</key>
+		<array>
+			<string>Optional Setting for AMD Video Cards:</string>
+			<string>See #KernelAndKextPatches-EXAMPLES</string>
+			<string></string>
+			<string>For Description See ATIConnectorsController</string>
+			<string></string>
+		</array>
+		<key>BootPatches</key>
+		<array>
+			<string>Optional Setting:</string>
+			<string>See #KernelAndKextPatches-EXAMPLES</string>
+			<string></string>
+			<string>NO DESCRIPTION ON WIKI (from config-sample.plist)</string>
+			<string></string>
+		</array>
+		<key>Debug</key>
+		<array>
+			<string>Recommended Setting:</string>
+			<true/>
+			<string></string>
+			<string>Default Setting:</string>
+			<false/>
+			<string></string>
+			<string>Enables detailed output describing the patching process. This prints kernel</string>
+			<string>patches and kext injection debug messages to the screen, since standard boot log</string>
+			<string>is already closed. Useful for debugging purposes.</string>
+			<string></string>
+			<string>Useful for debugging purposes.</string>
+		</array>
+		<key>DellSMBIOSPatch</key>
+		<array>
+			<string>Optional Setting:</string>
+			<string></string>
+			<string>Default Setting:</string>
+			<false/>
+			<string></string>
+			<string>NO DESCRIPTION ON WIKI (from config-sample.plist)</string>
+			<string></string>
+		</array>
+		<key>FakeCPUID</key>
+		<array>
+			<string>Optional Setting to Replace &quot;KernelCpu&quot;:</string>
+			<string>NOT USED</string>
+			<string></string>
+			<string>Fake CPUID is intended to be a replacement for the &quot;KernelCpu&quot; Patch.</string>
+			<string>It influences the kernel and AppleCPUPowerManagement as well.</string>
+			<string></string>
+			<string>If you want to install OSX with an unsupported CPU then you&apos;ll need to fake its ID</string>
+			<string>to avoid kernel panics. Useful if you&apos;re trying to install OSX with an Atom CPU, or</string>
+			<string>10.7.2 with an IvyBridge CPU.</string>
+			<string></string>
+			<string>For these cases Clover allows you to set FakeCPUID in config.plist or even through</string>
+			<string>the GUI, in the Binaries patching menu.</string>
+			<string></string>
+		</array>
+		<key>KernelCpu</key>
+		<array>
+			<string>Optional Setting for Unsupported CPU&apos;s:</string>
+			<string></string>
+			<string>Default Setting:</string>
+			<false/>
+			<string></string>
+			<string>Eliminates kernel panics related to an Unsupported CPU like Yonah, Atom or</string>
+			<string>Haswell for old systems. However, the kernel has other algorithms which will not</string>
+			<string>work correctly when using an unsupported CPU and this patch will not solve all</string>
+			<string>problems. It is highly unlikely that this will work with a Pentium M, Pentium 4 or</string>
+			<string>and AMD. The use of a special replacement kernel is advised in such cases.</string>
+			<string></string>
+		</array>
+		<key>KernelHaswellE</key>
+		<array>
+			<string>Optional Setting for Haswell-E:</string>
+			<string></string>
+			<string>Default Setting:</string>
+			<false/>
+			<string></string>
+			<string>Haswell-E setups are currently not supported by the OS X kernel (as of macOS</string>
+			<string>10.10.2). This patch gets rid of the blocking compatibility checks.</string>
+			<string>Note: this will NOT enable Power Management or similar features.</string>
+			<string></string>
+		</array>
+		<key>KernelIvyXCPM</key>
+		<array>
+			<string>Optional Setting:</string>
+			<string></string>
+			<string>Default Setting:</string>
+			<false/>
+			<string></string>
+			<string>NO DESCRIPTION ON WIKI (from config-sample.plist)</string>
+			<string></string>
+		</array>
+		<key>KernelLapic</key>
+		<array>
+			<string>Optional Setting for HP Notebooks:</string>
+			<string></string>
+			<string>Default Setting:</string>
+			<false/>
+			<string></string>
+			<string>HP Notebooks have lapic problems, which can be solved by using the boot</string>
+			<string>parameter cpus=1 or by using this option.</string>
+			<string></string>
+		</array>
+		<key>KernelPm</key>
+		<array>
+			<string>Optional Setting for Haswell:</string>
+			<string></string>
+			<string>Default Setting:</string>
+			<false/>
+			<string></string>
+			<string>Kernel power management patch for Haswell with locked msrs. Works with 10.8.5</string>
+			<string>and 10.9 kernels.</string>
+			<string></string>
+			<string>Haswell CPU&apos;s include Xeon v3 (E3 / E5 / E7) and Core iX (Gen4 / Gen5)</string>
+			<string></string>
+		</array>
+		<key>ForceKextsToLoad</key>
+		<array>
+			<string>Optional Setting:</string>
+			<string>See #KernelAndKextPatches-EXAMPLES</string>
+			<string></string>
+			<string>Force load kexts (and plugins) from booted volume so it can be patched. It also</string>
+			<string>accepts directories to force load/inject every kext in the folder.</string>
+			<string></string>
+		</array>
+		<key>KextsToPatch</key>
+		<array>
+			<string>Optional Setting:</string>
+			<string>See #KernelAndKextPatches-EXAMPLES</string>
+			<string></string>
+			<string>Apart from the built-in patches you can create your own ones providing following</string>
+			<string>data: the binary file name, the data to find and the data to replace with - both in</string>
+			<string>hexadecimal. The data length must be equal. A smaller replacement data line can</string>
+			<string>be filled with zeroes.</string>
+			<string></string>
+			<string>Side note: The patch is supposed to be done in the cache. If you patch an</string>
+			<string>Info.plist to allow the loading of a kext, then it is not yet present in the cache.</string>
+			<string>You will need to reboot twice. First with the key NoCaches to allow FSInject to load</string>
+			<string>the kext and a second time for the cache to be patched successfully.</string>
+			<string></string>
+		</array>
+	</dict>
+	<key>#RtVariables-COMMENTS</key>
+	<dict>
+		<key>BooterConfig</key>
+		<array>
+			<string>Recommended Setting:</string>
+			<string>0x28</string>
+			<string></string>
+			<string>NO DESCRIPTION ON WIKI (Since revision r3259)</string>
+			<string></string>
+		</array>
+		<key>CsrActiveConfig</key>
+		<array>
+			<string>Recommended Setting:</string>
+			<string>0x3</string>
+			<string></string>
+			<string>Since revision r3259</string>
+			<string>Controls System Integrity Protection (SIP)</string>
+			<string></string>
+			<string>Relevant user options for SIP:</string>
+			<string>0x0 = SIP Enabled (Default)</string>
+			<string>0x3 = SIP Partially Disabled (Loads unsigned kexts)</string>
+			<string>0x67 = SIP Disabled completely</string>
+			<string></string>
+		</array>
+		<key>ROM</key>
+		<array>
+			<string>Recommended Setting:</string>
+			<string>UseMacAddr0</string>
+			<string></string>
+			<string>This Value is the Platform UUID or Hardware UUID (Universally Unique Identifier)</string>
+			<string>shown in macOS in System Information under Hardware Overview.</string>
+			<string></string>
+			<string>NOTE: This Platform / Hardware UUID, in connection with the System UUID:</string>
+			<string>(SMBIOS-&gt;SmUUID) Value, is needed to enable iMessage functionality.</string>
+			<string></string>
+			<string>Twelve hexadecimal digits, often corresponding to the unique MAC Address of</string>
+			<string>your Ethernet Card. According to several reports this value can also be random.</string>
+			<string></string>
+			<string>Since revision 3051 Clover can detect the LAN MAC address of an ethernet</string>
+			<string>device and use it as ROM. </string>
+			<string></string>
+			<string>For UEFI, it will first check the UEFI protocol for LAN information; but for legacy</string>
+			<string>it will attempt to get it from the hardware instead, and because this procedure is</string>
+			<string>dangerous, you&apos;ll need to enable the functionality by specifying the LAN device</string>
+			<string>with: UseMacAddr0 or UseMacAddr1</string>
+			<string>(up to 4 devices are calculated but only 2 will be used).</string>
+			<string></string>
+		</array>
+	</dict>
+	<key>#SMBIOS-EXAMPLE</key>
+	<dict>
+		<key>BiosReleaseDate</key>
+		<string>08/08/2017</string>
+		<key>BiosVendor</key>
+		<string>Apple Inc.</string>
+		<key>BiosVersion</key>
+		<string>MP61.88Z.0120.B00.1708080652</string>
+		<key>Board-ID</key>
+		<string></string>
+		<key>BoardManufacturer</key>
+		<string>Apple Inc.</string>
+		<key>BoardSerialNumber</key>
+		<string></string>
+		<key>BoardType</key>
+		<integer>11</integer>
+		<key>BoardVersion</key>
+		<string>MacPro6,1</string>
+		<key>ChassisAssetTag</key>
+		<string></string>
+		<key>ChassisManufacturer</key>
+		<string>Apple Inc.</string>
+		<key>ChassisType</key>
+		<string>0x02</string>
+		<key>Family</key>
+		<string>MacPro</string>
+		<key>FirmwareFeatures</key>
+		<string>0xE80FE136</string>
+		<key>FirmwareFeaturesMask</key>
+		<string>0xFF1FFF3F</string>
+		<key>LocationInChassis</key>
+		<string>Part Component</string>
+		<key>Manufacturer</key>
+		<string>Apple Inc.</string>
+		<key>#Memory</key>
+		<dict>
+			<key>Channels</key>
+			<integer>4</integer>
+			<key>Modules</key>
+			<array>
+				<dict>
+					<key>Frequency</key>
+					<integer>1600</integer>
+					<key>Part</key>
+					<string>PV316G160C9K</string>
+					<key>Size</key>
+					<integer>8192</integer>
+					<key>Slot</key>
+					<integer>0</integer>
+					<key>Type</key>
+					<string>DDR3</string>
+					<key>Vendor</key>
+					<string>Patriot</string>
+				</dict>
+				<dict>
+					<key>Frequency</key>
+					<integer>1600</integer>
+					<key>Part</key>
+					<string>PV316G160C9K</string>
+					<key>Size</key>
+					<integer>8192</integer>
+					<key>Slot</key>
+					<integer>1</integer>
+					<key>Type</key>
+					<string>DDR3</string>
+					<key>Vendor</key>
+					<string>Patriot</string>
+				</dict>
+				<dict>
+					<key>Frequency</key>
+					<integer>1600</integer>
+					<key>Part</key>
+					<string>PV316G160C9K</string>
+					<key>Size</key>
+					<integer>8192</integer>
+					<key>Slot</key>
+					<integer>2</integer>
+					<key>Type</key>
+					<string>DDR3</string>
+					<key>Vendor</key>
+					<string>Patriot</string>
+				</dict>
+				<dict>
+					<key>Frequency</key>
+					<integer>1600</integer>
+					<key>Part</key>
+					<string>PV316G160C9K</string>
+					<key>Size</key>
+					<integer>8192</integer>
+					<key>Slot</key>
+					<integer>3</integer>
+					<key>Type</key>
+					<string>DDR3</string>
+					<key>Vendor</key>
+					<string>Patriot</string>
+				</dict>
+				<dict>
+					<key>Frequency</key>
+					<integer>1600</integer>
+					<key>Part</key>
+					<string>PV316G160C9K</string>
+					<key>Size</key>
+					<integer>8192</integer>
+					<key>Slot</key>
+					<integer>4</integer>
+					<key>Type</key>
+					<string>DDR3</string>
+					<key>Vendor</key>
+					<string>Patriot</string>
+				</dict>
+				<dict>
+					<key>Frequency</key>
+					<integer>1600</integer>
+					<key>Part</key>
+					<string>PV316G160C9K</string>
+					<key>Size</key>
+					<integer>8192</integer>
+					<key>Slot</key>
+					<integer>5</integer>
+					<key>Type</key>
+					<string>DDR3</string>
+					<key>Vendor</key>
+					<string>Patriot</string>
+				</dict>
+				<dict>
+					<key>Frequency</key>
+					<integer>1600</integer>
+					<key>Part</key>
+					<string>PV316G160C9K</string>
+					<key>Size</key>
+					<integer>8192</integer>
+					<key>Slot</key>
+					<integer>6</integer>
+					<key>Type</key>
+					<string>DDR3</string>
+					<key>Vendor</key>
+					<string>Patriot</string>
+				</dict>
+				<dict>
+					<key>Frequency</key>
+					<integer>1600</integer>
+					<key>Part</key>
+					<string>PV316G160C9K</string>
+					<key>Size</key>
+					<integer>8192</integer>
+					<key>Slot</key>
+					<integer>7</integer>
+					<key>Type</key>
+					<string>DDR3</string>
+					<key>Vendor</key>
+					<string>Patriot</string>
+				</dict>
+			</array>
+			<key>SlotCount</key>
+			<integer>8</integer>
+		</dict>
+		<key>Mobile</key>
+		<false/>
+		<key>PlatformFeature</key>
+		<string>0x04</string>
+		<key>ProductName</key>
+		<string>MacPro6,1</string>
+		<key>SerialNumber</key>
+		<string></string>
+		<key>Slots</key>
+		<array>
+			<dict>
+				<key>Device</key>
+				<string>ATI</string>
+				<key>ID</key>
+				<integer>1</integer>
+				<key>Name</key>
+				<string>PCIe Slot 0</string>
+				<key>Type</key>
+				<integer>16</integer>
+			</dict>
+			<dict>
+				<key>Device</key>
+				<string>WIFI</string>
+				<key>ID</key>
+				<integer>0</integer>
+				<key>Name</key>
+				<string>Airport</string>
+				<key>Type</key>
+				<integer>1</integer>
+			</dict>
+		</array>
+		<key>SmUUID</key>
+		<string></string>
+		<key>Trust</key>
+		<false/>
+		<key>Version</key>
+		<string>1.0</string>
+	</dict>
+	<key>#SMBIOS-DEFINITIONS</key>
+	<dict>
+		<key>COMMENT</key>
+		<array>
+			<string>This group of parameters is used to mask your PC as a Mac. Clover will do this</string>
+			<string>task automatically based on the given processor, video card and signs of mobility.</string>
+			<string> However, you may choose differently. Get the MacTracker application, choose a</string>
+			<string>model you like and find matching values. Clover Configurator can help you with</string>
+			<string>this task. There is not much to comment here, these values are not for beginners.</string>
+			<string>If you know them - change them; otherwise leave it. Calculating them is mostly</string>
+			<string>not possible.</string>
+		</array>
+		<key>ChassisAssetTag</key>
+		<array>
+			<string>SMBIOS.table3-&gt;AssetTag</string>
+			<string></string>
+			<string>Example Setting:</string>
+			<string>Motherboard or Computer Model / SN / Service Tag</string>
+			<string></string>
+			<string>This field is never used with real Macs. We can use it for our own purpose.</string>
+			<string>e.g. in the HWSensors project.</string>
+			<string></string>
+		</array>
+		<key>BoardSerialNumber</key>
+		<array>
+			<string></string>
+		</array>
+		<key>Memory</key>
+		<dict>
+			<key>COMMENT</key>
+			<array>
+				<string>Inject custom memory module tables into SMBIOS if original SPD and SMBIOS</string>
+				<string>provide incorrect or incomplete information.</string>
+				<string></string>
+			</array>
+			<key>Channels</key>
+			<array>
+				<string>Example Setting:</string>
+				<string>4</string>
+				<string></string>
+				<string>Number of Hardware Channels supported by your Memory Chipset.</string>
+				<string>Usually 2 for 16-32GB Max; 4 for 64GB Max. See Motherboard Documentation.</string>
+				<string></string>
+			</array>
+			<key>Modules</key>
+			<array>
+				<string>Array of INSTALLED Memory Modules. Don&apos;t add Entries for EMPTY Slots.</string>
+				<dict>
+					<key>Frequency</key>
+					<array>
+						<string>Example Setting:</string>
+						<string>1,600</string>
+						<string></string>
+						<string>The Memory Module&apos;s Speed in Megahertz.</string>
+						<string></string>
+					</array>
+					<key>Part</key>
+					<array>
+						<string>Example Setting:</string>
+						<string>PV316G160C9K</string>
+						<string></string>
+						<string>The Memory Module&apos;s Part Number Identifier.</string>
+						<string></string>
+					</array>
+					<key>Size</key>
+					<array>
+						<string>Example Setting:</string>
+						<string>8,192</string>
+						<string></string>
+						<string>The Memory Module&apos;s Size in Megabytes.</string>
+						<string></string>
+					</array>
+					<key>Slot</key>
+					<array>
+						<string>Example Setting:</string>
+						<string>0</string>
+						<string></string>
+						<string>The Physical Slot Locate in which the Memory Module is installed. (e.g. 0-7)</string>
+						<string></string>
+					</array>
+					<key>Serial</key>
+					<array>
+						<string>Optional Setting (Not Required)</string>
+						<string></string>
+						<string>The Memory Module&apos;s Serial Number.</string>
+						<string></string>
+					</array>
+					<key>Type</key>
+					<array>
+						<string>Example Setting:</string>
+						<string>DDR3</string>
+						<string></string>
+						<string>The Memory Module&apos;s Type.</string>
+						<string></string>
+					</array>
+					<key>Vendor</key>
+					<array>
+						<string>Example Setting:</string>
+						<string>Patriot</string>
+						<string></string>
+						<string>The Memory Module&apos;s Manufacturer Name.</string>
+						<string></string>
+					</array>
+				</dict>
+			</array>
+			<key>SlotCount</key>
+			<array>
+				<string>Example Setting:</string>
+				<string>8</string>
+				<string></string>
+				<string>Total count of memory slots in your system. Max 24 (for now).</string>
+				<string></string>
+			</array>
+		</dict>
+		<key>Mobile</key>
+		<array>
+			<string></string>
+		</array>
+		<key>SerialNumber</key>
+		<array/>
+		<key>#Slots</key>
+		<array>
+			<dict>
+				<key>Device</key>
+				<string>ATI</string>
+				<key>ID</key>
+				<integer>1</integer>
+				<key>Name</key>
+				<string>PCIe Slot 0</string>
+				<key>Type</key>
+				<integer>16</integer>
+			</dict>
+			<dict>
+				<key>Device</key>
+				<string>WIFI</string>
+				<key>ID</key>
+				<integer>0</integer>
+				<key>Name</key>
+				<string>Airport</string>
+				<key>Type</key>
+				<integer>1</integer>
+			</dict>
+		</array>
+		<key>SmUUID</key>
+		<array>
+			<string>Example Setting (DO NOT USE IN YOUR CONFIG):</string>
+			<string>00000000-0000-1000-8000-010203040506</string>
+			<string></string>
+			<string>Use uuidgen in Terminal to generate a new random UUID to use for this Value.</string>
+			<string></string>
+			<string>This is the System UUID (Universally Unique Identifier), which is written into the</string>
+			<string>SMBIOS table. </string>
+			<string></string>
+			<string>NOTE: This System UUID, in connection with the Platform / Hardware UUID:</string>
+			<string>(RtVariables-&gt;ROM) Value, is needed to enable iMessage functionality.</string>
+			<string></string>
+			<string></string>
+		</array>
+		<key>Trust</key>
+		<array>
+			<string>Default Setting:</string>
+			<true/>
+			<string></string>
+			<string>Used to give priority to memory descriptor values found in SMBIOS or SPD.</string>
+			<string>Change if your memory is described incorrectly in Mac.</string>
+			<string></string>
+		</array>
+		<key>ProductName</key>
+		<array>
+			<string>SMBIOS.table1-&gt;ProductName</string>
+			<string></string>
+			<string>Example Setting:</string>
+			<string>MacPro6,1</string>
+			<string></string>
+			<string>Setting this value will enable Clover to automatically generate dependent</string>
+			<string>parameters related to the model specified, so you can leave them out.</string>
+			<string></string>
+			<string>NOTE: Custom values will be preferred over generated ones.</string>
+			<string></string>
+			<string>Generated Values: BiosReleaseDate, BiosVendor, BiosVersion, Board-ID,</string>
+			<string>BoardManufacturer, BoardType, BoardVersion, ChassisManufacturer, ChassisType,</string>
+			<string>Family, FirmwareFeatures, FirmwareFeaturesMask, LocationInChassis,</string>
+			<string>Manufacturer, PlatformFeature, Version</string>
+			<string></string>
+			<string>Clover has built-in definitions for following models:</string>
+			<string>MacBook1,1   MacBook2,1   MacBook4,1   MacBook5,1   MacBook5,2</string>
+			<string>MacBook6,1   MacBook7,1   MacBook8,1   MacBook9,1 MacBook10,1</string>
+			<string></string>
+			<string>MacBookPro5,1   MacBookPro5,2   MacBookPro5,3   MacBookPro5,4</string>
+			<string>MacBookPro5,5   MacBookPro6,1   MacBookPro6,2   MacBookPro7,1</string>
+			<string>MacBookPro8,1   MacBookPro8,2   MacBookPro8,3   MacBookPro9,1</string>
+			<string>MacBookPro9,2   MacBookPro10,1   MacBookPro10,2   MacBookPro11,1</string>
+			<string>MacBookPro11,2   MacBookPro11,3   MacBookPro11,4   MacBookPro11,5</string>
+			<string>MacBookPro12,1   MacBookPro13,1   MacBookPro13,2   MacBookPro13,3</string>
+			<string>MacBookPro14,1   MacBookPro14,2   MacBookPro14,3   MacBookPro15,1</string>
+			<string>MacBookPro15,2</string>
+			<string></string>
+			<string>MacBookAir3,1   MacBookAir3,2   MacBookAir4,1   MacBookAir4,2</string>
+			<string>MacBookAir5,1   MacBookAir5,2   MacBookAir6,1   MacBookAir6,2</string>
+			<string>MacBookAir7,1   MacBookAir7,2</string>
+			<string></string>
+			<string>Macmini2,1   Macmini3,1   Macmini4,1   Macmini5,1   Macmini5,2   Macmini5,3</string>
+			<string>Macmini6,1   Macmini6,2   Macmini7,1</string>
+			<string></string>
+			<string>iMac8,1   iMac10,1   iMac11,1   iMac11,2   iMac11,3   iMac12,1   iMac12,2</string>
+			<string>iMac13,1   iMac13,2   iMac13,3   iMac14,1   iMac14,2   iMac14,3   iMac14,4</string>
+			<string>iMac15,1   iMac16,1   iMac16.2   iMac17,1   iMac18,1   iMac18,2   iMac18,3</string>
+			<string></string>
+			<string>iMacPro,1,</string>
+			<string></string>
+			<string>MacPro3,1   MacPro4,1   MacPro5,1   MacPro6,1</string>
+			<string></string>
+		</array>
+		<key>BiosReleaseDate</key>
+		<array>
+			<string>Automatically Generated by ProductName</string>
+			<string></string>
+			<string>Example Setting for MacPro6,1:</string>
+			<string>09/17/2018</string>
+			<string></string>
+		</array>
+		<key>BiosVendor</key>
+		<array>
+			<string>Automatically Generated by ProductName</string>
+			<string></string>
+			<string>Example Setting for MacPro6,1:</string>
+			<string>Apple Inc.</string>
+			<string></string>
+		</array>
+		<key>BiosVersion</key>
+		<array>
+			<string>Automatically Generated by ProductName</string>
+			<string></string>
+			<string>Example Setting for MacPro6,1:</string>
+			<string>MP61.88Z.0125.B00.1809171517</string>
+			<string></string>
+		</array>
+		<key>Board-ID</key>
+		<array>
+			<string>Automatically Generated by ProductName</string>
+			<string></string>
+			<string>Example Setting for MacPro6,1:</string>
+			<string>Mac-F60DEB81FF30ACF6</string>
+			<string></string>
+		</array>
+		<key>BoardManufacturer</key>
+		<array>
+			<string>Automatically Generated by ProductName</string>
+			<string></string>
+			<string>Example Setting for MacPro6,1:</string>
+			<string>Apple Inc.</string>
+			<string></string>
+		</array>
+		<key>BoardType</key>
+		<array>
+			<string>Automatically Generated by ProductName</string>
+			<string></string>
+			<string>Example Setting for MacPro6,1:</string>
+			<string>11</string>
+			<string></string>
+		</array>
+		<key>BoardVersion</key>
+		<array>
+			<string>Automatically Generated by ProductName</string>
+			<string></string>
+			<string>Example Setting for MacPro6,1:</string>
+			<string>MacPro6,1</string>
+			<string></string>
+		</array>
+		<key>ChassisManufacturer</key>
+		<array>
+			<string>Automatically Generated by ProductName</string>
+			<string></string>
+			<string>Example Setting for MacPro6,1:</string>
+			<string>Apple Inc.</string>
+			<string></string>
+		</array>
+		<key>ChassisType</key>
+		<array>
+			<string>Automatically Generated by ProductName</string>
+			<string></string>
+			<string>SMBIOS.table3-&gt;Type</string>
+			<string></string>
+			<string>Example Setting for MacPro6,1:</string>
+			<string>0x02</string>
+			<string></string>
+			<string>Used as an indirect indication for platform mobility. Clover will use a value</string>
+			<string>according to the set Mac model, like it is used in real Macs. The effect, except</string>
+			<string>mobility settings, is unclear.</string>
+			<string></string>
+		</array>
+		<key>Family</key>
+		<array>
+			<string>Automatically Generated by ProductName</string>
+			<string></string>
+			<string>Example Setting for MacPro6,1:</string>
+			<string>MacPro</string>
+			<string></string>
+			<string>Equal to model without model number.</string>
+			<string></string>
+		</array>
+		<key>FirmwareFeatures</key>
+		<array>
+			<string>Automatically Generated by ProductName</string>
+			<string></string>
+			<string>Example Setting for MacPro6,1:</string>
+			<string>0xE80FE136</string>
+			<string></string>
+			<string></string>
+		</array>
+		<key>FirmwareFeaturesMask</key>
+		<array>
+			<string>Automatically Generated by ProductName</string>
+			<string></string>
+			<string>Example Setting for MacPro6,1:</string>
+			<string>0xFF1FFF3F</string>
+			<string></string>
+		</array>
+		<key>LocationInChassis</key>
+		<array>
+			<string>Automatically Generated by ProductName</string>
+			<string></string>
+			<string>Example Setting for MacPro6,1:</string>
+			<string>Part Component</string>
+			<string></string>
+		</array>
+		<key>Manufacturer</key>
+		<array>
+			<string>Automatically Generated by ProductName</string>
+			<string></string>
+			<string>Example Setting for MacPro6,1:</string>
+			<string>Apple Inc.</string>
+			<string></string>
+		</array>
+		<key>PlatformFeature</key>
+		<array>
+			<string>Automatically Generated by ProductName</string>
+			<string></string>
+			<string>Example Setting for MacPro6,1:</string>
+			<string>0x04</string>
+			<string></string>
+		</array>
+		<key>Version</key>
+		<array>
+			<string>Automatically Generated by ProductName</string>
+			<string></string>
+			<string>Example Setting for MacPro6,1:</string>
+			<string>1.0</string>
+			<string></string>
+		</array>
+	</dict>
+	<key>#SystemParameters-DEFINITIONS</key>
+	<dict>
+		<key>injectKexts</key>
+		<array>
+			<string>Recommended Setting:</string>
+			<string>Yes</string>
+			<string></string>
+			<string>Default Setting:</string>
+			<true/>
+			<string></string>
+			<string>This key defines the global policy regarding kext injection.</string>
+			<string>Yes or &lt;true/&gt; - Always inject kexts from /EFI/CLOVER/kexts/</string>
+			<string>No or &lt;false/&gt; - Never inject kexts</string>
+			<string>Detect - Kexts from /EFI/CLOVER/kexts/ will be injected only if FakeSMC is not</string>
+			<string>present in the kernelcache.</string>
+			<string></string>
+			<string>In case &quot;Custom Entries&quot; are defined, its own InjectKexts key will override this</string>
+			<string>global one.</string>
+			<string></string>
+		</array>
+		<key>InjectSystemID</key>
+		<array>
+			<string>Recommended Setting:</string>
+			<true/>
+			<string></string>
+			<string>Default Setting:</string>
+			<false/>
+			<string></string>
+			<string>The number described above can be injected differently and transformed by the</string>
+			<string>OS into another ID. The aim is to provide an option for Chameleon users to</string>
+			<string>replicate their UUID.</string>
+			<string></string>
+			<string>Set to &lt;true/&gt; and change CustomUUID to match the UUID used with Chameleon</string>
+			<string>found in registry at IODeviceTree:/efi/platform&gt;system-id. Profiler will show a</string>
+			<string>different UUID that will match the one generated with Chameleon.</string>
+			<string></string>
+		</array>
+		<key>NoCaches</key>
+		<array>
+			<string>Recommended Setting:</string>
+			<true/>
+			<string></string>
+			<string>Default Setting:</string>
+			<false/>
+			<string></string>
+			<string>Global policy. If enabled, the cache will be skipped on each boot. And just like</string>
+			<string>InjectKexts, this key defines the global rule, so the value defined on &quot;Custom</string>
+			<string>Entries&quot; will override this one.</string>
+			<string></string>
+		</array>
+		<key>NvidiaWeb</key>
+		<array>
+			<string>Recommended Setting for NVIDIA:</string>
+			<true/>
+			<string></string>
+			<string>Default Setting:</string>
+			<false/>
+			<string></string>
+			<string>If key value is true, it will allow access to load and use Nvidia WebDriver kexts</string>
+			<string>under the new MacOS systems (10.12.x).</string>
+			<string></string>
+		</array>
+	</dict>
+</dict>
+</plist>
