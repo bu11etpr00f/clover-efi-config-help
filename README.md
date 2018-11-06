@@ -1,4 +1,4 @@
-# clover-efi-config-help
+# Clover EFI Bootloader config.plist Configuration Definitions, Help, & ReadMe Files
 2018.11.05
 This is a work in progress
 
