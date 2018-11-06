@@ -957,7 +957,7 @@
 			<string>PREREQUISITE: SystemParameters-&gt;InjectSystemID MUST be defined, and enabled,</string>
 			<string>for this Key to function correctly.</string>
 			<string></string>
-			<string>The purpose of these two Keys is to provide an way for Users to specify, or continue</string>
+			<string>The purpose of these two Keys are to provide an way for Users to specify, or continue</string>
 			<string>using thier existing (Chameleon) System UUID.</string>
 			<string></string>
 			<string>Use uuidgen in Terminal to generate a new random UUID to use for this Value, or</string>
