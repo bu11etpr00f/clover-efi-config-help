@@ -954,10 +954,18 @@
 			<string>Example Setting (DO NOT USE IN YOUR CONFIG):</string>
 			<string>00000000-0000-1000-8000-010203040506</string>
 			<string></string>
-			<string>Use uuidgen in Terminal to generate a new random UUID to use for this Value.</string>
+			<string>PREREQUISITE: SystemParameters-&gt;InjectSystemID MUST be defined, and enabled,</string>
+			<string>for this Key to function correctly.</string>
+			<string></string>
+			<string>The purpose of these two Keys is to provide an way for Users to specify, or continue</string>
+			<string>using thier existing (Chameleon) System UUID.</string>
+			<string></string>
+			<string>Use uuidgen in Terminal to generate a new random UUID to use for this Value, or</string>
+			<string>use your existing (Chamelon) System UUID.</string>
 			<string></string>
 			<string>This is the System UUID (Universally Unique Identifier), which is written into the</string>
-			<string>SMBIOS table. </string>
+			<string>SMBIOS table. This Value found in registry at IODeviceTree:/efi/platform&gt;system-id.</string>
+			<string>***This Value IS NOT the Hardware UUID displayed in macOS System Information***</string>
 			<string></string>
 			<string>NOTE: This System UUID, in connection with the Platform / Hardware UUID:</string>
 			<string>(RtVariables-&gt;ROM) Value, is needed to enable iMessage functionality.</string>
@@ -1184,14 +1192,13 @@
 			<string>Default Setting:</string>
 			<true/>
 			<string></string>
-			<string>This key defines the global policy regarding kext injection.</string>
+			<string>Global Policy. This Key regulates Kext Injection.</string>
 			<string>Yes or &lt;true/&gt; - Always inject kexts from /EFI/CLOVER/kexts/</string>
 			<string>No or &lt;false/&gt; - Never inject kexts</string>
 			<string>Detect - Kexts from /EFI/CLOVER/kexts/ will be injected only if FakeSMC is not</string>
 			<string>present in the kernelcache.</string>
 			<string></string>
-			<string>In case &quot;Custom Entries&quot; are defined, its own InjectKexts key will override this</string>
-			<string>global one.</string>
+			<string>Any conflicting Value defined in any &quot;Custom Entries&quot; will override this Setting.</string>
 			<string></string>
 		</array>
 		<key>InjectSystemID</key>
@@ -1202,13 +1209,21 @@
 			<string>Default Setting:</string>
 			<false/>
 			<string></string>
-			<string>The number described above can be injected differently and transformed by the</string>
-			<string>OS into another ID. The aim is to provide an option for Chameleon users to</string>
-			<string>replicate their UUID.</string>
+			<string>NOTE: This Key MUST be defined, and enabled, in order to use the Key:</string>
+			<string>SMBIOS-&gt;SmUUID.</string>
 			<string></string>
-			<string>Set to &lt;true/&gt; and change CustomUUID to match the UUID used with Chameleon</string>
-			<string>found in registry at IODeviceTree:/efi/platform&gt;system-id. Profiler will show a</string>
-			<string>different UUID that will match the one generated with Chameleon.</string>
+			<string>The purpose of these two Keys is to provide an way for Users to specify, or continue</string>
+			<string>using thier existing (Chameleon) System UUID.</string>
+			<string></string>
+			<string>Use uuidgen in Terminal to generate a new random UUID to use for the</string>
+			<string>SMBIOS-&gt;SmUUID Value, or use your existing (Chamelon) System UUID.</string>
+			<string></string>
+			<string>This is the System UUID (Universally Unique Identifier), which is written into the</string>
+			<string>SMBIOS table. This Value found in registry at IODeviceTree:/efi/platform&gt;system-id.</string>
+			<string>***This Value IS NOT the Hardware UUID displayed in macOS System Information***</string>
+			<string></string>
+			<string>NOTE: This System UUID, in connection with the Platform / Hardware UUID:</string>
+			<string>(RtVariables-&gt;ROM) Value, is needed to enable iMessage functionality.</string>
 			<string></string>
 		</array>
 		<key>NoCaches</key>
@@ -1219,9 +1234,8 @@
 			<string>Default Setting:</string>
 			<false/>
 			<string></string>
-			<string>Global policy. If enabled, the cache will be skipped on each boot. And just like</string>
-			<string>InjectKexts, this key defines the global rule, so the value defined on &quot;Custom</string>
-			<string>Entries&quot; will override this one.</string>
+			<string>Global Policy. If enabled, this Key will force the Cache to be skipped during each</string>
+			<string>boot. Any conflicting Value defined in any &quot;Custom Entries&quot; will override this Setting.</string>
 			<string></string>
 		</array>
 		<key>NvidiaWeb</key>
@@ -1232,8 +1246,8 @@
 			<string>Default Setting:</string>
 			<false/>
 			<string></string>
-			<string>If key value is true, it will allow access to load and use Nvidia WebDriver kexts</string>
-			<string>under the new MacOS systems (10.12.x).</string>
+			<string>Global Policy. If enabled, this Key will enable macOS &gt;= 10.12 to load and use</string>
+			<string>NVIDIA&apos;s WebDriver Ketxts.</string>
 			<string></string>
 		</array>
 	</dict>
