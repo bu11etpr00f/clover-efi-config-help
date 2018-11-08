@@ -183,8 +183,8 @@
 				<key>darkwake=8</key>
 				<array>
 					<string>Power Nap Enabled</string>
-					<string>NOTES: System Fully wakes, sometimes monitor come on, sometimes not (don&apos;t</string>
-					<string>know why).</string>
+					<string>NOTES: System Fully wakes, sometimes monitor come on, sometimes not</string>
+					<string>(don&apos;t know why).</string>
 					<string></string>
 				</array>
 				<key>darkwake=9</key>
@@ -1570,8 +1570,9 @@
 			<false/>
 			<key>DEFINITION COMMENTS</key>
 			<array>
-				<string>Global Policy. If enabled, this Key will force the Cache to be skipped during each</string>
-				<string>boot. Any conflicting Value defined in any &quot;Custom Entries&quot; will override this Setting.</string>
+				<string>Global Policy. If enabled, this Key will force the Cache to be skipped during</string>
+				<string>each boot. Any conflicting Value defined in any &quot;Custom Entries&quot; will override</string>
+				<string>this Setting.</string>
 				<string></string>
 			</array>
 		</dict>
