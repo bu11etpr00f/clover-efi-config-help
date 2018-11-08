@@ -192,8 +192,9 @@
 				<key>darkwake=10</key>
 				<array>
 					<string>Power Nap Enabled</string>
-					<string>NOTES: Fans &amp; monitors do not come on, system.log show the times that the</string>
-					<string>computer woke from sleep. Time Machine Backup are performed hourly in sleep mode</string>
+					<string>NOTES: Fans &amp; monitors do not come on, system.log show the times the</string>
+					<string>computer woke from sleep. Time Machine Backup are performed hourly in</string>
+					<string>sleep mode.</string>
 					<string></string>
 				</array>
 				<key>darkwake=11</key>
