@@ -1074,8 +1074,8 @@
 			<key>DEFINITION COMMENTS</key>
 			<array>
 				<string>Clover will automatically detect the mobility of a system; e.g. if is powered by</string>
-				<string>a battery, needs energy saving, or not. You can change this Value to trick the</string>
-				<string>system into thinking that a battery is not available, or otherwise.</string>
+				<string>a battery, or requires energy saving or not. You can change this Value to trick</string>
+				<string>the system into thinking that a battery is not available, or otherwise.</string>
 				<string></string>
 			</array>
 		</dict>
