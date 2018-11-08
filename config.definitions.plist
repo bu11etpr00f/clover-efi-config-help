@@ -144,7 +144,7 @@
 			</dict>
 		</dict>
 	</dict>
-	<key>Boot</key>
+	<key>#Boot</key>
 	<dict>
 		<key>Arguments</key>
 		<dict>
@@ -272,7 +272,7 @@
 		<key>XMPDetection</key>
 		<string>Yes</string>
 	</dict>
-	<key>CPU</key>
+	<key>#CPU</key>
 	<dict>
 		<key>C2</key>
 		<array>
@@ -330,7 +330,7 @@
 			<string></string>
 		</array>
 	</dict>
-	<key>Devices</key>
+	<key>#Devices</key>
 	<dict>
 		<key>Audio</key>
 		<dict>
@@ -351,11 +351,11 @@
 			<true/>
 		</dict>
 	</dict>
-	<key>DisableDrivers</key>
+	<key>#DisableDrivers</key>
 	<array>
 		<string>VBoxHfs</string>
 	</array>
-	<key>GUI</key>
+	<key>#GUI</key>
 	<dict>
 		<key>Language</key>
 		<string>en:0</string>
@@ -380,7 +380,7 @@
 		<key>Theme</key>
 		<string>bootcamp</string>
 	</dict>
-	<key>Graphics</key>
+	<key>#Graphics</key>
 	<dict>
 		<key>#LoadVBios</key>
 		<false/>
@@ -408,12 +408,6 @@
 	</dict>
 	<key>#KernelAndKextPatches-EXAMPLES</key>
 	<dict>
-		<key>ATIConnectorsController</key>
-		<string>6000</string>
-		<key>ATIConnectorsData</key>
-		<string>000400000403000000010000210302040400000014020000000100000000040310000000100000000001000000000001</string>
-		<key>ATIConnectorsPatch</key>
-		<string>040000001402000000010000000004040004000004030000000100001102010500000000000000000000000000000000</string>
 		<key>BootPatches</key>
 		<array>
 			<dict>
@@ -466,20 +460,6 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Fresco FL1009 USB 3.0 Device ID Patch by bu11etpr00f</string>
-				<key>Disabled</key>
-				<false/>
-				<key>Find</key>
-				<data>PHN0cmluZz4weDExMDAxYjczPC9zdHJpbmc+</data>
-				<key>InfoPlistPatch</key>
-				<true/>
-				<key>Name</key>
-				<string>AppleUSBXHCIPCI</string>
-				<key>Replace</key>
-				<data>PHN0cmluZz4weDEwMDkxYjczPC9zdHJpbmc+</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
 				<string>Disable USB Port Limit 10.13.4+ by PMHeart &amp; FredWst</string>
 				<key>Disabled</key>
 				<false/>
@@ -494,29 +474,17 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
-				<string>Sierra Radeon 7970 Connectors Patch</string>
-				<key>Disabled</key>
-				<true/>
-				<key>Find</key>
-				<data>AAQAAAQDAAAAAQEBAAAAABIEBQEAAAAAAAQAAAQDAAAAAQIBAAAAACIFBAIAAAAABAAAABQCAAAAAQMAAAAAAAAAAwYAAAAAAAgAAAQCAAAAAQQAAAAAABECAQQAAAAA</data>
-				<key>Name</key>
-				<string>AMD7000Controller</string>
-				<key>Replace</key>
-				<data>AAQAAAQDAAAAAQEBAAAAABIEAQEAAAAAAAQAAAQDAAAAAQIBAAAAACIFAgIAAAAABAAAABQCAAAAAQMAAAAAACEDBgQAAAAAAAIAAAQCAAAAAQQAAAAAABAABAYAAAAA</data>
-			</dict>
-			<dict>
-				<key>Comment</key>
-				<string>ATI Connector patch new way</string>
+				<string>Fresco FL1009 USB 3.0 Device ID Patch by bu11etpr00f</string>
 				<key>Disabled</key>
 				<false/>
 				<key>Find</key>
-				<data>AAQAAAQDAAAAAQAAIQMCBAQAAAAUAgAAAAEAAAAABAMQAAAAEAAAAAABAAAAAAAB</data>
-				<key>MatchOS</key>
-				<string>10.9,10.10,10.11</string>
+				<data>PHN0cmluZz4weDExMDAxYjczPC9zdHJpbmc+</data>
+				<key>InfoPlistPatch</key>
+				<true/>
 				<key>Name</key>
-				<string>AMD6000Controller</string>
+				<string>AppleUSBXHCIPCI</string>
 				<key>Replace</key>
-				<data>BAAAABQCAAAAAQAAAAAEBAAEAAAEAwAAAAEAABECAQUAAAAAAAAAAAAAAAAAAAAA</data>
+				<data>PHN0cmluZz4weDEwMDkxYjczPC9zdHJpbmc+</data>
 			</dict>
 			<dict>
 				<key>Comment</key>
@@ -532,6 +500,20 @@
 			</dict>
 			<dict>
 				<key>Comment</key>
+				<string>ATI Connector Patch - New Way</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>AAQAAAQDAAAAAQAAIQMCBAQAAAAUAgAAAAEAAAAABAMQAAAAEAAAAAABAAAAAAAB</data>
+				<key>MatchOS</key>
+				<string>10.9,10.10,10.11</string>
+				<key>Name</key>
+				<string>AMD6000Controller</string>
+				<key>Replace</key>
+				<data>BAAAABQCAAAAAQAAAAAEBAAEAAAEAwAAAAEAABECAQUAAAAAAAAAAAAAAAAAAAAA</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
 				<string>Patch_to_not_load_this_driver</string>
 				<key>Find</key>
 				<string>0x04020000</string>
@@ -543,6 +525,8 @@
 				<string>0x44220000</string>
 			</dict>
 			<dict>
+				<key>Comment</key>
+				<string>VoodooHDA</string>
 				<key>Disabled</key>
 				<true/>
 				<key>Find</key>
@@ -588,36 +572,32 @@
 			<string></string>
 		</array>
 		<key>ATIConnectorsController</key>
-		<array>
-			<string>Optional Setting for AMD Video Cards:</string>
-			<string>See #KernelAndKextPatches-EXAMPLES</string>
-			<string></string>
-			<string>This method works for systems using Mac OS X 10.7 or newer.</string>
-			<string></string>
-			<string>For a fully working AMD Video Card injecting properties into the registry is not</string>
-			<string>enough. Additionally a modification of the connectors in the according controller</string>
-			<string>binary file is necessary.</string>
-			<string></string>
-			<string>More info in the post of bcc9 on insanelymac.</string>
-			<string>http://www.insanelymac.com/forum/topic/249642-editing-custom-personalities-for-ati-radeon-hd45xxx/</string>
-			<string></string>
-		</array>
+		<dict>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>Deprecated, this patch can&apos;t be OS dependent. Please see:</string>
+				<string>KernelAndKextPatches-&gt;KextsToPatch-&gt;ATI Connector Patch - New Way</string>
+				<string></string>
+			</array>
+		</dict>
 		<key>ATIConnectorsData</key>
-		<array>
-			<string>Optional Setting for AMD Video Cards:</string>
-			<string>See #KernelAndKextPatches-EXAMPLES</string>
-			<string></string>
-			<string>For Description See ATIConnectorsController</string>
-			<string></string>
-		</array>
+		<dict>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>Deprecated, this patch can&apos;t be OS dependent. Please see:</string>
+				<string>KernelAndKextPatches-&gt;KextsToPatch-&gt;ATI Connector Patch - New Way</string>
+				<string></string>
+			</array>
+		</dict>
 		<key>ATIConnectorsPatch</key>
-		<array>
-			<string>Optional Setting for AMD Video Cards:</string>
-			<string>See #KernelAndKextPatches-EXAMPLES</string>
-			<string></string>
-			<string>For Description See ATIConnectorsController</string>
-			<string></string>
-		</array>
+		<dict>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>Deprecated, this patch can&apos;t be OS dependent. Please see:</string>
+				<string>KernelAndKextPatches-&gt;KextsToPatch-&gt;ATI Connector Patch - New Way</string>
+				<string></string>
+			</array>
+		</dict>
 		<key>BootPatches</key>
 		<array>
 			<string>Optional Setting:</string>
@@ -736,21 +716,54 @@
 			<string></string>
 		</array>
 		<key>KextsToPatch</key>
-		<array>
-			<string>Optional Setting:</string>
-			<string>See #KernelAndKextPatches-EXAMPLES</string>
-			<string></string>
-			<string>Apart from the built-in patches you can create your own ones providing following</string>
-			<string>data: the binary file name, the data to find and the data to replace with - both in</string>
-			<string>hexadecimal. The data length must be equal. A smaller replacement data line can</string>
-			<string>be filled with zeroes.</string>
-			<string></string>
-			<string>Side note: The patch is supposed to be done in the cache. If you patch an</string>
-			<string>Info.plist to allow the loading of a kext, then it is not yet present in the cache.</string>
-			<string>You will need to reboot twice. First with the key NoCaches to allow FSInject to load</string>
-			<string>the kext and a second time for the cache to be patched successfully.</string>
-			<string></string>
-		</array>
+		<dict>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>Optional Setting:</string>
+				<string>See #KernelAndKextPatches-EXAMPLES</string>
+				<string></string>
+				<string>Apart from the built-in patches you can create your own ones providing following</string>
+				<string>data: the binary file name, the data to find and the data to replace with - both in</string>
+				<string>hexadecimal. The data length must be equal. A smaller replacement data line can</string>
+				<string>be filled with zeroes.</string>
+				<string></string>
+				<string>Side note: The patch is supposed to be done in the cache. If you patch an</string>
+				<string>Info.plist to allow the loading of a kext, then it is not yet present in the cache.</string>
+				<string>You will need to reboot twice. First with the key NoCaches to allow FSInject to load</string>
+				<string>the kext and a second time for the cache to be patched successfully.</string>
+				<string></string>
+			</array>
+			<key>ATI Connector Patch - New Way</key>
+			<dict>
+				<key>DEFINITION COMMENTS</key>
+				<array>
+					<string>Optional Setting for AMD Video Cards:</string>
+					<string>See #KernelAndKextPatches-EXAMPLES</string>
+					<string></string>
+					<string>This way you can create several patches for different OSes.</string>
+					<string>10.6-10.7  ATI6000Controller</string>
+					<string>10.8-10.12 AMD6000Controller</string>
+					<string></string>
+					<string>For a fully working AMD Video Card injecting properties into the registry is not</string>
+					<string>enough. Additionally a modification of the connectors in the according controller</string>
+					<string>binary file is necessary.</string>
+					<string></string>
+					<string>More info in the post of bcc9 on insanelymac.</string>
+					<string>http://www.insanelymac.com/forum/topic/249642-editing-custom-personalities-for-ati-radeon-hd45xxx/</string>
+					<string></string>
+				</array>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>AAQAAAQDAAAAAQAAIQMCBAQAAAAUAgAAAAEAAAAABAMQAAAAEAAAAAABAAAAAAAB</data>
+				<key>MatchOS</key>
+				<string>10.9,10.10,10.11</string>
+				<key>Name</key>
+				<string>AMD6000Controller</string>
+				<key>Replace</key>
+				<data>BAAAABQCAAAAAQAAAAAEBAAEAAAEAwAAAAEAABECAQUAAAAAAAAAAAAAAAAAAAAA</data>
+			</dict>
+		</dict>
 	</dict>
 	<key>#RtVariables-COMMENTS</key>
 	<dict>
@@ -1013,13 +1026,55 @@
 			<string>If you know them - change them; otherwise leave it. Calculating them is mostly</string>
 			<string>not possible.</string>
 		</array>
-		<key>BoardSerialNumber</key>
+		<key>SmUUID</key>
 		<dict>
 			<key>Example Setting:</key>
-			<string>1.0</string>
+			<string>Use uuidgen in Terminal to generate a new random UUID to use for this Value.</string>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>PREREQUISITE: SystemParameters-&gt;InjectSystemID MUST be defined, and enabled,</string>
+				<string>for this Key to function correctly.</string>
+				<string></string>
+				<string>The purpose of these two Keys are to provide an way for Users to specify, or continue</string>
+				<string>using thier existing (Chameleon) System UUID.</string>
+				<string></string>
+				<string>Use uuidgen in Terminal to generate a new random UUID to use for this Value, or</string>
+				<string>use your existing (Chamelon) System UUID.</string>
+				<string></string>
+				<string>This is the System UUID (Universally Unique Identifier), which is written into the</string>
+				<string>SMBIOS table. This Value found in registry at IODeviceTree:/efi/platform&gt;system-id.</string>
+				<string>***This Value IS NOT the Hardware UUID displayed in macOS System Information***</string>
+				<string></string>
+				<string>NOTE: This System UUID, in connection with the Platform / Hardware UUID</string>
+				<string>(RtVariables-&gt;ROM) Value, is needed to enable iMessage functionality.</string>
+				<string></string>
+			</array>
+		</dict>
+		<key>SerialNumber</key>
+		<dict>
+			<key>Recommended Setting:</key>
+			<string>Use Clover Configurator to generate a new unique Serial Number to use for this Value.</string>
 			<key>DEFINITION COMMENTS</key>
 			<array>
 				<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
+				<string></string>
+			</array>
+		</dict>
+		<key>BoardSerialNumber</key>
+		<dict>
+			<key>Example Setting:</key>
+			<string></string>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
+				<string></string>
+				<string>SMBIOS.table2-&gt;SerialNumber</string>
+				<string></string>
+				<string>Don&apos;t mix it with system serial number. Clover will use one specific value here, which</string>
+				<string>needs to be replaced by your own serial number. It is required for working iCloud and</string>
+				<string>iMessage services (initialize MLB RtVariable if missing). The length must be 17 digits,</string>
+				<string>consisting of letters from the Latin alphabet and numbers. The serial number used by</string>
+				<string>Clover is most probably banned already.</string>
 				<string></string>
 			</array>
 		</dict>
@@ -1038,6 +1093,81 @@
 				<string>e.g. in the HWSensors project.</string>
 				<string></string>
 			</array>
+		</dict>
+		<key>Mobile</key>
+		<dict>
+			<key>Example Setting:</key>
+			<false/>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string></string>
+			</array>
+		</dict>
+		<key>Trust</key>
+		<dict>
+			<key>Default Setting:</key>
+			<true/>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>Used to give priority to memory descriptor values found in SMBIOS or SPD.</string>
+				<string>Change if your memory is described incorrectly in macOS System Information.</string>
+				<string></string>
+			</array>
+		</dict>
+		<key>Slots</key>
+		<dict>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string></string>
+				<string></string>
+			</array>
+			<key>Item 0</key>
+			<dict>
+				<key>Device</key>
+				<dict>
+					<key>Example Setting 0:</key>
+					<string>ATI</string>
+					<key>Example Setting 1:</key>
+					<string>WIFI</string>
+					<key>DEFINITION COMMENTS</key>
+					<array>
+						<string></string>
+					</array>
+				</dict>
+				<key>ID</key>
+				<dict>
+					<key>Example Setting 0:</key>
+					<string>0</string>
+					<key>Example Setting 1:</key>
+					<integer>1</integer>
+					<key>DEFINITION COMMENTS</key>
+					<array>
+						<string></string>
+					</array>
+				</dict>
+				<key>Name</key>
+				<dict>
+					<key>Example Setting 0:</key>
+					<string>PCIe Slot 0</string>
+					<key>Example Setting 1:</key>
+					<string>Airport</string>
+					<key>DEFINITION COMMENTS</key>
+					<array>
+						<string></string>
+					</array>
+				</dict>
+				<key>Type</key>
+				<dict>
+					<key>Example Setting 0:</key>
+					<string>16</string>
+					<key>Example Setting 1:</key>
+					<string>1</string>
+					<key>DEFINITION COMMENTS</key>
+					<array>
+						<string></string>
+					</array>
+				</dict>
+			</dict>
 		</dict>
 		<key>Memory</key>
 		<dict>
@@ -1149,115 +1279,6 @@
 					<string></string>
 				</array>
 			</dict>
-		</dict>
-		<key>Mobile</key>
-		<dict>
-			<key>Example Setting:</key>
-			<false/>
-			<key>DEFINITION COMMENTS</key>
-			<array>
-				<string></string>
-			</array>
-		</dict>
-		<key>SerialNumber</key>
-		<dict>
-			<key>Recommended Setting:</key>
-			<string>Use Clover Configurator to generate a new unique Serial Number to use for this Value.</string>
-			<key>DEFINITION COMMENTS</key>
-			<array>
-				<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
-				<string></string>
-			</array>
-		</dict>
-		<key>Slots</key>
-		<dict>
-			<key>DEFINITION COMMENTS</key>
-			<array>
-				<string></string>
-				<string></string>
-			</array>
-			<key>Item 0</key>
-			<dict>
-				<key>Device</key>
-				<dict>
-					<key>Example Setting 0:</key>
-					<string>ATI</string>
-					<key>Example Setting 1:</key>
-					<string>WIFI</string>
-					<key>DEFINITION COMMENTS</key>
-					<array>
-						<string></string>
-					</array>
-				</dict>
-				<key>ID</key>
-				<dict>
-					<key>Example Setting 0:</key>
-					<string>0</string>
-					<key>Example Setting 1:</key>
-					<integer>1</integer>
-					<key>DEFINITION COMMENTS</key>
-					<array>
-						<string></string>
-					</array>
-				</dict>
-				<key>Name</key>
-				<dict>
-					<key>Example Setting 0:</key>
-					<string>PCIe Slot 0</string>
-					<key>Example Setting 1:</key>
-					<string>Airport</string>
-					<key>DEFINITION COMMENTS</key>
-					<array>
-						<string></string>
-					</array>
-				</dict>
-				<key>Type</key>
-				<dict>
-					<key>Example Setting 0:</key>
-					<string>16</string>
-					<key>Example Setting 1:</key>
-					<string>1</string>
-					<key>DEFINITION COMMENTS</key>
-					<array>
-						<string></string>
-					</array>
-				</dict>
-			</dict>
-		</dict>
-		<key>SmUUID</key>
-		<dict>
-			<key>Example Setting:</key>
-			<string>Use uuidgen in Terminal to generate a new random UUID to use for this Value.</string>
-			<key>DEFINITION COMMENTS</key>
-			<array>
-				<string>PREREQUISITE: SystemParameters-&gt;InjectSystemID MUST be defined, and enabled,</string>
-				<string>for this Key to function correctly.</string>
-				<string></string>
-				<string>The purpose of these two Keys are to provide an way for Users to specify, or continue</string>
-				<string>using thier existing (Chameleon) System UUID.</string>
-				<string></string>
-				<string>Use uuidgen in Terminal to generate a new random UUID to use for this Value, or</string>
-				<string>use your existing (Chamelon) System UUID.</string>
-				<string></string>
-				<string>This is the System UUID (Universally Unique Identifier), which is written into the</string>
-				<string>SMBIOS table. This Value found in registry at IODeviceTree:/efi/platform&gt;system-id.</string>
-				<string>***This Value IS NOT the Hardware UUID displayed in macOS System Information***</string>
-				<string></string>
-				<string>NOTE: This System UUID, in connection with the Platform / Hardware UUID</string>
-				<string>(RtVariables-&gt;ROM) Value, is needed to enable iMessage functionality.</string>
-				<string></string>
-			</array>
-		</dict>
-		<key>Trust</key>
-		<dict>
-			<key>Default Setting:</key>
-			<true/>
-			<key>DEFINITION COMMENTS</key>
-			<array>
-				<string>Used to give priority to memory descriptor values found in SMBIOS or SPD.</string>
-				<string>Change if your memory is described incorrectly in macOS System Information.</string>
-				<string></string>
-			</array>
 		</dict>
 		<key>ProductName</key>
 		<dict>
