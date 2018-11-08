@@ -255,15 +255,19 @@
 		<key>DefaultVolume</key>
 		<string>SSD</string>
 		<key>Legacy</key>
-		<array>
-			<string>Recommended Setting:</string>
+		<dict>
+			<key>Recommended Setting:</key>
 			<string>PBR</string>
-			<string></string>
-			<string>Defaults to PBR; but could also be LegacyBiosDefault or PBRtest. It&apos;s just the method</string>
-			<string>of legacy booting, it probably won&apos;t make a difference. For some users using another</string>
-			<string>method could fix legacy booting. (info by apianti)</string>
-			<string></string>
-		</array>
+			<key>Alternate Settings:</key>
+			<string>LegacyBiosDefault or PBRtest</string>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>Defaults to PBR; but could also be LegacyBiosDefault or PBRtest. It&apos;s just the method</string>
+				<string>of legacy booting, it probably won&apos;t make a difference. For some users using another</string>
+				<string>method could fix legacy booting. (info by apianti)</string>
+				<string></string>
+			</array>
+		</dict>
 		<key>NeverHibernate</key>
 		<false/>
 		<key>Secure</key>
@@ -745,9 +749,9 @@
 					<string>10.6-10.7  ATI6000Controller</string>
 					<string>10.8-10.12 AMD6000Controller</string>
 					<string></string>
-					<string>For a fully working AMD Video Card injecting properties into the registry is not</string>
-					<string>enough. Additionally a modification of the connectors in the according controller</string>
-					<string>binary file is necessary.</string>
+					<string>For a fully working AMD Video Card injecting properties into the registry is</string>
+					<string>not enough. Additionally a modification of the connectors in the according</string>
+					<string>controller binary file is necessary.</string>
 					<string></string>
 					<string>More info in the post of bcc9 on insanelymac.</string>
 					<string>http://www.insanelymac.com/forum/topic/249642-editing-custom-personalities-for-ati-radeon-hd45xxx/</string>
@@ -766,7 +770,7 @@
 			</dict>
 		</dict>
 	</dict>
-	<key>#RtVariables-COMMENTS</key>
+	<key>#RtVariables-DEFINITIONS</key>
 	<dict>
 		<key>BooterConfig</key>
 		<dict>
@@ -804,7 +808,7 @@
 				<string>shown in macOS in System Information under Hardware Overview.</string>
 				<string></string>
 				<string>NOTE: This Platform / Hardware UUID, in connection with the System UUID:</string>
-				<string>(SMBIOS-&gt;SmUUID) Value, is needed to enable iMessage functionality.</string>
+				<string>(SMBIOS-&gt;SmUUID) Value, is needed to enable iMessage / iCloud functionality.</string>
 				<string></string>
 				<string>Twelve hexadecimal digits, often corresponding to the unique MAC Address of</string>
 				<string>your Ethernet Card. According to several reports this value can also be random.</string>
@@ -823,10 +827,41 @@
 	</dict>
 	<key>#SMBIOS-EXAMPLE</key>
 	<dict>
+		<key>SmUUID</key>
+		<string></string>
+		<key>SerialNumber</key>
+		<string></string>
 		<key>BoardSerialNumber</key>
 		<string></string>
 		<key>ChassisAssetTag</key>
 		<string></string>
+		<key>Mobile</key>
+		<false/>
+		<key>Trust</key>
+		<false/>
+		<key>#Slots</key>
+		<array>
+			<dict>
+				<key>Device</key>
+				<string>ATI</string>
+				<key>ID</key>
+				<integer>1</integer>
+				<key>Name</key>
+				<string>PCIe Slot 0</string>
+				<key>Type</key>
+				<integer>16</integer>
+			</dict>
+			<dict>
+				<key>Device</key>
+				<string>WIFI</string>
+				<key>ID</key>
+				<integer>0</integer>
+				<key>Name</key>
+				<string>Airport</string>
+				<key>Type</key>
+				<integer>1</integer>
+			</dict>
+		</array>
 		<key>#Memory</key>
 		<dict>
 			<key>Channels</key>
@@ -949,71 +984,8 @@
 			<key>SlotCount</key>
 			<integer>8</integer>
 		</dict>
-		<key>Mobile</key>
-		<false/>
-		<key>SerialNumber</key>
-		<string></string>
-		<key>Slots</key>
-		<array>
-			<dict>
-				<key>Device</key>
-				<string>ATI</string>
-				<key>ID</key>
-				<integer>1</integer>
-				<key>Name</key>
-				<string>PCIe Slot 0</string>
-				<key>Type</key>
-				<integer>16</integer>
-			</dict>
-			<dict>
-				<key>Device</key>
-				<string>WIFI</string>
-				<key>ID</key>
-				<integer>0</integer>
-				<key>Name</key>
-				<string>Airport</string>
-				<key>Type</key>
-				<integer>1</integer>
-			</dict>
-		</array>
-		<key>SmUUID</key>
-		<string></string>
-		<key>Trust</key>
-		<false/>
 		<key>ProductName</key>
 		<string>MacPro6,1</string>
-		<key>BiosReleaseDate</key>
-		<string>08/08/2017</string>
-		<key>BiosVendor</key>
-		<string>Apple Inc.</string>
-		<key>BiosVersion</key>
-		<string>MP61.88Z.0120.B00.1708080652</string>
-		<key>Board-ID</key>
-		<string></string>
-		<key>BoardManufacturer</key>
-		<string>Apple Inc.</string>
-		<key>BoardType</key>
-		<integer>11</integer>
-		<key>BoardVersion</key>
-		<string>MacPro6,1</string>
-		<key>ChassisManufacturer</key>
-		<string>Apple Inc.</string>
-		<key>ChassisType</key>
-		<string>0x02</string>
-		<key>Family</key>
-		<string>MacPro</string>
-		<key>FirmwareFeatures</key>
-		<string>0xE80FE136</string>
-		<key>FirmwareFeaturesMask</key>
-		<string>0xFF1FFF3F</string>
-		<key>LocationInChassis</key>
-		<string>Part Component</string>
-		<key>Manufacturer</key>
-		<string>Apple Inc.</string>
-		<key>PlatformFeature</key>
-		<string>0x04</string>
-		<key>Version</key>
-		<string>1.0</string>
 	</dict>
 	<key>#SMBIOS-DEFINITIONS</key>
 	<dict>
@@ -1047,7 +1019,7 @@
 				<string>***This Value IS NOT the Hardware UUID displayed in macOS System Information***</string>
 				<string></string>
 				<string>NOTE: This System UUID, in connection with the Platform / Hardware UUID</string>
-				<string>(RtVariables-&gt;ROM) Value, is needed to enable iMessage functionality.</string>
+				<string>(RtVariables-&gt;ROM) Value, is needed to enable iMessage / iCloud functionality.</string>
 				<string></string>
 			</array>
 		</dict>
@@ -1101,11 +1073,16 @@
 			<false/>
 			<key>DEFINITION COMMENTS</key>
 			<array>
+				<string>Clover will automatically detect the mobility of a system; e.g. if is powered by</string>
+				<string>a battery, needs energy saving, or not. You can change this Value to trick the</string>
+				<string>system into thinking that a battery is not available, or otherwise.</string>
 				<string></string>
 			</array>
 		</dict>
 		<key>Trust</key>
 		<dict>
+			<key>Example Setting:</key>
+			<false/>
 			<key>Default Setting:</key>
 			<true/>
 			<key>DEFINITION COMMENTS</key>
@@ -1560,7 +1537,7 @@
 				<string>***This Value IS NOT the Hardware UUID displayed in macOS System Information***</string>
 				<string></string>
 				<string>NOTE: This System UUID, in connection with the Platform / Hardware UUID</string>
-				<string>(RtVariables-&gt;ROM) Value, is needed to enable iMessage functionality.</string>
+				<string>(RtVariables-&gt;ROM) Value, is needed to enable iMessage / iCloud functionality.</string>
 				<string></string>
 			</array>
 		</dict>
