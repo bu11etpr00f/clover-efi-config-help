@@ -92,6 +92,11 @@
 			<dict>
 				<key>Signature</key>
 				<string>DMAR</string>
+				<key>Comment</key>
+				<array>
+					<string>Resolves VT-d (Virtualization Technology for Directed I/O) panics.</string>
+					<string>Same as Boot-&gt;Arguments &quot;dart=0&quot;.</string>
+				</array>
 			</dict>
 			<dict>
 				<key>Signature</key>
@@ -121,9 +126,21 @@
 			<key>Generate</key>
 			<dict>
 				<key>CStates</key>
-				<false/>
+				<array>
+					<string>Default Setting:</string>
+					<false/>
+					<string></string>
+					<string>Enable auto generation of processor idle sleep states (C-States).</string>
+					<string></string>
+				</array>
 				<key>PStates</key>
-				<false/>
+				<array>
+					<string>Default Setting:</string>
+					<false/>
+					<string></string>
+					<string>Enable auto generation of processor power performance states (P-States).</string>
+					<string></string>
+				</array>
 			</dict>
 		</dict>
 	</dict>
@@ -136,7 +153,9 @@
 			<key>-v</key>
 			<string>Boot macOS in Verbose Mode.</string>
 			<key>-f</key>
-			<string>Force - Ignore &quot;Kernel Flags&quot; specified in boot configuration file.</string>
+			<string>Ignore Caches</string>
+			<key>-F</key>
+			<string>Ignore &quot;Kernel Flags&quot; specified in boot configuration file.</string>
 			<key>-x</key>
 			<string>Boot macOS in Safe Mode.</string>
 			<key>-s</key>
@@ -208,9 +227,11 @@
 			<key>MountEFI=yes/diskX</key>
 			<string>Mount EFI partition at every boot or from disk X (X = disk number).</string>
 			<key>npci=0x2000</key>
-			<string></string>
+			<string>PCI Configuration Fix.</string>
 			<key>kext-dev-mode=1</key>
 			<string></string>
+			<key>slide=0</key>
+			<string>Only needed for macOS 10.8</string>
 			<key>Lilu-Arguments</key>
 			<dict>
 				<key>-liludbgall</key>
@@ -233,7 +254,15 @@
 		<key>DefaultVolume</key>
 		<string>SSD</string>
 		<key>Legacy</key>
-		<string>PBR</string>
+		<array>
+			<string>Recommended Setting:</string>
+			<string>PBR</string>
+			<string></string>
+			<string>Defaults to PBR; but could also be LegacyBiosDefault or PBRtest. It&apos;s just the method</string>
+			<string>of legacy booting, it probably won&apos;t make a difference. For some users using another</string>
+			<string>method could fix legacy booting. (info by apianti)</string>
+			<string></string>
+		</array>
 		<key>NeverHibernate</key>
 		<false/>
 		<key>Secure</key>
@@ -246,11 +275,60 @@
 	<key>CPU</key>
 	<dict>
 		<key>C2</key>
-		<true/>
+		<array>
+			<string>Example Setting:</string>
+			<true/>
+			<string></string>
+			<string>Default Setting:</string>
+			<false/>
+			<string></string>
+			<string>Enable specific Processor power state, C2.</string>
+			<string></string>
+		</array>
+		<key>C3</key>
+		<array>
+			<string>Example Setting:</string>
+			<true/>
+			<string></string>
+			<string>Default Setting:</string>
+			<false/>
+			<string></string>
+			<string>Enable specific Processor power state, C3.</string>
+			<string></string>
+		</array>
 		<key>C4</key>
-		<true/>
+		<array>
+			<string>Example Setting:</string>
+			<true/>
+			<string></string>
+			<string>Default Setting:</string>
+			<false/>
+			<string></string>
+			<string>Enable specific Processor power state, C4.</string>
+			<string></string>
+		</array>
 		<key>C6</key>
-		<true/>
+		<array>
+			<string>Example Setting:</string>
+			<true/>
+			<string></string>
+			<string>Default Setting:</string>
+			<false/>
+			<string></string>
+			<string>Enable specific Processor power state, C6.</string>
+			<string></string>
+		</array>
+		<key>C7</key>
+		<array>
+			<string>Example Setting:</string>
+			<true/>
+			<string></string>
+			<string>Default Setting:</string>
+			<false/>
+			<string></string>
+			<string>Enable specific Processor power state, C7.</string>
+			<string></string>
+		</array>
 	</dict>
 	<key>Devices</key>
 	<dict>
@@ -315,6 +393,11 @@
 		</dict>
 		<key>Inject</key>
 		<dict>
+			<key>Comment</key>
+			<array>
+				<string>Needed for unsupported GPU&apos;s to get full resolution/QE. If set to Yes, e.g. nVidia</string>
+				<string>GeForce 450 GTS becomes EVGA nVidia GeForce 450 GTS (if supported).</string>
+			</array>
 			<key>ATI</key>
 			<false/>
 			<key>Intel</key>
@@ -672,51 +755,74 @@
 	<key>#RtVariables-COMMENTS</key>
 	<dict>
 		<key>BooterConfig</key>
-		<array>
-			<string>Recommended Setting:</string>
+		<dict>
+			<key>Recommended Setting:</key>
 			<string>0x28</string>
-			<string></string>
-			<string>NO DESCRIPTION ON WIKI (Since revision r3259)</string>
-			<string></string>
-		</array>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>NO DESCRIPTION ON WIKI (Since revision r3259)</string>
+				<string></string>
+			</array>
+		</dict>
 		<key>CsrActiveConfig</key>
-		<array>
-			<string>Recommended Setting:</string>
+		<dict>
+			<key>Recommended Setting:</key>
 			<string>0x3</string>
-			<string></string>
-			<string>Since revision r3259</string>
-			<string>Controls System Integrity Protection (SIP)</string>
-			<string></string>
-			<string>Relevant user options for SIP:</string>
-			<string>0x0 = SIP Enabled (Default)</string>
-			<string>0x3 = SIP Partially Disabled (Loads unsigned kexts)</string>
-			<string>0x67 = SIP Disabled completely</string>
-			<string></string>
-		</array>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>Since revision r3259</string>
+				<string>Controls System Integrity Protection (SIP)</string>
+				<string></string>
+				<string>Relevant user options for SIP:</string>
+				<string>0x0 = SIP Enabled (Default)</string>
+				<string>0x3 = SIP Partially Disabled (Loads unsigned kexts)</string>
+				<string>0x67 = SIP Disabled completely</string>
+				<string></string>
+			</array>
+		</dict>
 		<key>ROM</key>
-		<array>
-			<string>Recommended Setting:</string>
+		<dict>
+			<key>Recommended Setting:</key>
 			<string>UseMacAddr0</string>
-			<string></string>
+			<key>DEFINITION COMMENTS</key>
+			<array/>
+			<key>New item - 4</key>
 			<string>This Value is the Platform UUID or Hardware UUID (Universally Unique Identifier)</string>
+			<key>New item - 5</key>
 			<string>shown in macOS in System Information under Hardware Overview.</string>
+			<key>New item - 6</key>
 			<string></string>
+			<key>New item - 7</key>
 			<string>NOTE: This Platform / Hardware UUID, in connection with the System UUID:</string>
+			<key>New item - 8</key>
 			<string>(SMBIOS-&gt;SmUUID) Value, is needed to enable iMessage functionality.</string>
+			<key>New item - 9</key>
 			<string></string>
+			<key>New item - 10</key>
 			<string>Twelve hexadecimal digits, often corresponding to the unique MAC Address of</string>
+			<key>New item - 11</key>
 			<string>your Ethernet Card. According to several reports this value can also be random.</string>
+			<key>New item - 12</key>
 			<string></string>
+			<key>New item - 13</key>
 			<string>Since revision 3051 Clover can detect the LAN MAC address of an ethernet</string>
+			<key>New item - 14</key>
 			<string>device and use it as ROM. </string>
+			<key>New item - 15</key>
 			<string></string>
+			<key>New item - 16</key>
 			<string>For UEFI, it will first check the UEFI protocol for LAN information; but for legacy</string>
+			<key>New item - 17</key>
 			<string>it will attempt to get it from the hardware instead, and because this procedure is</string>
+			<key>New item - 18</key>
 			<string>dangerous, you&apos;ll need to enable the functionality by specifying the LAN device</string>
+			<key>New item - 19</key>
 			<string>with: UseMacAddr0 or UseMacAddr1</string>
+			<key>New item - 20</key>
 			<string>(up to 4 devices are calculated but only 2 will be used).</string>
+			<key>New item - 21</key>
 			<string></string>
-		</array>
+		</dict>
 	</dict>
 	<key>#SMBIOS-EXAMPLE</key>
 	<dict>
@@ -914,7 +1020,7 @@
 	</dict>
 	<key>#SMBIOS-DEFINITIONS</key>
 	<dict>
-		<key>COMMENT</key>
+		<key>DEFINITION COMMENTS</key>
 		<array>
 			<string>This group of parameters is used to mask your PC as a Mac. Clover will do this</string>
 			<string>task automatically based on the given processor, video card and signs of mobility.</string>
@@ -925,443 +1031,568 @@
 			<string>not possible.</string>
 		</array>
 		<key>BoardSerialNumber</key>
-		<array>
+		<dict>
+			<key>Example Setting:</key>
+			<string>1.0</string>
+			<key>DEFINITION COMMENTS</key>
+			<array/>
+			<key>New item</key>
 			<string></string>
+			<key>New item - 2</key>
 			<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
+			<key>New item - 3</key>
 			<string></string>
-		</array>
+		</dict>
 		<key>ChassisAssetTag</key>
-		<array>
+		<dict>
+			<key>Example Setting:</key>
+			<string>1.0</string>
+			<key>DEFINITION COMMENTS</key>
+			<array/>
+			<key>New item</key>
 			<string>SMBIOS.table3-&gt;AssetTag</string>
+			<key>New item - 2</key>
 			<string></string>
+			<key>New item - 3</key>
 			<string>Example Setting:</string>
+			<key>New item - 4</key>
 			<string>Motherboard or Computer Model / SN / Service Tag</string>
+			<key>New item - 5</key>
 			<string></string>
+			<key>New item - 6</key>
 			<string>This field is never used with real Macs. We can use it for our own purpose.</string>
+			<key>New item - 7</key>
 			<string>e.g. in the HWSensors project.</string>
+			<key>New item - 8</key>
 			<string></string>
-		</array>
+		</dict>
 		<key>Memory</key>
 		<dict>
-			<key>COMMENT</key>
+			<key>DEFINITION COMMENTS</key>
 			<array>
 				<string>Inject custom memory module tables into SMBIOS if original SPD and SMBIOS</string>
 				<string>provide incorrect or incomplete information.</string>
 				<string></string>
 			</array>
 			<key>Channels</key>
-			<array>
-				<string>Example Setting:</string>
+			<dict>
+				<key>Example Setting:</key>
 				<string>4</string>
-				<string></string>
-				<string>Number of Hardware Channels supported by your Memory Chipset.</string>
-				<string>Usually 2 for 16-32GB Max; 4 for 64GB Max. See Motherboard Documentation.</string>
-				<string></string>
-			</array>
+				<key>DEFINITION COMMENTS</key>
+				<array>
+					<string>Number of Hardware Channels supported by your Memory Chipset.</string>
+					<string>Usually 2 for 16-32GB Max; 4 for 64GB Max. See Motherboard Documentation.</string>
+					<string></string>
+				</array>
+			</dict>
 			<key>Modules</key>
-			<array>
-				<string>Array of INSTALLED Memory Modules. Don&apos;t add Entries for EMPTY Slots.</string>
+			<dict>
+				<key>DEFINITION COMMENTS</key>
+				<array>
+					<string>Array of INSTALLED Memory Modules. Don&apos;t add Entries for EMPTY Slots.</string>
+					<string></string>
+				</array>
+				<key>Item 0</key>
 				<dict>
 					<key>Frequency</key>
-					<array>
-						<string>Example Setting:</string>
+					<dict>
+						<key>Example Setting:</key>
 						<string>1,600</string>
-						<string></string>
-						<string>The Memory Module&apos;s Speed in Megahertz.</string>
-						<string></string>
-					</array>
+						<key>DEFINITION COMMENTS</key>
+						<array>
+							<string>The Memory Module&apos;s Speed in Megahertz.</string>
+							<string></string>
+						</array>
+					</dict>
 					<key>Part</key>
-					<array>
-						<string>Example Setting:</string>
+					<dict>
+						<key>Example Setting:</key>
 						<string>PV316G160C9K</string>
-						<string></string>
-						<string>The Memory Module&apos;s Part Number Identifier.</string>
-						<string></string>
-					</array>
+						<key>DEFINITION COMMENTS</key>
+						<array>
+							<string>The Memory Module&apos;s Part Number Identifier.</string>
+							<string></string>
+						</array>
+					</dict>
 					<key>Size</key>
-					<array>
-						<string>Example Setting:</string>
+					<dict>
+						<key>Example Setting:</key>
 						<string>8,192</string>
-						<string></string>
-						<string>The Memory Module&apos;s Size in Megabytes.</string>
-						<string></string>
-					</array>
+						<key>DEFINITION COMMENTS</key>
+						<array>
+							<string>The Memory Module&apos;s Size in Megabytes.</string>
+							<string></string>
+						</array>
+					</dict>
 					<key>Slot</key>
-					<array>
-						<string>Example Setting:</string>
+					<dict>
+						<key>Example Setting:</key>
 						<string>0</string>
-						<string></string>
-						<string>The Physical Slot Locate in which the Memory Module is installed. (e.g. 0-7)</string>
-						<string></string>
-					</array>
+						<key>DEFINITION COMMENTS</key>
+						<array>
+							<string>The Physical Slot Locate in which the Memory Module is installed. (e.g. 0-7)</string>
+							<string></string>
+						</array>
+					</dict>
 					<key>Serial</key>
-					<array>
+					<dict>
+						<key>Example Setting:</key>
 						<string>Optional Setting (Not Required)</string>
-						<string></string>
-						<string>The Memory Module&apos;s Serial Number.</string>
-						<string></string>
-					</array>
+						<key>DEFINITION COMMENTS</key>
+						<array>
+							<string>The Memory Module&apos;s Serial Number.</string>
+							<string></string>
+						</array>
+					</dict>
 					<key>Type</key>
-					<array>
-						<string>Example Setting:</string>
+					<dict>
+						<key>Example Setting:</key>
 						<string>DDR3</string>
-						<string></string>
-						<string>The Memory Module&apos;s Type.</string>
-						<string></string>
-					</array>
+						<key>DEFINITION COMMENTS</key>
+						<array>
+							<string>The Memory Module&apos;s Type.</string>
+							<string></string>
+						</array>
+					</dict>
 					<key>Vendor</key>
-					<array>
-						<string>Example Setting:</string>
+					<dict>
+						<key>Example Setting:</key>
 						<string>Patriot</string>
-						<string></string>
-						<string>The Memory Module&apos;s Manufacturer Name.</string>
-						<string></string>
-					</array>
+						<key>DEFINITION COMMENTS</key>
+						<array>
+							<string>The Memory Module&apos;s Manufacturer Name.</string>
+							<string></string>
+						</array>
+					</dict>
 				</dict>
-			</array>
+			</dict>
 			<key>SlotCount</key>
-			<array>
-				<string>Example Setting:</string>
+			<dict>
+				<key>Example Setting:</key>
 				<string>8</string>
-				<string></string>
-				<string>Total count of memory slots in your system. Max 24 (for now).</string>
+				<key>DEFINITION COMMENTS</key>
+				<array>
+					<string>Total count of memory slots in your system. Max 24 (for now).</string>
+					<string></string>
+				</array>
+			</dict>
+		</dict>
+		<key>Mobile</key>
+		<dict>
+			<key>Example Setting:</key>
+			<false/>
+			<key>DEFINITION COMMENTS</key>
+			<array>
 				<string></string>
 			</array>
 		</dict>
-		<key>Mobile</key>
-		<array>
-			<string></string>
-		</array>
 		<key>SerialNumber</key>
-		<array>
-			<string></string>
-			<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
-			<string></string>
-		</array>
+		<dict>
+			<key>Recommended Setting:</key>
+			<string>Use Clover Configurator to generate a new unique Serial Number to use for this Value.</string>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
+				<string></string>
+			</array>
+		</dict>
 		<key>Slots</key>
-		<array>
+		<dict>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string></string>
+				<string></string>
+			</array>
+			<key>Item 0</key>
 			<dict>
 				<key>Device</key>
-				<string>ATI</string>
+				<dict>
+					<key>Example Setting 0:</key>
+					<string>ATI</string>
+					<key>Example Setting 1:</key>
+					<string>WIFI</string>
+					<key>DEFINITION COMMENTS</key>
+					<array>
+						<string></string>
+					</array>
+				</dict>
 				<key>ID</key>
-				<integer>1</integer>
+				<dict>
+					<key>Example Setting 0:</key>
+					<string>0</string>
+					<key>Example Setting 1:</key>
+					<integer>1</integer>
+					<key>DEFINITION COMMENTS</key>
+					<array>
+						<string></string>
+					</array>
+				</dict>
 				<key>Name</key>
-				<string>PCIe Slot 0</string>
+				<dict>
+					<key>Example Setting 0:</key>
+					<string>PCIe Slot 0</string>
+					<key>Example Setting 1:</key>
+					<string>Airport</string>
+					<key>DEFINITION COMMENTS</key>
+					<array>
+						<string></string>
+					</array>
+				</dict>
 				<key>Type</key>
-				<integer>16</integer>
+				<dict>
+					<key>Example Setting 0:</key>
+					<string>16</string>
+					<key>Example Setting 1:</key>
+					<string>1</string>
+					<key>DEFINITION COMMENTS</key>
+					<array>
+						<string></string>
+					</array>
+				</dict>
 			</dict>
-			<dict>
-				<key>Device</key>
-				<string>WIFI</string>
-				<key>ID</key>
-				<integer>0</integer>
-				<key>Name</key>
-				<string>Airport</string>
-				<key>Type</key>
-				<integer>1</integer>
-			</dict>
-		</array>
+		</dict>
 		<key>SmUUID</key>
-		<array>
-			<string>Example Setting (DO NOT USE IN YOUR CONFIG):</string>
-			<string>00000000-0000-1000-8000-010203040506</string>
-			<string></string>
-			<string>PREREQUISITE: SystemParameters-&gt;InjectSystemID MUST be defined, and enabled,</string>
-			<string>for this Key to function correctly.</string>
-			<string></string>
-			<string>The purpose of these two Keys are to provide an way for Users to specify, or continue</string>
-			<string>using thier existing (Chameleon) System UUID.</string>
-			<string></string>
-			<string>Use uuidgen in Terminal to generate a new random UUID to use for this Value, or</string>
-			<string>use your existing (Chamelon) System UUID.</string>
-			<string></string>
-			<string>This is the System UUID (Universally Unique Identifier), which is written into the</string>
-			<string>SMBIOS table. This Value found in registry at IODeviceTree:/efi/platform&gt;system-id.</string>
-			<string>***This Value IS NOT the Hardware UUID displayed in macOS System Information***</string>
-			<string></string>
-			<string>NOTE: This System UUID, in connection with the Platform / Hardware UUID:</string>
-			<string>(RtVariables-&gt;ROM) Value, is needed to enable iMessage functionality.</string>
-			<string></string>
-			<string></string>
-		</array>
+		<dict>
+			<key>Example Setting:</key>
+			<string>Use uuidgen in Terminal to generate a new random UUID to use for this Value.</string>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>PREREQUISITE: SystemParameters-&gt;InjectSystemID MUST be defined, and enabled,</string>
+				<string>for this Key to function correctly.</string>
+				<string></string>
+				<string>The purpose of these two Keys are to provide an way for Users to specify, or continue</string>
+				<string>using thier existing (Chameleon) System UUID.</string>
+				<string></string>
+				<string>Use uuidgen in Terminal to generate a new random UUID to use for this Value, or</string>
+				<string>use your existing (Chamelon) System UUID.</string>
+				<string></string>
+				<string>This is the System UUID (Universally Unique Identifier), which is written into the</string>
+				<string>SMBIOS table. This Value found in registry at IODeviceTree:/efi/platform&gt;system-id.</string>
+				<string>***This Value IS NOT the Hardware UUID displayed in macOS System Information***</string>
+				<string></string>
+				<string>NOTE: This System UUID, in connection with the Platform / Hardware UUID</string>
+				<string>(RtVariables-&gt;ROM) Value, is needed to enable iMessage functionality.</string>
+				<string></string>
+			</array>
+		</dict>
 		<key>Trust</key>
-		<array>
-			<string>Default Setting:</string>
+		<dict>
+			<key>Default Setting:</key>
 			<true/>
-			<string></string>
-			<string>Used to give priority to memory descriptor values found in SMBIOS or SPD.</string>
-			<string>Change if your memory is described incorrectly in macOS System Information.</string>
-			<string></string>
-		</array>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>Used to give priority to memory descriptor values found in SMBIOS or SPD.</string>
+				<string>Change if your memory is described incorrectly in macOS System Information.</string>
+				<string></string>
+			</array>
+		</dict>
 		<key>ProductName</key>
-		<array>
-			<string>SMBIOS.table1-&gt;ProductName</string>
-			<string></string>
-			<string>Example Setting:</string>
+		<dict>
+			<key>Example Setting:</key>
 			<string>MacPro6,1</string>
-			<string></string>
-			<string>Setting this value will enable Clover to automatically generate dependent</string>
-			<string>parameters related to the model specified, so you can leave them out.</string>
-			<string></string>
-			<string>NOTE: Custom values will be preferred over generated ones.</string>
-			<string></string>
-			<string>Generated Values: BiosReleaseDate, BiosVendor, BiosVersion, Board-ID,</string>
-			<string>BoardManufacturer, BoardType, BoardVersion, ChassisManufacturer, ChassisType,</string>
-			<string>Family, FirmwareFeatures, FirmwareFeaturesMask, LocationInChassis,</string>
-			<string>Manufacturer, PlatformFeature, Version</string>
-			<string></string>
-			<string>Clover has built-in definitions for following models:</string>
-			<string>MacBook1,1   MacBook2,1   MacBook4,1   MacBook5,1   MacBook5,2</string>
-			<string>MacBook6,1   MacBook7,1   MacBook8,1   MacBook9,1 MacBook10,1</string>
-			<string></string>
-			<string>MacBookPro5,1   MacBookPro5,2   MacBookPro5,3   MacBookPro5,4</string>
-			<string>MacBookPro5,5   MacBookPro6,1   MacBookPro6,2   MacBookPro7,1</string>
-			<string>MacBookPro8,1   MacBookPro8,2   MacBookPro8,3   MacBookPro9,1</string>
-			<string>MacBookPro9,2   MacBookPro10,1   MacBookPro10,2   MacBookPro11,1</string>
-			<string>MacBookPro11,2   MacBookPro11,3   MacBookPro11,4   MacBookPro11,5</string>
-			<string>MacBookPro12,1   MacBookPro13,1   MacBookPro13,2   MacBookPro13,3</string>
-			<string>MacBookPro14,1   MacBookPro14,2   MacBookPro14,3   MacBookPro15,1</string>
-			<string>MacBookPro15,2</string>
-			<string></string>
-			<string>MacBookAir3,1   MacBookAir3,2   MacBookAir4,1   MacBookAir4,2</string>
-			<string>MacBookAir5,1   MacBookAir5,2   MacBookAir6,1   MacBookAir6,2</string>
-			<string>MacBookAir7,1   MacBookAir7,2</string>
-			<string></string>
-			<string>Macmini2,1   Macmini3,1   Macmini4,1   Macmini5,1   Macmini5,2   Macmini5,3</string>
-			<string>Macmini6,1   Macmini6,2   Macmini7,1</string>
-			<string></string>
-			<string>iMac8,1   iMac10,1   iMac11,1   iMac11,2   iMac11,3   iMac12,1   iMac12,2</string>
-			<string>iMac13,1   iMac13,2   iMac13,3   iMac14,1   iMac14,2   iMac14,3   iMac14,4</string>
-			<string>iMac15,1   iMac16,1   iMac16.2   iMac17,1   iMac18,1   iMac18,2   iMac18,3</string>
-			<string></string>
-			<string>iMacPro,1,</string>
-			<string></string>
-			<string>MacPro3,1   MacPro4,1   MacPro5,1   MacPro6,1</string>
-			<string></string>
-		</array>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>SMBIOS.table1-&gt;ProductName</string>
+				<string></string>
+				<string>Setting this value will enable Clover to automatically generate dependent</string>
+				<string>parameters related to the model specified, so you can leave them out.</string>
+				<string></string>
+				<string>NOTE: Custom values will be preferred over generated ones.</string>
+				<string></string>
+				<string>Generated Values: BiosReleaseDate, BiosVendor, BiosVersion, Board-ID,</string>
+				<string>BoardManufacturer, BoardType, BoardVersion, ChassisManufacturer, ChassisType,</string>
+				<string>Family, FirmwareFeatures, FirmwareFeaturesMask, LocationInChassis,</string>
+				<string>Manufacturer, PlatformFeature, Version</string>
+				<string></string>
+				<string>Clover has built-in definitions for following models:</string>
+				<string>MacBook1,1   MacBook2,1   MacBook4,1   MacBook5,1   MacBook5,2</string>
+				<string>MacBook6,1   MacBook7,1   MacBook8,1   MacBook9,1 MacBook10,1</string>
+				<string></string>
+				<string>MacBookPro5,1   MacBookPro5,2   MacBookPro5,3   MacBookPro5,4</string>
+				<string>MacBookPro5,5   MacBookPro6,1   MacBookPro6,2   MacBookPro7,1</string>
+				<string>MacBookPro8,1   MacBookPro8,2   MacBookPro8,3   MacBookPro9,1</string>
+				<string>MacBookPro9,2   MacBookPro10,1   MacBookPro10,2   MacBookPro11,1</string>
+				<string>MacBookPro11,2   MacBookPro11,3   MacBookPro11,4   MacBookPro11,5</string>
+				<string>MacBookPro12,1   MacBookPro13,1   MacBookPro13,2   MacBookPro13,3</string>
+				<string>MacBookPro14,1   MacBookPro14,2   MacBookPro14,3   MacBookPro15,1</string>
+				<string>MacBookPro15,2</string>
+				<string></string>
+				<string>MacBookAir3,1   MacBookAir3,2   MacBookAir4,1   MacBookAir4,2</string>
+				<string>MacBookAir5,1   MacBookAir5,2   MacBookAir6,1   MacBookAir6,2</string>
+				<string>MacBookAir7,1   MacBookAir7,2</string>
+				<string></string>
+				<string>Macmini2,1   Macmini3,1   Macmini4,1   Macmini5,1   Macmini5,2   Macmini5,3</string>
+				<string>Macmini6,1   Macmini6,2   Macmini7,1</string>
+				<string></string>
+				<string>iMac8,1   iMac10,1   iMac11,1   iMac11,2   iMac11,3   iMac12,1   iMac12,2</string>
+				<string>iMac13,1   iMac13,2   iMac13,3   iMac14,1   iMac14,2   iMac14,3   iMac14,4</string>
+				<string>iMac15,1   iMac16,1   iMac16.2   iMac17,1   iMac18,1   iMac18,2   iMac18,3</string>
+				<string></string>
+				<string>iMacPro,1,</string>
+				<string></string>
+				<string>MacPro3,1   MacPro4,1   MacPro5,1   MacPro6,1</string>
+				<string></string>
+			</array>
+		</dict>
 		<key>BiosReleaseDate</key>
-		<array>
-			<string>Automatically generated by the &quot;ProductName&quot; Value, or</string>
-			<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
-			<string></string>
-			<string>Example Setting for MacPro6,1:</string>
+		<dict>
+			<key>Example Setting for MacPro6,1:</key>
 			<string>09/17/2018</string>
-			<string></string>
-		</array>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>Automatically generated by the SMBIOS-&gt;ProductName Value, or</string>
+				<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
+				<string></string>
+			</array>
+		</dict>
 		<key>BiosVendor</key>
-		<array>
-			<string>Automatically generated by the &quot;ProductName&quot; Value, or</string>
-			<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
-			<string></string>
-			<string>Example Setting for MacPro6,1:</string>
+		<dict>
+			<key>Example Setting for MacPro6,1:</key>
 			<string>Apple Inc.</string>
-			<string></string>
-		</array>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>Automatically generated by the SMBIOS-&gt;ProductName Value, or</string>
+				<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
+				<string></string>
+			</array>
+		</dict>
 		<key>BiosVersion</key>
-		<array>
-			<string>Automatically generated by the &quot;ProductName&quot; Value, or</string>
-			<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
-			<string></string>
-			<string>Example Setting for MacPro6,1:</string>
+		<dict>
+			<key>Example Setting for MacPro6,1:</key>
 			<string>MP61.88Z.0125.B00.1809171517</string>
-			<string></string>
-		</array>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>Automatically generated by the SMBIOS-&gt;ProductName Value, or</string>
+				<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
+				<string></string>
+			</array>
+		</dict>
 		<key>Board-ID</key>
-		<array>
-			<string>Automatically generated by the &quot;ProductName&quot; Value, or</string>
-			<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
-			<string></string>
-			<string>Example Setting for MacPro6,1:</string>
+		<dict>
+			<key>Example Setting for MacPro6,1:</key>
 			<string>Mac-F60DEB81FF30ACF6</string>
-			<string></string>
-		</array>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>Automatically generated by the SMBIOS-&gt;ProductName Value, or</string>
+				<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
+				<string></string>
+			</array>
+		</dict>
 		<key>BoardManufacturer</key>
-		<array>
-			<string>Automatically generated by the &quot;ProductName&quot; Value, or</string>
-			<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
-			<string></string>
-			<string>Example Setting for MacPro6,1:</string>
+		<dict>
+			<key>Example Setting for MacPro6,1:</key>
 			<string>Apple Inc.</string>
-			<string></string>
-		</array>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>Automatically generated by the SMBIOS-&gt;ProductName Value, or</string>
+				<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
+				<string></string>
+			</array>
+		</dict>
 		<key>BoardType</key>
-		<array>
-			<string>Automatically generated by the &quot;ProductName&quot; Value, or</string>
-			<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
-			<string></string>
-			<string>Example Setting for MacPro6,1:</string>
+		<dict>
+			<key>Example Setting for MacPro6,1:</key>
 			<string>11</string>
-			<string></string>
-		</array>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>Automatically generated by the SMBIOS-&gt;ProductName Value, or</string>
+				<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
+				<string></string>
+			</array>
+		</dict>
 		<key>BoardVersion</key>
-		<array>
-			<string>Automatically generated by the &quot;ProductName&quot; Value, or</string>
-			<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
-			<string></string>
-			<string>Example Setting for MacPro6,1:</string>
+		<dict>
+			<key>Example Setting for MacPro6,1:</key>
 			<string>MacPro6,1</string>
-			<string></string>
-		</array>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>Automatically generated by the SMBIOS-&gt;ProductName Value, or</string>
+				<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
+				<string></string>
+			</array>
+		</dict>
 		<key>ChassisManufacturer</key>
-		<array>
-			<string>Automatically generated by the &quot;ProductName&quot; Value, or</string>
-			<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
-			<string></string>
-			<string>Example Setting for MacPro6,1:</string>
+		<dict>
+			<key>Example Setting for MacPro6,1:</key>
 			<string>Apple Inc.</string>
-			<string></string>
-		</array>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>Automatically generated by the SMBIOS-&gt;ProductName Value, or</string>
+				<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
+				<string></string>
+			</array>
+		</dict>
 		<key>ChassisType</key>
-		<array>
-			<string>Automatically generated by the &quot;ProductName&quot; Value, or</string>
-			<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
-			<string></string>
-			<string>SMBIOS.table3-&gt;Type</string>
-			<string></string>
-			<string>Example Setting for MacPro6,1:</string>
+		<dict>
+			<key>Example Setting for MacPro6,1:</key>
 			<string>0x02</string>
-			<string></string>
-			<string>Used as an indirect indication for platform mobility. Clover will use a value</string>
-			<string>according to the set Mac model, like it is used in real Macs. The effect, except</string>
-			<string>mobility settings, is unclear.</string>
-			<string></string>
-		</array>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>SMBIOS.table3-&gt;Type</string>
+				<string></string>
+				<string>Automatically generated by the SMBIOS-&gt;ProductName Value, or</string>
+				<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
+				<string></string>
+				<string>Used as an indirect indication for platform mobility. Clover will use a value</string>
+				<string>according to the set Mac model, like it is used in real Macs. The effect, except</string>
+				<string>mobility settings, is unclear.</string>
+				<string></string>
+			</array>
+		</dict>
 		<key>Family</key>
-		<array>
-			<string>Automatically generated by the &quot;ProductName&quot; Value, or</string>
-			<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
-			<string></string>
-			<string>Example Setting for MacPro6,1:</string>
+		<dict>
+			<key>Example Setting for MacPro6,1:</key>
 			<string>MacPro</string>
-			<string></string>
-			<string>Equal to model without model number.</string>
-			<string></string>
-		</array>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>Automatically generated by the SMBIOS-&gt;ProductName Value, or</string>
+				<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
+				<string></string>
+				<string>Equal to model without model number.</string>
+				<string></string>
+			</array>
+		</dict>
 		<key>FirmwareFeatures</key>
-		<array>
-			<string>SMBIOS.table128-&gt;FirmwareFeatures</string>
-			<string></string>
-			<string>Automatically generated by the &quot;ProductName&quot; Value, or</string>
-			<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
-			<string></string>
-			<string>Example Setting for MacPro6,1:</string>
+		<dict>
+			<key>Example Setting for MacPro6,1:</key>
 			<string>0xE80FE136</string>
-			<string></string>
-		</array>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>SMBIOS.table128-&gt;FirmwareFeatures</string>
+				<string></string>
+				<string>Automatically generated by the SMBIOS-&gt;ProductName Value, or</string>
+				<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
+				<string></string>
+			</array>
+		</dict>
 		<key>FirmwareFeaturesMask</key>
-		<array>
-			<string>Automatically generated by the &quot;ProductName&quot; Value, or</string>
-			<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
-			<string></string>
-			<string>Example Setting for MacPro6,1:</string>
+		<dict>
+			<key>Example Setting for MacPro6,1:</key>
 			<string>0xFF1FFF3F</string>
-			<string></string>
-		</array>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>Automatically generated by the SMBIOS-&gt;ProductName Value, or</string>
+				<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
+				<string></string>
+			</array>
+		</dict>
 		<key>LocationInChassis</key>
-		<array>
-			<string>Automatically generated by the &quot;ProductName&quot; Value, or</string>
-			<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
-			<string></string>
-			<string>Example Setting for MacPro6,1:</string>
+		<dict>
+			<key>Example Setting for MacPro6,1:</key>
 			<string>Part Component</string>
-			<string></string>
-		</array>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>Automatically generated by the SMBIOS-&gt;ProductName Value, or</string>
+				<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
+				<string></string>
+			</array>
+		</dict>
 		<key>Manufacturer</key>
-		<array>
-			<string>Automatically generated by the &quot;ProductName&quot; Value, or</string>
-			<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
-			<string></string>
-			<string>Example Setting for MacPro6,1:</string>
+		<dict>
+			<key>Example Setting for MacPro6,1:</key>
 			<string>Apple Inc.</string>
-			<string></string>
-		</array>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>Automatically generated by the SMBIOS-&gt;ProductName Value, or</string>
+				<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
+				<string></string>
+			</array>
+		</dict>
 		<key>PlatformFeature</key>
-		<array>
-			<string>Automatically generated by the &quot;ProductName&quot; Value, or</string>
-			<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
-			<string></string>
-			<string>Example Setting for MacPro6,1:</string>
+		<dict>
+			<key>Example Setting for MacPro6,1:</key>
 			<string>0x04</string>
-			<string></string>
-		</array>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>Automatically generated by the SMBIOS-&gt;ProductName Value, or</string>
+				<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
+				<string></string>
+			</array>
+		</dict>
 		<key>Version</key>
-		<array>
-			<string>Automatically generated by the &quot;ProductName&quot; Value, or</string>
-			<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
-			<string></string>
-			<string>Example Setting for MacPro6,1:</string>
+		<dict>
+			<key>Example Setting for MacPro6,1:</key>
 			<string>1.0</string>
-			<string></string>
-		</array>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>Automatically generated by the SMBIOS-&gt;ProductName Value, or</string>
+				<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
+				<string></string>
+			</array>
+		</dict>
 	</dict>
 	<key>#SystemParameters-DEFINITIONS</key>
 	<dict>
 		<key>injectKexts</key>
-		<array>
-			<string>Recommended Setting:</string>
-			<string>Yes</string>
-			<string></string>
-			<string>Default Setting:</string>
+		<dict>
+			<key>Recommended Setting:</key>
 			<true/>
-			<string></string>
-			<string>Global Policy. This Key regulates Kext Injection.</string>
-			<string>Yes or &lt;true/&gt; - Always inject kexts from /EFI/CLOVER/kexts/</string>
-			<string>No or &lt;false/&gt; - Never inject kexts</string>
-			<string>Detect - Kexts from /EFI/CLOVER/kexts/ will be injected only if FakeSMC is not</string>
-			<string>present in the kernelcache.</string>
-			<string></string>
-			<string>Any conflicting Value defined in any &quot;Custom Entries&quot; will override this Setting.</string>
-			<string></string>
-		</array>
+			<key>Default Setting:</key>
+			<true/>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>Global Policy. This Key regulates Kext Injection.</string>
+				<string>Yes or &lt;true/&gt; - Always inject kexts from /EFI/CLOVER/kexts/</string>
+				<string>No or &lt;false/&gt; - Never inject kexts</string>
+				<string>Detect - Kexts from /EFI/CLOVER/kexts/ will be injected only if FakeSMC is not</string>
+				<string>present in the kernelcache.</string>
+				<string></string>
+				<string>Any conflicting Value defined in any &quot;Custom Entries&quot; will override this Setting.</string>
+				<string></string>
+			</array>
+		</dict>
 		<key>InjectSystemID</key>
-		<array>
-			<string>Recommended Setting:</string>
+		<dict>
+			<key>Recommended Setting:</key>
 			<true/>
-			<string></string>
-			<string>Default Setting:</string>
+			<key>Default Setting:</key>
 			<false/>
-			<string></string>
-			<string>NOTE: This Key MUST be defined, and enabled, in order to use the Key:</string>
-			<string>SMBIOS-&gt;SmUUID.</string>
-			<string></string>
-			<string>The purpose of these two Keys are to provide an way for Users to specify, or continue</string>
-			<string>using thier existing (Chameleon) System UUID.</string>
-			<string></string>
-			<string>Use uuidgen in Terminal to generate a new random UUID to use for the</string>
-			<string>SMBIOS-&gt;SmUUID Value, or use your existing (Chamelon) System UUID.</string>
-			<string></string>
-			<string>This is the System UUID (Universally Unique Identifier), which is written into the</string>
-			<string>SMBIOS table. This Value found in registry at IODeviceTree:/efi/platform&gt;system-id.</string>
-			<string>***This Value IS NOT the Hardware UUID displayed in macOS System Information***</string>
-			<string></string>
-			<string>NOTE: This System UUID, in connection with the Platform / Hardware UUID:</string>
-			<string>(RtVariables-&gt;ROM) Value, is needed to enable iMessage functionality.</string>
-			<string></string>
-		</array>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>NOTE: This Key MUST be defined, and enabled, in order to use the Key:</string>
+				<string>SMBIOS-&gt;SmUUID.</string>
+				<string></string>
+				<string>The purpose of these two Keys are to provide an way for Users to specify, or continue</string>
+				<string>using thier existing (Chameleon) System UUID.</string>
+				<string></string>
+				<string>Use uuidgen in Terminal to generate a new random UUID to use for the</string>
+				<string>SMBIOS-&gt;SmUUID Value, or use your existing (Chamelon) System UUID.</string>
+				<string></string>
+				<string>This is the System UUID (Universally Unique Identifier), which is written into the</string>
+				<string>SMBIOS table. This Value found in registry at IODeviceTree:/efi/platform&gt;system-id.</string>
+				<string>***This Value IS NOT the Hardware UUID displayed in macOS System Information***</string>
+				<string></string>
+				<string>NOTE: This System UUID, in connection with the Platform / Hardware UUID</string>
+				<string>(RtVariables-&gt;ROM) Value, is needed to enable iMessage functionality.</string>
+				<string></string>
+			</array>
+		</dict>
 		<key>NoCaches</key>
-		<array>
-			<string>Recommended Setting:</string>
+		<dict>
+			<key>Recommended Setting:</key>
 			<true/>
-			<string></string>
-			<string>Default Setting:</string>
+			<key>Default Setting:</key>
 			<false/>
-			<string></string>
-			<string>Global Policy. If enabled, this Key will force the Cache to be skipped during each</string>
-			<string>boot. Any conflicting Value defined in any &quot;Custom Entries&quot; will override this Setting.</string>
-			<string></string>
-		</array>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>Global Policy. If enabled, this Key will force the Cache to be skipped during each</string>
+				<string>boot. Any conflicting Value defined in any &quot;Custom Entries&quot; will override this Setting.</string>
+				<string></string>
+			</array>
+		</dict>
 		<key>NvidiaWeb</key>
-		<array>
-			<string>Recommended Setting for NVIDIA:</string>
+		<dict>
+			<key>Recommended Setting for NVIDIA:</key>
 			<true/>
-			<string></string>
-			<string>Default Setting:</string>
+			<key>Default Setting:</key>
 			<false/>
-			<string></string>
-			<string>Global Policy. If enabled, this Key will enable macOS &gt;= 10.12 to load and use</string>
-			<string>NVIDIA&apos;s WebDriver Ketxts.</string>
-			<string></string>
-		</array>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>Global Policy. If enabled, this Key will enable macOS &gt;= 10.12 to load and use</string>
+				<string>NVIDIA&apos;s WebDriver Ketxts.</string>
+				<string></string>
+			</array>
+		</dict>
 	</dict>
 </dict>
 </plist>
