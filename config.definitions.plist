@@ -5,118 +5,494 @@
 	<key>#ACPI</key>
 	<dict>
 		<key>HaltEnabler</key>
-		<array>
-			<string>Default Setting:</string>
+		<dict>
+			<key>Default Setting:</key>
 			<string>???</string>
-			<string></string>
-			<string>It works as OpenHaltRestart, clearing SLP_SMI_EN at start of macOS.</string>
-			<string>Only necessary if you have a problem shutting down macOS.</string>
-			<string></string>
-		</array>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>It works as OpenHaltRestart, clearing SLP_SMI_EN at start of macOS.</string>
+				<string>Only necessary if you have a problem shutting down macOS.</string>
+				<string></string>
+			</array>
+		</dict>
 		<key>DSDT</key>
 		<dict>
 			<key>#Fixes</key>
 			<dict>
-				<key>AddDTGP_0001</key>
-				<true/>
+				<key>DEFINITION COMMENTS</key>
+				<array>
+					<string>Since Clover rev4006 the parameter is always NewWay.</string>
+					<string></string>
+				</array>
+				<key>#OldWay DEPRECATED</key>
+				<dict>
+					<key>DEFINITION COMMENTS</key>
+					<array>
+						<string>Since Clover rev4006 the parameter OldWay is excluded.</string>
+						<string></string>
+					</array>
+					<key>AddDTGP_0001</key>
+					<dict>
+						<key>DEFINITION COMMENTS</key>
+						<array>
+							<string>Inserts Method (DTGP) into DSDT. It is required for _DSM methods,</string>
+							<string>so if you use some other DSDT fix to inject device properties then you</string>
+							<string>must enable this. No sense to use this method without other fixes.</string>
+							<string></string>
+						</array>
+					</dict>
+					<key>FixDarwin_0002</key>
+					<dict>
+						<key>DEFINITION COMMENTS</key>
+						<array>
+							<string>Provide a set of corrections to DSDT to make your system &quot;Darwin&quot;</string>
+							<string>to be identified as &quot;Windows 2001&quot;, like most ACPI systems. More</string>
+							<string>ACPI devices will work in this mode. Old way this bit also provide fixes:</string>
+							<string>FIX_WAK_200000, DeleteUnused_400000, FIX_ACST_4000000,</string>
+							<string>FIX_S3D_2000000, AddPNLF_1000000, FIX_ADP1_800000.</string>
+							<string></string>
+						</array>
+					</dict>
+					<key>FixShutdown_0004</key>
+					<dict>
+						<key>DEFINITION COMMENTS</key>
+						<array>
+							<string>Adds If(arg=5){} to method _PTS. This trick may repair shutdown</string>
+							<string>problems for some systems (ASUS).</string>
+							<string></string>
+						</array>
+					</dict>
+					<key>AddMCHC_0008</key>
+					<dict>
+						<key>DEFINITION COMMENTS</key>
+						<array>
+							<string>Adds device MCHC to DSDT. For my board H61M this is obligatory,</string>
+							<string>else KP. Old way also included AddIMEI_80000.</string>
+							<string></string>
+						</array>
+					</dict>
+					<key>FixHPET_0010</key>
+					<dict>
+						<key>DEFINITION COMMENTS</key>
+						<array>
+							<string>Adds IRQ(0, 8, 11) to device HPET. Obligatory for OSX &lt;= 10.8,</string>
+							<string>Mavericks can work without it. Old way also included:</string>
+							<string>FIX_RTC_20000, FIX_TMR_40000.</string>
+							<string></string>
+						</array>
+					</dict>
+					<key>FakeLPC_0020</key>
+					<dict>
+						<key>DEFINITION COMMENTS</key>
+						<array>
+							<string>Changes the device-id for the LPC chipset device. Needed in very</string>
+							<string>rare cases for non-standard (for Apple) chipsets, like ICH9.</string>
+							<string></string>
+						</array>
+					</dict>
+					<key>FixIPIC_0040</key>
+					<dict>
+						<key>DEFINITION COMMENTS</key>
+						<array>
+							<string>Deletes IRQ(2) from device IPIC. Helps with a non working Power button.</string>
+							<string></string>
+						</array>
+					</dict>
+					<key>FixSBUS_0080</key>
+					<dict>
+						<key>DEFINITION COMMENTS</key>
+						<array>
+							<string>Adds SMBUS device into DSDT, with some sub-device.</string>
+							<string>I don&apos;t know the reason for the patch but it&apos;s advised in many forums.</string>
+							<string>Never seen any problem with this bit.</string>
+							<string></string>
+						</array>
+					</dict>
+					<key>FixDisplay_0100</key>
+					<dict>
+						<key>DEFINITION COMMENTS</key>
+						<array>
+							<string>This is a very functional patch for video devices. Recommended even if</string>
+							<string>you don&apos;t want to inject properties to the device. When this bit is set other</string>
+							<string>settings like FakeID will be applied as well. Old way: this patch will affect</string>
+							<string>all video cards, included embedded Intel GFX.</string>
+							<string>New way: Intel will be patched separately.</string>
+							<string></string>
+						</array>
+					</dict>
+					<key>FixIDE_0200</key>
+					<dict>
+						<key>DEFINITION COMMENTS</key>
+						<array>
+							<string>Adds initialization for IDE controllers (not SATA) to prevent panic with it.</string>
+							<string></string>
+						</array>
+					</dict>
+					<key>FixSATA_0400</key>
+					<dict>
+						<key>DEFINITION COMMENTS</key>
+						<array>
+							<string>Injects the DeviceID from ICH6 to prevent the orange icons problem.</string>
+							<string>Nowadays this patch looks to be obsolete. It is better to do the kext</string>
+							<string>binary patch instead.</string>
+							<string></string>
+						</array>
+					</dict>
+					<key>FixFirewire_0800</key>
+					<dict>
+						<key>DEFINITION COMMENTS</key>
+						<array>
+							<string>Adds device Firewire into DSDT if absent and if the device really present.</string>
+							<string>Safe.</string>
+							<string></string>
+						</array>
+					</dict>
+					<key>FixUSB_1000</key>
+					<dict>
+						<key>DEFINITION COMMENTS</key>
+						<array>
+							<string>Injects USB devices and their properties for USB-1, USB-2 and USB-3.</string>
+							<string>No reason not to use this bit.</string>
+							<string></string>
+						</array>
+					</dict>
+					<key>FixLAN_2000</key>
+					<dict>
+						<key>DEFINITION COMMENTS</key>
+						<array>
+							<string>Injects device and properties for the LAN controller. Also made FakeID</string>
+							<string>for some known substitutions.</string>
+							<string></string>
+						</array>
+					</dict>
+					<key>FixAirport_4000</key>
+					<dict>
+						<key>DEFINITION COMMENTS</key>
+						<array>
+							<string>Injects device and properties for the WiFi controller. Also made FakeID</string>
+							<string>for some known substitutions.</string>
+							<string></string>
+						</array>
+					</dict>
+					<key>FixHDA_8000</key>
+					<dict>
+						<key>DEFINITION COMMENTS</key>
+						<array>
+							<string>Renames AZAL to HDEF or HDAU. Adds the HMDI device if absent.</string>
+							<string>Else AppleHDA will not work. Adds the properties &quot;layout-id&quot;,</string>
+							<string>&quot;MaximumBootBeepVolume&quot; and &quot;PinConfigurations&quot;</string>
+							<string></string>
+						</array>
+					</dict>
+				</dict>
 				<key>AddHDMI_8000000</key>
-				<true/>
+				<dict>
+					<key>DEFINITION COMMENTS</key>
+					<array>
+						<string>Adds the HDAU Device, if absent, with some default properties.</string>
+						<string></string>
+					</array>
+				</dict>
 				<key>AddIMEI_80000</key>
-				<false/>
-				<key>AddMCHC_0008</key>
-				<false/>
+				<dict>
+					<key>DEFINITION COMMENTS</key>
+					<array>
+						<string>This Device is used for IntelHDxxxx Graphics. This is required when</string>
+						<string>using the FakeID-&gt;IMEI bit. It does nothing on Core 2 systems.</string>
+						<string></string>
+					</array>
+				</dict>
 				<key>AddPNLF_1000000</key>
-				<true/>
+				<dict>
+					<key>DEFINITION COMMENTS</key>
+					<array>
+						<string>The Device PNLF is necessary for brightness control. This Patch is</string>
+						<string>also a good influence on proper Sleep/Wake.</string>
+						<string></string>
+					</array>
+				</dict>
 				<key>DeleteUnused_400000</key>
-				<true/>
+				<dict>
+					<key>DEFINITION COMMENTS</key>
+					<array>
+						<string>Deletes Devices like Floppy Drive, LPT Port, etc. from the DSDT.</string>
+						<string></string>
+					</array>
+				</dict>
 				<key>FIX_ACST_4000000</key>
-				<true/>
+				<dict>
+					<key>DEFINITION COMMENTS</key>
+					<array>
+						<string>Name ACST functions differently for Apple and ASUS. For ASUS it is for</string>
+						<string>the AC Adapter state. For Apple it is a replacement for _CST, C-States Table.</string>
+						<string>To avoid conflicts, it is necessary to rename such functions to something else.</string>
+						<string></string>
+					</array>
+				</dict>
 				<key>FIX_ADP1_800000</key>
-				<true/>
+				<dict>
+					<key>DEFINITION COMMENTS</key>
+					<array>
+						<string>Renames device AC0 to ADP1.</string>
+						<string></string>
+					</array>
+				</dict>
 				<key>FIX_DARWIN_10000</key>
-				<false/>
+				<dict>
+					<key>DEFINITION COMMENTS</key>
+					<array>
+						<string>Only patches the &quot;Darwin OS&quot; identification.</string>
+						<string></string>
+					</array>
+				</dict>
 				<key>FIX_INTELGFX_100000</key>
-				<false/>
+				<dict>
+					<key>DEFINITION COMMENTS</key>
+					<array>
+						<string>IntelGFX Device Patch.</string>
+						<string></string>
+					</array>
+				</dict>
 				<key>FIX_RTC_20000</key>
-				<true/>
+				<dict>
+					<key>DEFINITION COMMENTS</key>
+					<array>
+						<string>Excludes IRQ(0) from RTC device.</string>
+						<string></string>
+					</array>
+				</dict>
 				<key>FIX_S3D_2000000</key>
-				<true/>
+				<dict>
+					<key>DEFINITION COMMENTS</key>
+					<array>
+						<string>Resolves some Sleep/Wake issues by correcting _S3D Methods.</string>
+						<string></string>
+					</array>
+				</dict>
 				<key>FIX_TMR_40000</key>
-				<true/>
+				<dict>
+					<key>DEFINITION COMMENTS</key>
+					<array>
+						<string>Excludes IRQ(8) from TMR Device. This is an ancient DOS Device and is</string>
+						<string>no longer needed in modern computing.</string>
+						<string></string>
+					</array>
+				</dict>
 				<key>FIX_WAK_200000</key>
-				<true/>
-				<key>FakeLPC_0020</key>
-				<false/>
-				<key>FixAirport_4000</key>
-				<false/>
-				<key>FixDarwin_0002</key>
-				<true/>
-				<key>FixDisplay_0100</key>
-				<true/>
-				<key>FixFirewire_0800</key>
-				<true/>
-				<key>FixHDA_8000</key>
-				<true/>
-				<key>FixHPET_0010</key>
-				<true/>
-				<key>FixIDE_0200</key>
-				<false/>
-				<key>FixIPIC_0040</key>
-				<false/>
-				<key>FixLAN_2000</key>
-				<true/>
+				<dict>
+					<key>DEFINITION COMMENTS</key>
+					<array>
+						<string>Adds Return(Package(0)) into method _WAK if absent. This Patch</string>
+						<string>eliminates the warning, but we are unsure if it affects anything else</string>
+						<string>on a working system.</string>
+						<string></string>
+					</array>
+				</dict>
 				<key>FixRegions_10000000</key>
-				<true/>
-				<key>FixSATA_0400</key>
-				<false/>
-				<key>FixSBUS_0080</key>
-				<true/>
-				<key>FixShutdown_0004</key>
-				<false/>
-				<key>FixUSB_1000</key>
-				<true/>
+				<dict>
+					<key>DEFINITION COMMENTS</key>
+					<array>
+						<string>Some OperationRegions in BIOS DSDT are floating and Values may change</string>
+						<string>after time due to changes in the BIOS. The presence of floating Regions</string>
+						<string>makes it impossible to use a custom DSDT because a Region may shift</string>
+						<string>making it no longer correspond to the current state. This patch is intended</string>
+						<string>to find all such Regions in the BIOS and correct them in a custom DSDT.</string>
+						<string></string>
+					</array>
+				</dict>
 				<key>NewWay_80000000</key>
-				<true/>
+				<dict>
+					<key>DEFINITION COMMENTS</key>
+					<array>
+						<string>Unnecessary after Clover rev4006. The parameter is always NewWay.</string>
+						<string></string>
+					</array>
+				</dict>
 			</dict>
 			<key>Debug</key>
 			<false/>
 			<key>DropOEM_DSM</key>
-			<false/>
+			<dict>
+				<key>DEFINITION COMMENTS</key>
+				<array>
+					<string>Some OEM DSDT already contains Method(_DSM...) for some devices.</string>
+					<string>It has another structure, another logic, and another results then we need.</string>
+					<string>But we can&apos;t modify this method, and we can&apos;t create own method with the</string>
+					<string>same name, so DropOEM_DSM was created to drop these OEM _DSM.</string>
+					<string></string>
+					<string>Default value is false if using a custom DSDT and true if using BIOS.aml.</string>
+					<string></string>
+					<string>Alternatively if you only need to drop the _DSM for certain devices, you</string>
+					<string>can select any of these individually:</string>
+					<string></string>
+				</array>
+				<key>Example Setting 0</key>
+				<false/>
+				<key>Example Setting 1</key>
+				<dict>
+					<key>ATI</key>
+					<true/>
+					<key>Firewire</key>
+					<true/>
+					<key>HDA</key>
+					<true/>
+					<key>HDMI</key>
+					<true/>
+					<key>IDE</key>
+					<true/>
+					<key>IntelGFX</key>
+					<true/>
+					<key>LAN</key>
+					<true/>
+					<key>LPC</key>
+					<true/>
+					<key>NVidia</key>
+					<true/>
+					<key>SATA</key>
+					<true/>
+					<key>SmBUS</key>
+					<true/>
+					<key>USB</key>
+					<true/>
+					<key>WIFI</key>
+					<true/>
+				</dict>
+			</dict>
 			<key>Name</key>
-			<string>DSDT.aml</string>
+			<dict>
+				<key>Example Setting:</key>
+				<string>DSDT.aml</string>
+				<key>DEFINITION COMMENTS</key>
+				<array>
+					<string>File name of the binary DSDT file to load and inject.</string>
+				</array>
+			</dict>
+			<key>Patches</key>
+			<dict>
+				<key>DEFINITION COMMENTS</key>
+				<array>
+					<string>Binary DSDT patching</string>
+				</array>
+				<key>Item 0</key>
+				<dict>
+					<key>Comment</key>
+					<string>change EHC1 to EH01</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>RUhDMQ==</data>
+					<key>Replace</key>
+					<data>RUgwMQ==</data>
+				</dict>
+				<key>Item 1</key>
+				<dict>
+					<key>Comment</key>
+					<string>change EHC2 to EH02</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>RUhDMg==</data>
+					<key>Replace</key>
+					<data>RUgwMg==</data>
+				</dict>
+				<key>Item 2</key>
+				<dict>
+					<key>Comment</key>
+					<string>change EUSB to EH01</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>RVVTQg==</data>
+					<key>Replace</key>
+					<data>RUgwMQ==</data>
+				</dict>
+				<key>Item 3</key>
+				<dict>
+					<key>Comment</key>
+					<string>change USBE to EH02</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>VVNCRQ==</data>
+					<key>Replace</key>
+					<data>RUgwMg==</data>
+				</dict>
+				<key>Item 4</key>
+				<dict>
+					<key>Comment</key>
+					<string>change HECI to IMEI</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>SEVDSQ==</data>
+					<key>Replace</key>
+					<data>SU1FSQ==</data>
+				</dict>
+			</dict>
 			<key>ReuseFFFF</key>
-			<false/>
+			<dict>
+				<key>Recommended Setting:</key>
+				<false/>
+				<key>Default Setting:</key>
+				<false/>
+				<key>DEFINITION COMMENTS</key>
+				<array>
+					<string>Some OEM DSDT contains some device with Name (_ADR, 0xFFFF).</string>
+					<string>This is a big problem as I can convert it to ADR=0 and inject properties</string>
+					<string>but this is dangerous patch, it may lead to panic on IOPCIFamily.kext.</string>
+					<string>So this key is proposed which will convert this device to (ADR, 0) and</string>
+					<string>reused for injection. (FakeID for example).</string>
+					<string></string>
+				</array>
+			</dict>
 		</dict>
 		<key>DropTables</key>
-		<array>
+		<dict>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>Drop OEM ACPI tables by signature and/or table identifier.</string>
+				<string>Additionally, now you can drop tables by their length. Why? Because we</string>
+				<string>found Acer laptop where all SSDT have the same TableID.</string>
+				<string></string>
+			</array>
+			<key>Item 0</key>
 			<dict>
 				<key>Signature</key>
 				<string>DMAR</string>
-				<key>Comment</key>
+				<key>DEFINITION COMMENTS</key>
 				<array>
 					<string>Resolves VT-d (Virtualization Technology for Directed I/O) panics.</string>
 					<string>Same as Boot-&gt;Arguments &quot;dart=0&quot;.</string>
+					<string></string>
 				</array>
 			</dict>
+			<key>Item 1</key>
 			<dict>
 				<key>Signature</key>
 				<string>MATS</string>
+				<key>DEFINITION COMMENTS</key>
+				<array>
+					<string></string>
+				</array>
 			</dict>
-		</array>
+		</dict>
 		<key>PatchAPIC</key>
 		<true/>
 		<key>SSDT</key>
 		<dict>
 			<key>DropOem</key>
-			<array>
-				<string>Recommended Setting:</string>
+			<dict>
+				<key>Recommended Setting:</key>
 				<true/>
-				<string></string>
-				<string>Drops all internal SSDT tables to avoid conflicts when generating an SSDT for your</string>
-				<string>CPU, which contain P / CStates. Clover can do this automatically or you can</string>
-				<string>specify an external file, which will be loaded from EFI/OEM/[model]/ACPI/patched.</string>
-				<string></string>
-			</array>
+				<key>DEFINITION COMMENTS</key>
+				<array>
+					<string>Drops all internal SSDT Tables to avoid conflicts when generating an SSDT</string>
+					<string>for your CPU, which contain P / C-States. Clover can do this automatically</string>
+					<string>or you can specify an external file, which will be loaded from:</string>
+					<string>EFI/OEM/[model]/ACPI/patched.</string>
+					<string></string>
+				</array>
+			</dict>
 			<key>EnableC2</key>
 			<true/>
 			<key>EnableC4</key>
@@ -126,21 +502,25 @@
 			<key>Generate</key>
 			<dict>
 				<key>CStates</key>
-				<array>
-					<string>Default Setting:</string>
+				<dict>
+					<key>Default Setting:</key>
 					<false/>
-					<string></string>
-					<string>Enable auto generation of processor idle sleep states (C-States).</string>
-					<string></string>
-				</array>
+					<key>DEFINITION COMMENTS</key>
+					<array>
+						<string>Enable auto generation of processor idle sleep states (C-States).</string>
+						<string></string>
+					</array>
+				</dict>
 				<key>PStates</key>
-				<array>
-					<string>Default Setting:</string>
+				<dict>
+					<key>Default Setting:</key>
 					<false/>
-					<string></string>
-					<string>Enable auto generation of processor power performance states (P-States).</string>
-					<string></string>
-				</array>
+					<key>DEFINITION COMMENTS</key>
+					<array>
+						<string>Enable auto generation of processor power performance states (P-States).</string>
+						<string></string>
+					</array>
+				</dict>
 			</dict>
 		</dict>
 	</dict>
@@ -280,67 +660,80 @@
 	<key>#CPU</key>
 	<dict>
 		<key>C2</key>
-		<array>
-			<string>Example Setting:</string>
+		<dict>
+			<key>Example Setting:</key>
 			<true/>
-			<string></string>
-			<string>Default Setting:</string>
+			<key>Default Setting:</key>
 			<false/>
-			<string></string>
-			<string>Enable specific Processor power state, C2.</string>
-			<string></string>
-		</array>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>Enable specific Processor power state, C2.</string>
+				<string></string>
+			</array>
+		</dict>
 		<key>C3</key>
-		<array>
-			<string>Example Setting:</string>
+		<dict>
+			<key>Example Setting:</key>
 			<true/>
-			<string></string>
-			<string>Default Setting:</string>
+			<key>Default Setting:</key>
 			<false/>
-			<string></string>
-			<string>Enable specific Processor power state, C3.</string>
-			<string></string>
-		</array>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>Enable specific Processor power state, C3.</string>
+				<string></string>
+			</array>
+		</dict>
 		<key>C4</key>
-		<array>
-			<string>Example Setting:</string>
+		<dict>
+			<key>Example Setting:</key>
 			<true/>
-			<string></string>
-			<string>Default Setting:</string>
+			<key>Default Setting:</key>
 			<false/>
-			<string></string>
-			<string>Enable specific Processor power state, C4.</string>
-			<string></string>
-		</array>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>Enable specific Processor power state, C4.</string>
+				<string></string>
+			</array>
+		</dict>
 		<key>C6</key>
-		<array>
-			<string>Example Setting:</string>
+		<dict>
+			<key>Example Setting:</key>
 			<true/>
-			<string></string>
-			<string>Default Setting:</string>
+			<key>Default Setting:</key>
 			<false/>
-			<string></string>
-			<string>Enable specific Processor power state, C6.</string>
-			<string></string>
-		</array>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>Enable specific Processor power state, C6.</string>
+				<string></string>
+			</array>
+		</dict>
 		<key>C7</key>
-		<array>
-			<string>Example Setting:</string>
+		<dict>
+			<key>Example Setting:</key>
 			<true/>
-			<string></string>
-			<string>Default Setting:</string>
+			<key>Default Setting:</key>
 			<false/>
-			<string></string>
-			<string>Enable specific Processor power state, C7.</string>
-			<string></string>
-		</array>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>Enable specific Processor power state, C7.</string>
+				<string></string>
+			</array>
+		</dict>
 	</dict>
 	<key>#Devices</key>
 	<dict>
+		<key>DEFINITION COMMENTS</key>
+		<array>
+			<string></string>
+		</array>
 		<key>Audio</key>
 		<dict>
 			<key>Inject</key>
 			<string>No</string>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string></string>
+			</array>
 		</dict>
 		<key>USB</key>
 		<dict>
@@ -388,17 +781,38 @@
 	<key>#Graphics</key>
 	<dict>
 		<key>#LoadVBios</key>
-		<false/>
+		<dict>
+			<key>Default Setting:</key>
+			<false/>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string></string>
+			</array>
+		</dict>
 		<key>#PatchVBios</key>
-		<false/>
+		<dict>
+			<key>Default Setting:</key>
+			<false/>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string></string>
+			</array>
+		</dict>
 		<key>EDID</key>
 		<dict>
 			<key>Inject</key>
-			<false/>
+			<dict>
+				<key>Default Setting:</key>
+				<false/>
+				<key>DEFINITION COMMENTS</key>
+				<array>
+					<string></string>
+				</array>
+			</dict>
 		</dict>
 		<key>Inject</key>
 		<dict>
-			<key>Comment</key>
+			<key>DEFINITION COMMENTS</key>
 			<array>
 				<string>Needed for unsupported GPU&apos;s to get full resolution/QE. If set to Yes, e.g. nVidia</string>
 				<string>GeForce 450 GTS becomes EVGA nVidia GeForce 450 GTS (if supported).</string>
@@ -688,38 +1102,45 @@
 			<string></string>
 		</array>
 		<key>KernelLapic</key>
-		<array>
-			<string>Optional Setting for HP Notebooks:</string>
-			<string></string>
-			<string>Default Setting:</string>
+		<dict>
+			<key>Default Setting:</key>
 			<false/>
-			<string></string>
-			<string>HP Notebooks have lapic problems, which can be solved by using the boot</string>
-			<string>parameter cpus=1 or by using this option.</string>
-			<string></string>
-		</array>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>Optional Setting for HP Notebooks:</string>
+				<string></string>
+				<string>HP Notebooks have lapic problems, which can be solved by using the boot</string>
+				<string>parameter cpus=1 or by using this option.</string>
+				<string></string>
+			</array>
+		</dict>
 		<key>KernelPm</key>
-		<array>
-			<string>Optional Setting for Haswell:</string>
-			<string></string>
-			<string>Default Setting:</string>
+		<dict>
+			<key>Default Setting:</key>
 			<false/>
-			<string></string>
-			<string>Kernel power management patch for Haswell with locked msrs. Works with 10.8.5</string>
-			<string>and 10.9 kernels.</string>
-			<string></string>
-			<string>Haswell CPU&apos;s include Xeon v3 (E3 / E5 / E7) and Core iX (Gen4 / Gen5)</string>
-			<string></string>
-		</array>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>Optional Setting for Haswell:</string>
+				<string></string>
+				<string>Kernel power management patch for Haswell with locked msrs. Works with</string>
+				<string>10.8.5 and 10.9 kernels.</string>
+				<string></string>
+				<string>Haswell CPU&apos;s include Xeon v3 (E3 / E5 / E7) and Core iX (Gen4 / Gen5)</string>
+				<string></string>
+			</array>
+		</dict>
 		<key>ForceKextsToLoad</key>
-		<array>
-			<string>Optional Setting:</string>
-			<string>See #KernelAndKextPatches-EXAMPLES</string>
-			<string></string>
-			<string>Force load kexts (and plugins) from booted volume so it can be patched. It also</string>
-			<string>accepts directories to force load/inject every kext in the folder.</string>
-			<string></string>
-		</array>
+		<dict>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>Optional Setting:</string>
+				<string>See #KernelAndKextPatches-EXAMPLES</string>
+				<string></string>
+				<string>Force load kexts (and plugins) from booted volume so it can be patched.</string>
+				<string>It also accepts directories to force load/inject every kext in the folder.</string>
+				<string></string>
+			</array>
+		</dict>
 		<key>KextsToPatch</key>
 		<dict>
 			<key>DEFINITION COMMENTS</key>
@@ -727,15 +1148,19 @@
 				<string>Optional Setting:</string>
 				<string>See #KernelAndKextPatches-EXAMPLES</string>
 				<string></string>
-				<string>Apart from the built-in patches you can create your own ones providing following</string>
-				<string>data: the binary file name, the data to find and the data to replace with - both in</string>
-				<string>hexadecimal. The data length must be equal. A smaller replacement data line can</string>
+				<string>Aside from the patches already built into Clover, you also have the ability to</string>
+				<string>create your own by providing the following data:</string>
+				<string>The &quot;Name&quot; of the binary file.</string>
+				<string>The &quot;Find&quot; data in hexadecimal.</string>
+				<string>The &quot;Replace&quot; data in hexadecimal.</string>
+				<string></string>
+				<string>The data length must be equal. A smaller replacement data line can</string>
 				<string>be filled with zeroes.</string>
 				<string></string>
-				<string>Side note: The patch is supposed to be done in the cache. If you patch an</string>
-				<string>Info.plist to allow the loading of a kext, then it is not yet present in the cache.</string>
-				<string>You will need to reboot twice. First with the key NoCaches to allow FSInject to load</string>
-				<string>the kext and a second time for the cache to be patched successfully.</string>
+				<string>NOTE: Patching is applied to the Cache. If you are patching an Info.plist</string>
+				<string>which is not yet present in the Cache, you will need to reboot twice.</string>
+				<string>First with the Key &quot;NoCaches&quot; to allow FSInject to load the Kext,</string>
+				<string>and a second time for the Cache to be Patched successfully.</string>
 				<string></string>
 			</array>
 			<key>ATI Connector Patch - New Way</key>
