@@ -615,6 +615,8 @@
 			<string>Only needed for macOS 10.8</string>
 			<key>Lilu-Arguments</key>
 			<dict>
+				<key>-liluoff</key>
+				<string>Disable Lilu</string>
 				<key>-liludbgall</key>
 				<string>Enable debug printing in Lilu and all loaded plugins (available in DEBUG binaries).</string>
 				<key>-lilubetaall</key>
@@ -960,36 +962,38 @@
 	<key>#KernelAndKextPatches-COMMENTS</key>
 	<dict>
 		<key>AppleIntelCPUPM</key>
-		<array>
-			<string>Recommended Setting for Sandy/Ivy Bridge:</string>
+		<dict>
+			<key>Recommended Setting for Sandy/Ivy Bridge:</key>
 			<true/>
-			<string></string>
-			<string>Default:</string>
+			<key>Default Setting:</key>
 			<string>???</string>
-			<string></string>
-			<string>AsusAICPUPM key was renamed to AppleIntelCPUPM.</string>
-			<string></string>
-			<string>Some vendors, like ASUS, restrict the use of MSR register 0xE2 in their power</string>
-			<string>management module to ReadOnly. On Sandy/Ivy Bridge systems the kext</string>
-			<string>AppleIntelCpuPowerManagement will try to write to this register and cause a</string>
-			<string>kernel panic. This patch will eliminate the kext&apos;s write operations.</string>
-			<string></string>
-		</array>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>AsusAICPUPM key was renamed to AppleIntelCPUPM.</string>
+				<string></string>
+				<string>Some vendors, like ASUS, restrict the use of MSR register 0xE2 in their power</string>
+				<string>management module to ReadOnly. On Sandy/Ivy Bridge systems the kext</string>
+				<string>AppleIntelCpuPowerManagement will try to write to this register and cause a</string>
+				<string>kernel panic. This patch will eliminate the kext&apos;s write operations.</string>
+				<string></string>
+			</array>
+		</dict>
 		<key>AppleRTC</key>
-		<array>
-			<string>Recommended Setting:</string>
+		<dict>
+			<key>Recommended Setting:</key>
 			<true/>
-			<string></string>
-			<string>Default:</string>
+			<key>Default Setting:</key>
 			<string>???</string>
-			<string></string>
-			<string>macOS has compatibility issues with a BIOS CMOS resulting in its reset on each</string>
-			<string>wake after sleep and reboot, which is noticeable in a loss of BIOS settings. Mostly</string>
-			<string>Gigabyte motherboards are affected. Usually it can be solved by patching</string>
-			<string>Device(RTC) in the DSDT.</string>
-			<string>If this does not help, the kext itself can be patched, which is done here.</string>
-			<string></string>
-		</array>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>macOS has compatibility issues with a BIOS CMOS resulting in its reset on each</string>
+				<string>wake after sleep and reboot, which is noticeable in a loss of BIOS settings. Mostly</string>
+				<string>Gigabyte motherboards are affected. Usually it can be solved by patching</string>
+				<string>Device(RTC) in the DSDT.</string>
+				<string>If this does not help, the kext itself can be patched, which is done here.</string>
+				<string></string>
+			</array>
+		</dict>
 		<key>ATIConnectorsController</key>
 		<dict>
 			<key>DEFINITION COMMENTS</key>
@@ -1018,89 +1022,127 @@
 			</array>
 		</dict>
 		<key>BootPatches</key>
-		<array>
-			<string>Optional Setting:</string>
-			<string>See #KernelAndKextPatches-EXAMPLES</string>
-			<string></string>
-			<string>NO DESCRIPTION ON WIKI (from config-sample.plist)</string>
-			<string></string>
-		</array>
+		<dict>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>Optional Setting:</string>
+				<string>See #KernelAndKextPatches-EXAMPLES</string>
+				<string></string>
+				<string>NO DESCRIPTION ON WIKI (from config-sample.plist)</string>
+				<string></string>
+			</array>
+		</dict>
 		<key>Debug</key>
-		<array>
-			<string>Recommended Setting:</string>
+		<dict>
+			<key>Recommended Setting:</key>
 			<true/>
-			<string></string>
-			<string>Default Setting:</string>
+			<key>Default Setting:</key>
 			<false/>
-			<string></string>
-			<string>Enables detailed output describing the patching process. This prints kernel</string>
-			<string>patches and kext injection debug messages to the screen, since standard boot log</string>
-			<string>is already closed. Useful for debugging purposes.</string>
-			<string></string>
-			<string>Useful for debugging purposes.</string>
-		</array>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>Enables detailed output describing the patching process. This prints kernel</string>
+				<string>patches and kext injection debug messages to the screen, since standard boot log</string>
+				<string>is already closed. Useful for debugging purposes.</string>
+				<string></string>
+			</array>
+		</dict>
 		<key>DellSMBIOSPatch</key>
-		<array>
-			<string>Optional Setting:</string>
+		<dict>
+			<key>Optional Setting:</key>
 			<string></string>
-			<string>Default Setting:</string>
+			<key>Default Setting:</key>
 			<false/>
-			<string></string>
+			<key>DEFINITION COMMENTS</key>
+			<array/>
+			<key>New item - 6</key>
 			<string>NO DESCRIPTION ON WIKI (from config-sample.plist)</string>
+			<key>New item - 7</key>
 			<string></string>
-		</array>
+		</dict>
 		<key>FakeCPUID</key>
-		<array>
+		<dict>
+			<key>DEFINITION COMMENTS</key>
+			<array/>
+			<key>New item</key>
 			<string>Optional Setting to Replace &quot;KernelCpu&quot;:</string>
+			<key>New item - 2</key>
 			<string>NOT USED</string>
+			<key>New item - 3</key>
 			<string></string>
+			<key>New item - 4</key>
 			<string>Fake CPUID is intended to be a replacement for the &quot;KernelCpu&quot; Patch.</string>
+			<key>New item - 5</key>
 			<string>It influences the kernel and AppleCPUPowerManagement as well.</string>
+			<key>New item - 6</key>
 			<string></string>
+			<key>New item - 7</key>
 			<string>If you want to install OSX with an unsupported CPU then you&apos;ll need to fake its ID</string>
+			<key>New item - 8</key>
 			<string>to avoid kernel panics. Useful if you&apos;re trying to install OSX with an Atom CPU, or</string>
+			<key>New item - 9</key>
 			<string>10.7.2 with an IvyBridge CPU.</string>
+			<key>New item - 10</key>
 			<string></string>
+			<key>New item - 11</key>
 			<string>For these cases Clover allows you to set FakeCPUID in config.plist or even through</string>
+			<key>New item - 12</key>
 			<string>the GUI, in the Binaries patching menu.</string>
+			<key>New item - 13</key>
 			<string></string>
-		</array>
+		</dict>
 		<key>KernelCpu</key>
-		<array>
+		<dict>
+			<key>Default Setting:</key>
+			<false/>
+			<key>DEFINITION COMMENTS</key>
+			<array/>
+			<key>New item</key>
 			<string>Optional Setting for Unsupported CPU&apos;s:</string>
+			<key>New item - 5</key>
 			<string></string>
-			<string>Default Setting:</string>
-			<false/>
-			<string></string>
+			<key>New item - 6</key>
 			<string>Eliminates kernel panics related to an Unsupported CPU like Yonah, Atom or</string>
+			<key>New item - 7</key>
 			<string>Haswell for old systems. However, the kernel has other algorithms which will not</string>
+			<key>New item - 8</key>
 			<string>work correctly when using an unsupported CPU and this patch will not solve all</string>
+			<key>New item - 9</key>
 			<string>problems. It is highly unlikely that this will work with a Pentium M, Pentium 4 or</string>
+			<key>New item - 10</key>
 			<string>and AMD. The use of a special replacement kernel is advised in such cases.</string>
+			<key>New item - 11</key>
 			<string></string>
-		</array>
+		</dict>
 		<key>KernelHaswellE</key>
-		<array>
+		<dict>
+			<key>Default Setting:</key>
+			<false/>
+			<key>DEFINITION COMMENTS</key>
+			<array/>
+			<key>New item</key>
 			<string>Optional Setting for Haswell-E:</string>
+			<key>New item - 5</key>
 			<string></string>
-			<string>Default Setting:</string>
-			<false/>
-			<string></string>
+			<key>New item - 6</key>
 			<string>Haswell-E setups are currently not supported by the OS X kernel (as of macOS</string>
+			<key>New item - 7</key>
 			<string>10.10.2). This patch gets rid of the blocking compatibility checks.</string>
+			<key>New item - 8</key>
 			<string>Note: this will NOT enable Power Management or similar features.</string>
+			<key>New item - 9</key>
 			<string></string>
-		</array>
+		</dict>
 		<key>KernelIvyXCPM</key>
-		<array>
-			<string>Optional Setting:</string>
-			<string></string>
-			<string>Default Setting:</string>
+		<dict>
+			<key>Default Setting:</key>
 			<false/>
-			<string></string>
-			<string>NO DESCRIPTION ON WIKI (from config-sample.plist)</string>
-			<string></string>
-		</array>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>Optional Setting for Ivy Bridge.</string>
+				<string>NO DESCRIPTION ON WIKI (from config-sample.plist)</string>
+				<string></string>
+			</array>
+		</dict>
 		<key>KernelLapic</key>
 		<dict>
 			<key>Default Setting:</key>
