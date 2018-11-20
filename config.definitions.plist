@@ -375,8 +375,22 @@
 				</array>
 				<key>Item 0</key>
 				<dict>
+					<key>DEFINITION COMMENTS</key>
+					<array>
+						<string>Rename EHC1 to EH01</string>
+						<string>EHC1 and EHC2 are typically used by both Macs and PCs to identify the two</string>
+						<string>EHCI controllers (USB2). By renaming EHC1 to EH01 and EHC2 to EH02,</string>
+						<string>you can effectively disable the built-in port injectors that match the SMBIOS</string>
+						<string>you&apos;re using.</string>
+						<string></string>
+						<string>Note: This is for Intel USB3. Third party USB3 such as Asmedia, NEC /</string>
+						<string>Renasas are problematic. No solution for these controllers AFAIK.</string>
+						<string>Definition Credit: RehabMan</string>
+						<string>http://bit.ly/EHC1toEH01</string>
+						<string></string>
+					</array>
 					<key>Comment</key>
-					<string>change EHC1 to EH01</string>
+					<string>Rename EHC1 to EH01</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
@@ -386,8 +400,10 @@
 				</dict>
 				<key>Item 1</key>
 				<dict>
+					<key>DEFINITION COMMENTS</key>
+					<array/>
 					<key>Comment</key>
-					<string>change EHC2 to EH02</string>
+					<string>Rename EHC2 to EH02</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
@@ -397,8 +413,10 @@
 				</dict>
 				<key>Item 2</key>
 				<dict>
+					<key>DEFINITION COMMENTS</key>
+					<array/>
 					<key>Comment</key>
-					<string>change EUSB to EH01</string>
+					<string>Rename EUSB to EH01</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
@@ -408,8 +426,10 @@
 				</dict>
 				<key>Item 3</key>
 				<dict>
+					<key>DEFINITION COMMENTS</key>
+					<array/>
 					<key>Comment</key>
-					<string>change USBE to EH02</string>
+					<string>Rename USBE to EH02</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
@@ -419,8 +439,10 @@
 				</dict>
 				<key>Item 4</key>
 				<dict>
+					<key>DEFINITION COMMENTS</key>
+					<array/>
 					<key>Comment</key>
-					<string>change HECI to IMEI</string>
+					<string>Rename HECI to IMEI</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
@@ -475,6 +497,26 @@
 					<string></string>
 				</array>
 			</dict>
+		</dict>
+		<key>FixHeaders</key>
+		<dict>
+			<key>Example Setting:</key>
+			<true/>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>Rev 4427-4429</string>
+				<string></string>
+				<string>FixHeaders should be in common ACPI section, it is not DSDT-only fix.</string>
+				<string>The FIX is recommended to all users even if you are not going to fix DSDT.</string>
+				<string>Anyway the fix is safe.</string>
+				<string></string>
+				<string>Old setting inside DSDT fixes remains for backward compatibility</string>
+				<string>but I recommend to exclude it from those section.</string>
+				<string></string>
+				<string>Definition Credit: Slice</string>
+				<string>http://bit.ly/FixHeaders</string>
+				<string></string>
+			</array>
 		</dict>
 		<key>PatchAPIC</key>
 		<true/>
@@ -757,6 +799,31 @@
 	</array>
 	<key>#GUI</key>
 	<dict>
+		<key>DEFINITION COMMENTS</key>
+		<array>
+			<string></string>
+			<string></string>
+		</array>
+		<key>KbdPrevLang</key>
+		<dict>
+			<key>Example Setting:</key>
+			<true/>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>Rev 4719</string>
+				<string></string>
+				<string>Added prelang kbd option if want to keep language when updating macOS</string>
+				<string>with native NVRAM.</string>
+				<string>- This is the key to fixing macOS language problems when using native NVRAM.</string>
+				<string>- This is macOS bug for long time ago.</string>
+				<string>- When using only AptioMemoryFix or OsxAptioFixV3 without emuvariableuefi.efi</string>
+				<string>- When using a language other than English</string>
+				<string></string>
+				<string>Definition Credit: Sherlocks</string>
+				<string>http://bit.ly/KbdPrevLang</string>
+				<string></string>
+			</array>
+		</dict>
 		<key>Language</key>
 		<string>en:0</string>
 		<key>Mouse</key>
@@ -778,7 +845,27 @@
 			<false/>
 		</dict>
 		<key>Theme</key>
-		<string>bootcamp</string>
+		<dict>
+			<key>Example Setting:</key>
+			<string>bootcamp/embedded/etc</string>
+			<key>DEFINITION COMMENTS</key>
+			<array/>
+		</dict>
+		<key>EmbeddedThemeType</key>
+		<dict>
+			<key>Example Setting:</key>
+			<string>Dark/Light/SVG</string>
+			<key>DEFINITION COMMENTS</key>
+			<array>
+				<string>Rev 4644</string>
+				<string></string>
+				<string>A possibility to choose between Light and Dark embedded themes.</string>
+				<string></string>
+				<string>Definition Credit: Slice</string>
+				<string>http://bit.ly/EmbeddedThemeType</string>
+				<string></string>
+			</array>
+		</dict>
 	</dict>
 	<key>#Graphics</key>
 	<dict>
@@ -1220,8 +1307,8 @@
 					<string>not enough. Additionally a modification of the connectors in the according</string>
 					<string>controller binary file is necessary.</string>
 					<string></string>
-					<string>More info in the post of bcc9 on insanelymac.</string>
-					<string>http://www.insanelymac.com/forum/topic/249642-editing-custom-personalities-for-ati-radeon-hd45xxx/</string>
+					<string>Definition Credit: bcc9 on insanelymac.</string>
+					<string>http://bit.ly/AMDPatch</string>
 					<string></string>
 				</array>
 				<key>Disabled</key>
@@ -1294,6 +1381,8 @@
 				<string>dangerous, you&apos;ll need to enable the functionality by specifying the LAN device</string>
 				<string>with: UseMacAddr0 or UseMacAddr1</string>
 				<string>(up to 4 devices are calculated but only 2 will be used).</string>
+				<string></string>
+				<string>Definition Credit: bu11etpr00f</string>
 				<string></string>
 			</array>
 		</dict>
@@ -1499,6 +1588,8 @@
 				<string>SMBIOS-&gt;SmUUID = System UUID</string>
 				<string>SystemParameters-&gt;InjectSystemID = System UUID</string>
 				<string></string>
+				<string>Definition Credit: bu11etpr00f</string>
+				<string></string>
 			</array>
 		</dict>
 		<key>SerialNumber</key>
@@ -1522,6 +1613,8 @@
 				<string>SMBIOS-&gt;SerialNumber = Serial Number (system)</string>
 				<string>SMBIOS-&gt;SmUUID = System UUID</string>
 				<string>SystemParameters-&gt;InjectSystemID = System UUID</string>
+				<string></string>
+				<string>Definition Credit: bu11etpr00f</string>
 				<string></string>
 			</array>
 		</dict>
@@ -1548,6 +1641,8 @@
 				<string>SMBIOS-&gt;SerialNumber = Serial Number (system)</string>
 				<string>SMBIOS-&gt;SmUUID = System UUID</string>
 				<string>SystemParameters-&gt;InjectSystemID = System UUID</string>
+				<string></string>
+				<string>Definition Credit: bu11etpr00f</string>
 				<string></string>
 			</array>
 		</dict>
@@ -2077,6 +2172,7 @@
 			<array>
 				<string>Global Policy. If enabled, this Key will enable macOS &gt;= 10.12 to load and use</string>
 				<string>NVIDIA&apos;s WebDriver Ketxts.</string>
+				<string>Definition Credit: </string>
 				<string></string>
 			</array>
 		</dict>
