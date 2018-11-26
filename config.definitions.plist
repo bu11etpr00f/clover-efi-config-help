@@ -8,7 +8,7 @@
 		<dict>
 			<key>Default Setting:</key>
 			<string>???</string>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
 				<string>It works as OpenHaltRestart, clearing SLP_SMI_EN at start of macOS.</string>
 				<string>Only necessary if you have a problem shutting down macOS.</string>
@@ -19,21 +19,21 @@
 		<dict>
 			<key>#Fixes</key>
 			<dict>
-				<key>DEFINITION COMMENTS</key>
+				<key>KEY DEFINITION // COMMENTS</key>
 				<array>
 					<string>Since Clover rev4006 the parameter is always NewWay.</string>
 					<string></string>
 				</array>
 				<key>#OldWay DEPRECATED</key>
 				<dict>
-					<key>DEFINITION COMMENTS</key>
+					<key>KEY DEFINITION // COMMENTS</key>
 					<array>
 						<string>Since Clover rev4006 the parameter OldWay is excluded.</string>
 						<string></string>
 					</array>
 					<key>AddDTGP_0001</key>
 					<dict>
-						<key>DEFINITION COMMENTS</key>
+						<key>KEY DEFINITION // COMMENTS</key>
 						<array>
 							<string>Inserts Method (DTGP) into DSDT. It is required for _DSM methods,</string>
 							<string>so if you use some other DSDT fix to inject device properties then you</string>
@@ -43,7 +43,7 @@
 					</dict>
 					<key>FixDarwin_0002</key>
 					<dict>
-						<key>DEFINITION COMMENTS</key>
+						<key>KEY DEFINITION // COMMENTS</key>
 						<array>
 							<string>Provide a set of corrections to DSDT to make your system &quot;Darwin&quot;</string>
 							<string>to be identified as &quot;Windows 2001&quot;, like most ACPI systems. More</string>
@@ -55,7 +55,7 @@
 					</dict>
 					<key>FixShutdown_0004</key>
 					<dict>
-						<key>DEFINITION COMMENTS</key>
+						<key>KEY DEFINITION // COMMENTS</key>
 						<array>
 							<string>Adds If(arg=5){} to method _PTS. This trick may repair shutdown</string>
 							<string>problems for some systems (ASUS).</string>
@@ -64,7 +64,7 @@
 					</dict>
 					<key>AddMCHC_0008</key>
 					<dict>
-						<key>DEFINITION COMMENTS</key>
+						<key>KEY DEFINITION // COMMENTS</key>
 						<array>
 							<string>Adds device MCHC to DSDT. For my board H61M this is obligatory,</string>
 							<string>else KP. Old way also included AddIMEI_80000.</string>
@@ -73,7 +73,7 @@
 					</dict>
 					<key>FixHPET_0010</key>
 					<dict>
-						<key>DEFINITION COMMENTS</key>
+						<key>KEY DEFINITION // COMMENTS</key>
 						<array>
 							<string>Adds IRQ(0, 8, 11) to device HPET. Obligatory for OSX &lt;= 10.8,</string>
 							<string>Mavericks can work without it. Old way also included:</string>
@@ -83,7 +83,7 @@
 					</dict>
 					<key>FakeLPC_0020</key>
 					<dict>
-						<key>DEFINITION COMMENTS</key>
+						<key>KEY DEFINITION // COMMENTS</key>
 						<array>
 							<string>Changes the device-id for the LPC chipset device. Needed in very</string>
 							<string>rare cases for non-standard (for Apple) chipsets, like ICH9.</string>
@@ -92,7 +92,7 @@
 					</dict>
 					<key>FixIPIC_0040</key>
 					<dict>
-						<key>DEFINITION COMMENTS</key>
+						<key>KEY DEFINITION // COMMENTS</key>
 						<array>
 							<string>Deletes IRQ(2) from device IPIC. Helps with a non working Power button.</string>
 							<string></string>
@@ -100,7 +100,7 @@
 					</dict>
 					<key>FixSBUS_0080</key>
 					<dict>
-						<key>DEFINITION COMMENTS</key>
+						<key>KEY DEFINITION // COMMENTS</key>
 						<array>
 							<string>Adds SMBUS device into DSDT, with some sub-device.</string>
 							<string>I don&apos;t know the reason for the patch but it&apos;s advised in many forums.</string>
@@ -110,7 +110,7 @@
 					</dict>
 					<key>FixDisplay_0100</key>
 					<dict>
-						<key>DEFINITION COMMENTS</key>
+						<key>KEY DEFINITION // COMMENTS</key>
 						<array>
 							<string>This is a very functional patch for video devices. Recommended even if</string>
 							<string>you don&apos;t want to inject properties to the device. When this bit is set other</string>
@@ -122,7 +122,7 @@
 					</dict>
 					<key>FixIDE_0200</key>
 					<dict>
-						<key>DEFINITION COMMENTS</key>
+						<key>KEY DEFINITION // COMMENTS</key>
 						<array>
 							<string>Adds initialization for IDE controllers (not SATA) to prevent panic with it.</string>
 							<string></string>
@@ -130,7 +130,7 @@
 					</dict>
 					<key>FixSATA_0400</key>
 					<dict>
-						<key>DEFINITION COMMENTS</key>
+						<key>KEY DEFINITION // COMMENTS</key>
 						<array>
 							<string>Injects the DeviceID from ICH6 to prevent the orange icons problem.</string>
 							<string>Nowadays this patch looks to be obsolete. It is better to do the kext</string>
@@ -140,7 +140,7 @@
 					</dict>
 					<key>FixFirewire_0800</key>
 					<dict>
-						<key>DEFINITION COMMENTS</key>
+						<key>KEY DEFINITION // COMMENTS</key>
 						<array>
 							<string>Adds device Firewire into DSDT if absent and if the device really present.</string>
 							<string>Safe.</string>
@@ -149,7 +149,7 @@
 					</dict>
 					<key>FixUSB_1000</key>
 					<dict>
-						<key>DEFINITION COMMENTS</key>
+						<key>KEY DEFINITION // COMMENTS</key>
 						<array>
 							<string>Injects USB devices and their properties for USB-1, USB-2 and USB-3.</string>
 							<string>No reason not to use this bit.</string>
@@ -158,7 +158,7 @@
 					</dict>
 					<key>FixLAN_2000</key>
 					<dict>
-						<key>DEFINITION COMMENTS</key>
+						<key>KEY DEFINITION // COMMENTS</key>
 						<array>
 							<string>Injects device and properties for the LAN controller. Also made FakeID</string>
 							<string>for some known substitutions.</string>
@@ -167,7 +167,7 @@
 					</dict>
 					<key>FixAirport_4000</key>
 					<dict>
-						<key>DEFINITION COMMENTS</key>
+						<key>KEY DEFINITION // COMMENTS</key>
 						<array>
 							<string>Injects device and properties for the WiFi controller. Also made FakeID</string>
 							<string>for some known substitutions.</string>
@@ -176,7 +176,7 @@
 					</dict>
 					<key>FixHDA_8000</key>
 					<dict>
-						<key>DEFINITION COMMENTS</key>
+						<key>KEY DEFINITION // COMMENTS</key>
 						<array>
 							<string>Renames AZAL to HDEF or HDAU. Adds the HMDI device if absent.</string>
 							<string>Else AppleHDA will not work. Adds the properties &quot;layout-id&quot;,</string>
@@ -187,7 +187,7 @@
 				</dict>
 				<key>AddHDMI_8000000</key>
 				<dict>
-					<key>DEFINITION COMMENTS</key>
+					<key>KEY DEFINITION // COMMENTS</key>
 					<array>
 						<string>Adds the HDAU Device, if absent, with some default properties.</string>
 						<string></string>
@@ -195,16 +195,16 @@
 				</dict>
 				<key>AddIMEI_80000</key>
 				<dict>
-					<key>DEFINITION COMMENTS</key>
+					<key>KEY DEFINITION // COMMENTS</key>
 					<array>
 						<string>This Device is used for IntelHDxxxx Graphics. This is required when</string>
-						<string>using the FakeID-&gt;IMEI bit. It does nothing on Core 2 systems.</string>
+						<string>using the /Devices/FakeID/IMEI Key. It does nothing on Core 2 systems.</string>
 						<string></string>
 					</array>
 				</dict>
 				<key>AddPNLF_1000000</key>
 				<dict>
-					<key>DEFINITION COMMENTS</key>
+					<key>KEY DEFINITION // COMMENTS</key>
 					<array>
 						<string>The Device PNLF is necessary for brightness control. This Patch is</string>
 						<string>also a good influence on proper Sleep/Wake.</string>
@@ -213,7 +213,7 @@
 				</dict>
 				<key>DeleteUnused_400000</key>
 				<dict>
-					<key>DEFINITION COMMENTS</key>
+					<key>KEY DEFINITION // COMMENTS</key>
 					<array>
 						<string>Deletes Devices like Floppy Drive, LPT Port, etc. from the DSDT.</string>
 						<string></string>
@@ -221,7 +221,7 @@
 				</dict>
 				<key>FIX_ACST_4000000</key>
 				<dict>
-					<key>DEFINITION COMMENTS</key>
+					<key>KEY DEFINITION // COMMENTS</key>
 					<array>
 						<string>Name ACST functions differently for Apple and ASUS. For ASUS it is for</string>
 						<string>the AC Adapter state. For Apple it is a replacement for _CST, C-States Table.</string>
@@ -231,7 +231,7 @@
 				</dict>
 				<key>FIX_ADP1_800000</key>
 				<dict>
-					<key>DEFINITION COMMENTS</key>
+					<key>KEY DEFINITION // COMMENTS</key>
 					<array>
 						<string>Renames device AC0 to ADP1.</string>
 						<string></string>
@@ -239,7 +239,7 @@
 				</dict>
 				<key>FIX_DARWIN_10000</key>
 				<dict>
-					<key>DEFINITION COMMENTS</key>
+					<key>KEY DEFINITION // COMMENTS</key>
 					<array>
 						<string>Only patches the &quot;Darwin OS&quot; identification.</string>
 						<string></string>
@@ -247,7 +247,7 @@
 				</dict>
 				<key>FIX_INTELGFX_100000</key>
 				<dict>
-					<key>DEFINITION COMMENTS</key>
+					<key>KEY DEFINITION // COMMENTS</key>
 					<array>
 						<string>IntelGFX Device Patch.</string>
 						<string></string>
@@ -255,7 +255,7 @@
 				</dict>
 				<key>FIX_RTC_20000</key>
 				<dict>
-					<key>DEFINITION COMMENTS</key>
+					<key>KEY DEFINITION // COMMENTS</key>
 					<array>
 						<string>Excludes IRQ(0) from RTC device.</string>
 						<string></string>
@@ -263,7 +263,7 @@
 				</dict>
 				<key>FIX_S3D_2000000</key>
 				<dict>
-					<key>DEFINITION COMMENTS</key>
+					<key>KEY DEFINITION // COMMENTS</key>
 					<array>
 						<string>Resolves some Sleep/Wake issues by correcting _S3D Methods.</string>
 						<string></string>
@@ -271,7 +271,7 @@
 				</dict>
 				<key>FIX_TMR_40000</key>
 				<dict>
-					<key>DEFINITION COMMENTS</key>
+					<key>KEY DEFINITION // COMMENTS</key>
 					<array>
 						<string>Excludes IRQ(8) from TMR Device. This is an ancient DOS Device and is</string>
 						<string>no longer needed in modern computing.</string>
@@ -280,7 +280,7 @@
 				</dict>
 				<key>FIX_WAK_200000</key>
 				<dict>
-					<key>DEFINITION COMMENTS</key>
+					<key>KEY DEFINITION // COMMENTS</key>
 					<array>
 						<string>Adds Return(Package(0)) into method _WAK if absent. This Patch</string>
 						<string>eliminates the warning, but we are unsure if it affects anything else</string>
@@ -290,7 +290,7 @@
 				</dict>
 				<key>FixRegions_10000000</key>
 				<dict>
-					<key>DEFINITION COMMENTS</key>
+					<key>KEY DEFINITION // COMMENTS</key>
 					<array>
 						<string>Some OperationRegions in BIOS DSDT are floating and Values may change</string>
 						<string>after time due to changes in the BIOS. The presence of floating Regions</string>
@@ -302,7 +302,7 @@
 				</dict>
 				<key>NewWay_80000000</key>
 				<dict>
-					<key>DEFINITION COMMENTS</key>
+					<key>KEY DEFINITION // COMMENTS</key>
 					<array>
 						<string>Unnecessary after Clover rev4006. The parameter is always NewWay.</string>
 						<string></string>
@@ -313,7 +313,7 @@
 			<false/>
 			<key>DropOEM_DSM</key>
 			<dict>
-				<key>DEFINITION COMMENTS</key>
+				<key>KEY DEFINITION // COMMENTS</key>
 				<array>
 					<string>Some OEM DSDT already contains Method(_DSM...) for some devices.</string>
 					<string>It has another structure, another logic, and another results then we need.</string>
@@ -362,20 +362,20 @@
 			<dict>
 				<key>Example Setting:</key>
 				<string>DSDT.aml</string>
-				<key>DEFINITION COMMENTS</key>
+				<key>KEY DEFINITION // COMMENTS</key>
 				<array>
 					<string>File name of the binary DSDT file to load and inject.</string>
 				</array>
 			</dict>
 			<key>Patches</key>
 			<dict>
-				<key>DEFINITION COMMENTS</key>
+				<key>KEY DEFINITION // COMMENTS</key>
 				<array>
 					<string>Binary DSDT patching</string>
 				</array>
 				<key>Item 0</key>
 				<dict>
-					<key>DEFINITION COMMENTS</key>
+					<key>KEY DEFINITION // COMMENTS</key>
 					<array>
 						<string>Rename EHC1 to EH01</string>
 						<string>EHC1 and EHC2 are typically used by both Macs and PCs to identify the two</string>
@@ -400,7 +400,7 @@
 				</dict>
 				<key>Item 1</key>
 				<dict>
-					<key>DEFINITION COMMENTS</key>
+					<key>KEY DEFINITION // COMMENTS</key>
 					<array/>
 					<key>Comment</key>
 					<string>Rename EHC2 to EH02</string>
@@ -413,7 +413,7 @@
 				</dict>
 				<key>Item 2</key>
 				<dict>
-					<key>DEFINITION COMMENTS</key>
+					<key>KEY DEFINITION // COMMENTS</key>
 					<array/>
 					<key>Comment</key>
 					<string>Rename EUSB to EH01</string>
@@ -426,7 +426,7 @@
 				</dict>
 				<key>Item 3</key>
 				<dict>
-					<key>DEFINITION COMMENTS</key>
+					<key>KEY DEFINITION // COMMENTS</key>
 					<array/>
 					<key>Comment</key>
 					<string>Rename USBE to EH02</string>
@@ -439,7 +439,7 @@
 				</dict>
 				<key>Item 4</key>
 				<dict>
-					<key>DEFINITION COMMENTS</key>
+					<key>KEY DEFINITION // COMMENTS</key>
 					<array/>
 					<key>Comment</key>
 					<string>Rename HECI to IMEI</string>
@@ -457,7 +457,7 @@
 				<false/>
 				<key>Default Setting:</key>
 				<false/>
-				<key>DEFINITION COMMENTS</key>
+				<key>KEY DEFINITION // COMMENTS</key>
 				<array>
 					<string>Some OEM DSDT contains some device with Name (_ADR, 0xFFFF).</string>
 					<string>This is a big problem as I can convert it to ADR=0 and inject properties</string>
@@ -470,9 +470,9 @@
 		</dict>
 		<key>DropTables</key>
 		<dict>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
-				<string>Drop OEM ACPI tables by signature and/or table identifier.</string>
+				<string>Drop OEM ACPI tables by signature and // or table identifier.</string>
 				<string>Additionally, now you can drop tables by their length. Why? Because we</string>
 				<string>found Acer laptop where all SSDT have the same TableID.</string>
 				<string></string>
@@ -481,10 +481,10 @@
 			<dict>
 				<key>Signature</key>
 				<string>DMAR</string>
-				<key>DEFINITION COMMENTS</key>
+				<key>KEY DEFINITION // COMMENTS</key>
 				<array>
 					<string>Resolves VT-d (Virtualization Technology for Directed I/O) panics.</string>
-					<string>Same as Boot-&gt;Arguments &quot;dart=0&quot;.</string>
+					<string>Same as /Boot/Arguments &quot;dart=0&quot;.</string>
 					<string></string>
 				</array>
 			</dict>
@@ -492,7 +492,7 @@
 			<dict>
 				<key>Signature</key>
 				<string>MATS</string>
-				<key>DEFINITION COMMENTS</key>
+				<key>KEY DEFINITION // COMMENTS</key>
 				<array>
 					<string></string>
 				</array>
@@ -502,7 +502,7 @@
 		<dict>
 			<key>Example Setting:</key>
 			<true/>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
 				<string>Rev 4427-4429</string>
 				<string></string>
@@ -526,10 +526,10 @@
 			<dict>
 				<key>Recommended Setting:</key>
 				<true/>
-				<key>DEFINITION COMMENTS</key>
+				<key>KEY DEFINITION // COMMENTS</key>
 				<array>
 					<string>Drops all internal SSDT Tables to avoid conflicts when generating an SSDT</string>
-					<string>for your CPU, which contain P / C-States. Clover can do this automatically</string>
+					<string>for your CPU, which contain P // C-States. Clover can do this automatically</string>
 					<string>or you can specify an external file, which will be loaded from:</string>
 					<string>EFI/OEM/[model]/ACPI/patched.</string>
 					<string></string>
@@ -547,7 +547,7 @@
 				<dict>
 					<key>Default Setting:</key>
 					<false/>
-					<key>DEFINITION COMMENTS</key>
+					<key>KEY DEFINITION // COMMENTS</key>
 					<array>
 						<string>Enable auto generation of processor idle sleep states (C-States).</string>
 						<string></string>
@@ -557,7 +557,7 @@
 				<dict>
 					<key>Default Setting:</key>
 					<false/>
-					<key>DEFINITION COMMENTS</key>
+					<key>KEY DEFINITION // COMMENTS</key>
 					<array>
 						<string>Enable auto generation of processor power performance states (P-States).</string>
 						<string></string>
@@ -571,7 +571,7 @@
 		<key>Arguments</key>
 		<dict>
 			<key>e.g.</key>
-			<string>dart=0 darkwake=0 -v LogEveryBoot=Yes ngfxcompat=1 npci=0x2000 kext-dev-mode=1 -liludbgall -lilubetaall -wegbeta -raddvi -cdfon</string>
+			<string>-v npci=0x2000 dart=0 LogEveryBoot=Yes</string>
 			<key>-v</key>
 			<string>Boot macOS in Verbose Mode.</string>
 			<key>-f</key>
@@ -623,7 +623,7 @@
 				<string>???</string>
 			</dict>
 			<key>-gux_nosleep</key>
-			<string>Forces Sleep to always use the shutdown/reset method.</string>
+			<string>Forces Sleep to always use the shutdown // reset method.</string>
 			<key>-gux_nomsi</key>
 			<array>
 				<string>Forces use of pin interrupt instead of msi. Intel Series 7 Chipset only (Panther Point.)</string>
@@ -641,6 +641,19 @@
 				<string>Disables some feature for idle-mode on Intel&apos;s chip.</string>
 				<string>DEV NOTE: &quot;I couldn&apos;t test this, so I added an option to disable it.&quot;</string>
 			</array>
+			<key>kext-dev-mode=1</key>
+			<array>
+				<string>OBSOLETE for macOS &gt;= 10.11.</string>
+				<string></string>
+				<string>Disables SIP (System Integrity Protection).</string>
+				<string>Allows unsigned Kexts to load. </string>
+				<string></string>
+				<string>As of macOS El Capitan, the kext-dev-mode boot-arg is now obsolete.</string>
+				<string></string>
+				<string>Definition Credit: Apple, bu11etpr00f</string>
+				<string>http://bit.ly/kext-dev-mode</string>
+				<string></string>
+			</array>
 			<key>LogEveryBoot=Yes</key>
 			<string>Save log files at every boot.</string>
 			<key>LogLineCount=0</key>
@@ -651,10 +664,11 @@
 			<string>Mount EFI partition at every boot or from disk X (X = disk number).</string>
 			<key>npci=0x2000</key>
 			<string>PCI Configuration Fix.</string>
-			<key>kext-dev-mode=1</key>
-			<string></string>
 			<key>slide=0</key>
-			<string>Only needed for macOS 10.8</string>
+			<array>
+				<string>Only needed for macOS = 10.8</string>
+				<string></string>
+			</array>
 			<key>Lilu-Arguments</key>
 			<dict>
 				<key>-liluoff</key>
@@ -668,6 +682,8 @@
 			<dict>
 				<key>-wegbeta</key>
 				<string>Enable WhateverGreen on unsupported macOS (&lt;=10.13 supported by default).</string>
+				<key>-raddvi</key>
+				<string>Enable DVI transmitter correction (required for 290X, 370, etc.).</string>
 				<key>ngfxcompat=1</key>
 				<string>Force-compat property to ignore compatibility check in NVDAStartupWeb.</string>
 				<key>-cdfon</key>
@@ -684,7 +700,7 @@
 			<string>PBR</string>
 			<key>Alternate Settings:</key>
 			<string>LegacyBiosDefault or PBRtest</string>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
 				<string>Defaults to PBR; but could also be LegacyBiosDefault or PBRtest. It&apos;s just the method</string>
 				<string>of legacy booting, it probably won&apos;t make a difference. For some users using another</string>
@@ -709,7 +725,7 @@
 			<true/>
 			<key>Default Setting:</key>
 			<false/>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
 				<string>Enable specific Processor power state, C2.</string>
 				<string></string>
@@ -721,7 +737,7 @@
 			<true/>
 			<key>Default Setting:</key>
 			<false/>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
 				<string>Enable specific Processor power state, C3.</string>
 				<string></string>
@@ -733,7 +749,7 @@
 			<true/>
 			<key>Default Setting:</key>
 			<false/>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
 				<string>Enable specific Processor power state, C4.</string>
 				<string></string>
@@ -745,7 +761,7 @@
 			<true/>
 			<key>Default Setting:</key>
 			<false/>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
 				<string>Enable specific Processor power state, C6.</string>
 				<string></string>
@@ -757,7 +773,7 @@
 			<true/>
 			<key>Default Setting:</key>
 			<false/>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
 				<string>Enable specific Processor power state, C7.</string>
 				<string></string>
@@ -766,7 +782,7 @@
 	</dict>
 	<key>#Devices</key>
 	<dict>
-		<key>DEFINITION COMMENTS</key>
+		<key>KEY DEFINITION // COMMENTS</key>
 		<array>
 			<string></string>
 		</array>
@@ -774,7 +790,7 @@
 		<dict>
 			<key>Inject</key>
 			<string>No</string>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
 				<string></string>
 			</array>
@@ -799,7 +815,7 @@
 	</array>
 	<key>#GUI</key>
 	<dict>
-		<key>DEFINITION COMMENTS</key>
+		<key>KEY DEFINITION // COMMENTS</key>
 		<array>
 			<string></string>
 			<string></string>
@@ -808,7 +824,7 @@
 		<dict>
 			<key>Example Setting:</key>
 			<true/>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
 				<string>Rev 4719</string>
 				<string></string>
@@ -847,15 +863,15 @@
 		<key>Theme</key>
 		<dict>
 			<key>Example Setting:</key>
-			<string>bootcamp/embedded/etc</string>
-			<key>DEFINITION COMMENTS</key>
+			<string>bootcamp // embedded // etc</string>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array/>
 		</dict>
 		<key>EmbeddedThemeType</key>
 		<dict>
 			<key>Example Setting:</key>
-			<string>Dark/Light/SVG</string>
-			<key>DEFINITION COMMENTS</key>
+			<string>Dark // Light // SVG</string>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
 				<string>Rev 4644</string>
 				<string></string>
@@ -873,7 +889,7 @@
 		<dict>
 			<key>Default Setting:</key>
 			<false/>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
 				<string></string>
 			</array>
@@ -882,7 +898,7 @@
 		<dict>
 			<key>Default Setting:</key>
 			<false/>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
 				<string></string>
 			</array>
@@ -893,7 +909,7 @@
 			<dict>
 				<key>Default Setting:</key>
 				<false/>
-				<key>DEFINITION COMMENTS</key>
+				<key>KEY DEFINITION // COMMENTS</key>
 				<array>
 					<string></string>
 				</array>
@@ -901,9 +917,9 @@
 		</dict>
 		<key>Inject</key>
 		<dict>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
-				<string>Needed for unsupported GPU&apos;s to get full resolution/QE. If set to Yes, e.g. nVidia</string>
+				<string>Needed for unsupported GPU&apos;s to get full resolution // QE. If set to Yes, e.g. nVidia</string>
 				<string>GeForce 450 GTS becomes EVGA nVidia GeForce 450 GTS (if supported).</string>
 			</array>
 			<key>ATI</key>
@@ -933,8 +949,8 @@
 		</array>
 		<key>ForceKextsToLoad</key>
 		<array>
-			<string>\System\Library\Extensions\AppleHDA.kext</string>
-			<string>\Extra\Extensions</string>
+			<string>/System/Library/Extensions/AppleHDA.kext</string>
+			<string>/Extra/Extensions</string>
 		</array>
 		<key>KextsToPatch</key>
 		<array>
@@ -1054,12 +1070,12 @@
 			<true/>
 			<key>Default Setting:</key>
 			<string>???</string>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
 				<string>AsusAICPUPM key was renamed to AppleIntelCPUPM.</string>
 				<string></string>
 				<string>Some vendors, like ASUS, restrict the use of MSR register 0xE2 in their power</string>
-				<string>management module to ReadOnly. On Sandy/Ivy Bridge systems the kext</string>
+				<string>management module to ReadOnly. On Sandy // Ivy Bridge systems the kext</string>
 				<string>AppleIntelCpuPowerManagement will try to write to this register and cause a</string>
 				<string>kernel panic. This patch will eliminate the kext&apos;s write operations.</string>
 				<string></string>
@@ -1071,7 +1087,7 @@
 			<true/>
 			<key>Default Setting:</key>
 			<string>???</string>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
 				<string>macOS has compatibility issues with a BIOS CMOS resulting in its reset on each</string>
 				<string>wake after sleep and reboot, which is noticeable in a loss of BIOS settings. Mostly</string>
@@ -1083,34 +1099,34 @@
 		</dict>
 		<key>ATIConnectorsController</key>
 		<dict>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
 				<string>Deprecated, this patch can&apos;t be OS dependent. Please see:</string>
-				<string>KernelAndKextPatches-&gt;KextsToPatch-&gt;ATI Connector Patch - New Way</string>
+				<string>/KernelAndKextPatches/KextsToPatch/ATI Connector Patch - New Way</string>
 				<string></string>
 			</array>
 		</dict>
 		<key>ATIConnectorsData</key>
 		<dict>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
 				<string>Deprecated, this patch can&apos;t be OS dependent. Please see:</string>
-				<string>KernelAndKextPatches-&gt;KextsToPatch-&gt;ATI Connector Patch - New Way</string>
+				<string>/KernelAndKextPatches/KextsToPatch/ATI Connector Patch - New Way</string>
 				<string></string>
 			</array>
 		</dict>
 		<key>ATIConnectorsPatch</key>
 		<dict>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
 				<string>Deprecated, this patch can&apos;t be OS dependent. Please see:</string>
-				<string>KernelAndKextPatches-&gt;KextsToPatch-&gt;ATI Connector Patch - New Way</string>
+				<string>/KernelAndKextPatches/KextsToPatch/ATI Connector Patch - New Way</string>
 				<string></string>
 			</array>
 		</dict>
 		<key>BootPatches</key>
 		<dict>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
 				<string>Optional Setting:</string>
 				<string>See #KernelAndKextPatches-EXAMPLES</string>
@@ -1125,7 +1141,7 @@
 			<true/>
 			<key>Default Setting:</key>
 			<false/>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
 				<string>Enables detailed output describing the patching process. This prints kernel</string>
 				<string>patches and kext injection debug messages to the screen, since standard boot log</string>
@@ -1139,7 +1155,7 @@
 			<string></string>
 			<key>Default Setting:</key>
 			<false/>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array/>
 			<key>New item - 6</key>
 			<string>NO DESCRIPTION ON WIKI (from config-sample.plist)</string>
@@ -1148,7 +1164,7 @@
 		</dict>
 		<key>FakeCPUID</key>
 		<dict>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array/>
 			<key>New item</key>
 			<string>Optional Setting to Replace &quot;KernelCpu&quot;:</string>
@@ -1181,7 +1197,7 @@
 		<dict>
 			<key>Default Setting:</key>
 			<false/>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array/>
 			<key>New item</key>
 			<string>Optional Setting for Unsupported CPU&apos;s:</string>
@@ -1204,7 +1220,7 @@
 		<dict>
 			<key>Default Setting:</key>
 			<false/>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array/>
 			<key>New item</key>
 			<string>Optional Setting for Haswell-E:</string>
@@ -1223,7 +1239,7 @@
 		<dict>
 			<key>Default Setting:</key>
 			<false/>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
 				<string>Optional Setting for Ivy Bridge.</string>
 				<string>NO DESCRIPTION ON WIKI (from config-sample.plist)</string>
@@ -1234,45 +1250,56 @@
 		<dict>
 			<key>Default Setting:</key>
 			<false/>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
 				<string>Optional Setting for HP Notebooks:</string>
 				<string></string>
-				<string>HP Notebooks have lapic problems, which can be solved by using the boot</string>
-				<string>parameter cpus=1 or by using this option.</string>
+				<string>HP Notebooks have lapic problems, which can be solved by using</string>
+				<string>/Boot/Arguments &quot;cpus=1&quot; or by using this option.</string>
 				<string></string>
 			</array>
 		</dict>
 		<key>KernelPm</key>
 		<dict>
 			<key>Default Setting:</key>
-			<false/>
-			<key>DEFINITION COMMENTS</key>
+			<true/>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
+				<string>Disables CFG-Lock</string>
+				<string></string>
+				<string>NOTE: if not manually specified as false, KernelPm=true will be automatically</string>
+				<string>applied by Clover when MSR 0xE2 is detected as locked.</string>
+				<string></string>
+				<string>If you&apos;re using an HWP enabled SMBIOS, you will also need to use the</string>
+				<string>config.plist _xcpm_idle patch in /KernelAndKextPatches/KernelToPatch.</string>
+				<string></string>
+				<string>Definition Credit: RehabMan</string>
+				<string></string>
+				<string></string>
 				<string>Optional Setting for Haswell:</string>
 				<string></string>
 				<string>Kernel power management patch for Haswell with locked msrs. Works with</string>
 				<string>10.8.5 and 10.9 kernels.</string>
 				<string></string>
-				<string>Haswell CPU&apos;s include Xeon v3 (E3 / E5 / E7) and Core iX (Gen4 / Gen5)</string>
+				<string>Haswell CPU&apos;s include Xeon v3 (E3 // E5 // E7) and Core iX (Gen4 // Gen5)</string>
 				<string></string>
 			</array>
 		</dict>
 		<key>ForceKextsToLoad</key>
 		<dict>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
 				<string>Optional Setting:</string>
 				<string>See #KernelAndKextPatches-EXAMPLES</string>
 				<string></string>
-				<string>Force load kexts (and plugins) from booted volume so it can be patched.</string>
-				<string>It also accepts directories to force load/inject every kext in the folder.</string>
+				<string>Force load // injext Kexts (and plugins) from a booted Volume so they can be patched.</string>
+				<string>Specifying a directory will force load // inject all contained Kext.</string>
 				<string></string>
 			</array>
 		</dict>
 		<key>KextsToPatch</key>
 		<dict>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
 				<string>Optional Setting:</string>
 				<string>See #KernelAndKextPatches-EXAMPLES</string>
@@ -1294,7 +1321,7 @@
 			</array>
 			<key>ATI Connector Patch - New Way</key>
 			<dict>
-				<key>DEFINITION COMMENTS</key>
+				<key>KEY DEFINITION // COMMENTS</key>
 				<array>
 					<string>Optional Setting for AMD Video Cards:</string>
 					<string>See #KernelAndKextPatches-EXAMPLES</string>
@@ -1330,7 +1357,7 @@
 		<dict>
 			<key>Recommended Setting:</key>
 			<string>0x28</string>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
 				<string>(Since revision r3259)</string>
 				<string>NO DESCRIPTION ON WIKI</string>
@@ -1341,15 +1368,17 @@
 		<dict>
 			<key>Recommended Setting:</key>
 			<string>0x3</string>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
 				<string>Since revision r3259</string>
 				<string>Controls System Integrity Protection (SIP)</string>
 				<string></string>
 				<string>Relevant user options for SIP:</string>
 				<string>0x0 = SIP Enabled (Default)</string>
-				<string>0x3 = SIP Partially Disabled (Loads unsigned kexts)</string>
+				<string>0x3 = SIP Partially Disabled (Allows unsigned Kexts to load. )</string>
 				<string>0x67 = SIP Disabled completely</string>
+				<string></string>
+				<string>Definition Credit: Apple, outdated Clover Wiki</string>
 				<string></string>
 			</array>
 		</dict>
@@ -1357,18 +1386,18 @@
 		<dict>
 			<key>Recommended Setting:</key>
 			<string>UseMacAddr0</string>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
 				<string>This Value is the Platform UUID or Hardware UUID (Universally Unique Identifier)</string>
 				<string>shown in macOS in System Information under Hardware Overview.</string>
 				<string></string>
-				<string>NOTE: iCloud / iMessage functionality requires each of the following Keys to be</string>
+				<string>NOTE: iCloud // iMessage functionality requires each of the following Keys to be</string>
 				<string>enabled with uniquely generated Values:</string>
-				<string>RtVariables-&gt;ROM = Platform / Hardware UUID</string>
-				<string>SMBIOS-&gt;BoardSerialNumber = Serial Number (processor tray)</string>
-				<string>SMBIOS-&gt;SerialNumber = Serial Number (system)</string>
-				<string>SMBIOS-&gt;SmUUID = System UUID</string>
-				<string>SystemParameters-&gt;InjectSystemID = System UUID</string>
+				<string>/RtVariables/ROM = Platform // Hardware UUID</string>
+				<string>/SMBIOS/BoardSerialNumber = Serial Number (processor tray)</string>
+				<string>/SMBIOS/SerialNumber = Serial Number (system)</string>
+				<string>/SMBIOS/SmUUID = System UUID</string>
+				<string>/SystemParameters/InjectSystemID = System UUID</string>
 				<string></string>
 				<string>Twelve hexadecimal digits, often corresponding to the unique MAC Address of</string>
 				<string>your Ethernet Card. According to several reports this value can also be random.</string>
@@ -1551,7 +1580,7 @@
 	</dict>
 	<key>#SMBIOS-DEFINITIONS</key>
 	<dict>
-		<key>DEFINITION COMMENTS</key>
+		<key>KEY DEFINITION // COMMENTS</key>
 		<array>
 			<string>This group of parameters is used to mask your PC as a Mac. Clover will do this</string>
 			<string>task automatically based on the given processor, video card and signs of mobility.</string>
@@ -1565,9 +1594,9 @@
 		<dict>
 			<key>Example Setting:</key>
 			<string>Use uuidgen in Terminal to generate a new random UUID to use for this Value.</string>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
-				<string>PREREQUISITE: SystemParameters-&gt;InjectSystemID MUST be defined, and enabled,</string>
+				<string>PREREQUISITE: /SystemParameters/InjectSystemID MUST be defined, and enabled,</string>
 				<string>for this Key to function correctly.</string>
 				<string></string>
 				<string>The purpose of these two Keys are to provide an way for Users to specify, or</string>
@@ -1580,13 +1609,13 @@
 				<string>SMBIOS table. This Value found in registry at IODeviceTree:/efi/platform&gt;system-id.</string>
 				<string>***This Value IS NOT the Hardware UUID displayed in macOS System Information***</string>
 				<string></string>
-				<string>NOTE: iCloud / iMessage functionality requires each of the following Keys to be</string>
+				<string>NOTE: iCloud // iMessage functionality requires each of the following Keys to be</string>
 				<string>enabled with uniquely generated Values:</string>
-				<string>RtVariables-&gt;ROM = Platform / Hardware UUID</string>
-				<string>SMBIOS-&gt;BoardSerialNumber = Serial Number (processor tray)</string>
-				<string>SMBIOS-&gt;SerialNumber = Serial Number (system)</string>
-				<string>SMBIOS-&gt;SmUUID = System UUID</string>
-				<string>SystemParameters-&gt;InjectSystemID = System UUID</string>
+				<string>/RtVariables/ROM = Platform // Hardware UUID</string>
+				<string>/SMBIOS/BoardSerialNumber = Serial Number (processor tray)</string>
+				<string>/SMBIOS/SerialNumber = Serial Number (system)</string>
+				<string>/SMBIOS/SmUUID = System UUID</string>
+				<string>/SystemParameters/InjectSystemID = System UUID</string>
 				<string></string>
 				<string>Definition Credit: bu11etpr00f</string>
 				<string></string>
@@ -1595,8 +1624,8 @@
 		<key>SerialNumber</key>
 		<dict>
 			<key>Recommended Setting:</key>
-			<string>Use Clover Configurator to generate a new unique Serial Number to use for this Value.</string>
-			<key>DEFINITION COMMENTS</key>
+			<string>Use Clover Configurator to generate a new unique SN to use for this Value.</string>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
 				<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
 				<string></string>
@@ -1606,13 +1635,13 @@
 				<string>This Value IS NOT the Serial Number (processor tray) shown in macOS</string>
 				<string>in System Information under Hardware Overview.</string>
 				<string></string>
-				<string>NOTE: iCloud / iMessage functionality requires each of the following Keys to be</string>
+				<string>NOTE: iCloud // iMessage functionality requires each of the following Keys to be</string>
 				<string>enabled with uniquely generated Values:</string>
-				<string>RtVariables-&gt;ROM = Platform / Hardware UUID</string>
-				<string>SMBIOS-&gt;BoardSerialNumber = Serial Number (processor tray)</string>
-				<string>SMBIOS-&gt;SerialNumber = Serial Number (system)</string>
-				<string>SMBIOS-&gt;SmUUID = System UUID</string>
-				<string>SystemParameters-&gt;InjectSystemID = System UUID</string>
+				<string>/RtVariables/ROM = Platform // Hardware UUID</string>
+				<string>/SMBIOS/BoardSerialNumber = Serial Number (processor tray)</string>
+				<string>/SMBIOS/SerialNumber = Serial Number (system)</string>
+				<string>/SMBIOS/SmUUID = System UUID</string>
+				<string>/SystemParameters/InjectSystemID = System UUID</string>
 				<string></string>
 				<string>Definition Credit: bu11etpr00f</string>
 				<string></string>
@@ -1622,11 +1651,11 @@
 		<dict>
 			<key>Example Setting:</key>
 			<string></string>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
 				<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
 				<string></string>
-				<string>SMBIOS.table2-&gt;SerialNumber</string>
+				<string>SMBIOS.table2&gt;SerialNumber</string>
 				<string></string>
 				<string>This Value IS the Serial Number (processor tray) shown in macOS</string>
 				<string>in System Information under Hardware Overview.</string>
@@ -1634,13 +1663,13 @@
 				<string>This Value IS NOT the Serial Number (system) shown in macOS</string>
 				<string>in System Information under Hardware Overview.</string>
 				<string></string>
-				<string>NOTE: iCloud / iMessage functionality requires each of the following Keys to be</string>
+				<string>NOTE: iCloud // iMessage functionality requires each of the following Keys to be</string>
 				<string>enabled with uniquely generated Values:</string>
-				<string>RtVariables-&gt;ROM = Platform / Hardware UUID</string>
-				<string>SMBIOS-&gt;BoardSerialNumber = Serial Number (processor tray)</string>
-				<string>SMBIOS-&gt;SerialNumber = Serial Number (system)</string>
-				<string>SMBIOS-&gt;SmUUID = System UUID</string>
-				<string>SystemParameters-&gt;InjectSystemID = System UUID</string>
+				<string>/RtVariables/ROM = Platform // Hardware UUID</string>
+				<string>/SMBIOS/BoardSerialNumber = Serial Number (processor tray)</string>
+				<string>/SMBIOS/SerialNumber = Serial Number (system)</string>
+				<string>/SMBIOS/SmUUID = System UUID</string>
+				<string>/SystemParameters/InjectSystemID = System UUID</string>
 				<string></string>
 				<string>Definition Credit: bu11etpr00f</string>
 				<string></string>
@@ -1649,10 +1678,10 @@
 		<key>ChassisAssetTag</key>
 		<dict>
 			<key>Example Setting:</key>
-			<string>Motherboard or Computer Model / SN / Service Tag</string>
-			<key>DEFINITION COMMENTS</key>
+			<string>Motherboard or Computer Model // SN // Service Tag</string>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
-				<string>SMBIOS.table3-&gt;AssetTag</string>
+				<string>SMBIOS.table3&gt;AssetTag</string>
 				<string></string>
 				<string>This field is never used with real Macs. We can use it for our own purposes.</string>
 				<string>e.g. in the HWSensors project.</string>
@@ -1665,7 +1694,7 @@
 			<false/>
 			<key>Default Setting:</key>
 			<false/>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
 				<string>Clover will automatically detect the mobility of a system; e.g. if is powered by</string>
 				<string>a battery, or requires energy saving or not. You can change this Value to trick</string>
@@ -1679,7 +1708,7 @@
 			<false/>
 			<key>Default Setting:</key>
 			<true/>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
 				<string>Used to give priority to memory descriptor values found in SMBIOS or SPD.</string>
 				<string>Change if your memory is described incorrectly in macOS System Information.</string>
@@ -1688,7 +1717,7 @@
 		</dict>
 		<key>Slots</key>
 		<dict>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
 				<string>&quot;AAPL,slot-name&quot; injector. It allows you to inject Device information into</string>
 				<string>the PCI section in macOS System Information.</string>
@@ -1705,7 +1734,7 @@
 					<string>ATI</string>
 					<key>Example Setting 1:</key>
 					<string>WIFI</string>
-					<key>DEFINITION COMMENTS</key>
+					<key>KEY DEFINITION // COMMENTS</key>
 					<array>
 						<string>For now, this Value can only be: ATI, NVidia, LAN, WIFI or Firewire.</string>
 						<string></string>
@@ -1717,7 +1746,7 @@
 					<string>0</string>
 					<key>Example Setting 1:</key>
 					<integer>1</integer>
-					<key>DEFINITION COMMENTS</key>
+					<key>KEY DEFINITION // COMMENTS</key>
 					<array>
 						<string>Must be the same number defined in your DSDT in &quot;_SUN&quot;.</string>
 						<string></string>
@@ -1729,7 +1758,7 @@
 					<string>PCIe Slot 0</string>
 					<key>Example Setting 1:</key>
 					<string>Airport</string>
-					<key>DEFINITION COMMENTS</key>
+					<key>KEY DEFINITION // COMMENTS</key>
 					<array>
 						<string>The string you want to assign to &quot;AAPL,slot-name&quot;.</string>
 						<string></string>
@@ -1741,7 +1770,7 @@
 					<string>16</string>
 					<key>Example Setting 1:</key>
 					<string>1</string>
-					<key>DEFINITION COMMENTS</key>
+					<key>KEY DEFINITION // COMMENTS</key>
 					<array>
 						<string>Set to 0 for PCI, 1 for PCIe 1x, 2 for PCIe 2x ... 16 for PCIe 16x, etc.</string>
 						<string></string>
@@ -1751,7 +1780,7 @@
 		</dict>
 		<key>Memory</key>
 		<dict>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
 				<string>Inject custom memory module tables into SMBIOS if original SPD and SMBIOS</string>
 				<string>provide incorrect or incomplete information.</string>
@@ -1761,7 +1790,7 @@
 			<dict>
 				<key>Example Setting:</key>
 				<string>4</string>
-				<key>DEFINITION COMMENTS</key>
+				<key>KEY DEFINITION // COMMENTS</key>
 				<array>
 					<string>Number of Hardware Channels supported by your Memory Chipset.</string>
 					<string>Usually 2 for 16-32GB Max; 4 for 64GB Max. See Motherboard Documentation.</string>
@@ -1770,7 +1799,7 @@
 			</dict>
 			<key>Modules</key>
 			<dict>
-				<key>DEFINITION COMMENTS</key>
+				<key>KEY DEFINITION // COMMENTS</key>
 				<array>
 					<string>Array of INSTALLED Memory Modules. Don&apos;t add Entries for EMPTY Slots.</string>
 					<string></string>
@@ -1781,7 +1810,7 @@
 					<dict>
 						<key>Example Setting:</key>
 						<string>1,600</string>
-						<key>DEFINITION COMMENTS</key>
+						<key>KEY DEFINITION // COMMENTS</key>
 						<array>
 							<string>The Memory Module&apos;s Speed in Megahertz.</string>
 							<string></string>
@@ -1791,7 +1820,7 @@
 					<dict>
 						<key>Example Setting:</key>
 						<string>PV316G160C9K</string>
-						<key>DEFINITION COMMENTS</key>
+						<key>KEY DEFINITION // COMMENTS</key>
 						<array>
 							<string>The Memory Module&apos;s Part Number Identifier.</string>
 							<string></string>
@@ -1801,7 +1830,7 @@
 					<dict>
 						<key>Example Setting:</key>
 						<string>8,192</string>
-						<key>DEFINITION COMMENTS</key>
+						<key>KEY DEFINITION // COMMENTS</key>
 						<array>
 							<string>The Memory Module&apos;s Size in Megabytes.</string>
 							<string></string>
@@ -1811,7 +1840,7 @@
 					<dict>
 						<key>Example Setting:</key>
 						<string>0</string>
-						<key>DEFINITION COMMENTS</key>
+						<key>KEY DEFINITION // COMMENTS</key>
 						<array>
 							<string>The Physical Slot Locate in which the Memory Module is</string>
 							<string>installed. (e.g. 0-7)</string>
@@ -1822,7 +1851,7 @@
 					<dict>
 						<key>Example Setting:</key>
 						<string>Optional Setting (Not Required)</string>
-						<key>DEFINITION COMMENTS</key>
+						<key>KEY DEFINITION // COMMENTS</key>
 						<array>
 							<string>The Memory Module&apos;s Serial Number.</string>
 							<string></string>
@@ -1832,7 +1861,7 @@
 					<dict>
 						<key>Example Setting:</key>
 						<string>DDR3</string>
-						<key>DEFINITION COMMENTS</key>
+						<key>KEY DEFINITION // COMMENTS</key>
 						<array>
 							<string>The Memory Module&apos;s Type.</string>
 							<string></string>
@@ -1842,7 +1871,7 @@
 					<dict>
 						<key>Example Setting:</key>
 						<string>Patriot</string>
-						<key>DEFINITION COMMENTS</key>
+						<key>KEY DEFINITION // COMMENTS</key>
 						<array>
 							<string>The Memory Module&apos;s Manufacturer Name.</string>
 							<string></string>
@@ -1854,7 +1883,7 @@
 			<dict>
 				<key>Example Setting:</key>
 				<string>8</string>
-				<key>DEFINITION COMMENTS</key>
+				<key>KEY DEFINITION // COMMENTS</key>
 				<array>
 					<string>Total count of memory slots in your system. Max 24 (for now).</string>
 					<string></string>
@@ -1865,9 +1894,9 @@
 		<dict>
 			<key>Example Setting:</key>
 			<string>MacPro6,1</string>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
-				<string>SMBIOS.table1-&gt;ProductName</string>
+				<string>SMBIOS.table1&gt;ProductName</string>
 				<string></string>
 				<string>Setting this value will enable Clover to automatically generate dependent</string>
 				<string>parameters related to the model specified, so you can leave them out.</string>
@@ -1913,9 +1942,9 @@
 		<dict>
 			<key>Example Setting for MacPro6,1:</key>
 			<string>09/17/2018</string>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
-				<string>Automatically generated by the SMBIOS-&gt;ProductName Value, or</string>
+				<string>Automatically generated by the /SMBIOS/ProductName Key Value, or</string>
 				<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
 				<string></string>
 			</array>
@@ -1924,9 +1953,9 @@
 		<dict>
 			<key>Example Setting for MacPro6,1:</key>
 			<string>Apple Inc.</string>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
-				<string>Automatically generated by the SMBIOS-&gt;ProductName Value, or</string>
+				<string>Automatically generated by the /SMBIOS/ProductName Key Value, or</string>
 				<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
 				<string></string>
 			</array>
@@ -1935,9 +1964,9 @@
 		<dict>
 			<key>Example Setting for MacPro6,1:</key>
 			<string>MP61.88Z.0125.B00.1809171517</string>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
-				<string>Automatically generated by the SMBIOS-&gt;ProductName Value, or</string>
+				<string>Automatically generated by the /SMBIOS/ProductName Key Value, or</string>
 				<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
 				<string></string>
 			</array>
@@ -1946,9 +1975,9 @@
 		<dict>
 			<key>Example Setting for MacPro6,1:</key>
 			<string>Mac-F60DEB81FF30ACF6</string>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
-				<string>Automatically generated by the SMBIOS-&gt;ProductName Value, or</string>
+				<string>Automatically generated by the /SMBIOS/ProductName Key Value, or</string>
 				<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
 				<string></string>
 			</array>
@@ -1957,9 +1986,9 @@
 		<dict>
 			<key>Example Setting for MacPro6,1:</key>
 			<string>Apple Inc.</string>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
-				<string>Automatically generated by the SMBIOS-&gt;ProductName Value, or</string>
+				<string>Automatically generated by the /SMBIOS/ProductName Key Value, or</string>
 				<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
 				<string></string>
 			</array>
@@ -1968,9 +1997,9 @@
 		<dict>
 			<key>Example Setting for MacPro6,1:</key>
 			<string>11</string>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
-				<string>Automatically generated by the SMBIOS-&gt;ProductName Value, or</string>
+				<string>Automatically generated by the /SMBIOS/ProductName Key Value, or</string>
 				<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
 				<string></string>
 			</array>
@@ -1979,9 +2008,9 @@
 		<dict>
 			<key>Example Setting for MacPro6,1:</key>
 			<string>MacPro6,1</string>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
-				<string>Automatically generated by the SMBIOS-&gt;ProductName Value, or</string>
+				<string>Automatically generated by the /SMBIOS/ProductName Key Value, or</string>
 				<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
 				<string></string>
 			</array>
@@ -1990,9 +2019,9 @@
 		<dict>
 			<key>Example Setting for MacPro6,1:</key>
 			<string>Apple Inc.</string>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
-				<string>Automatically generated by the SMBIOS-&gt;ProductName Value, or</string>
+				<string>Automatically generated by the /SMBIOS/ProductName Key Value, or</string>
 				<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
 				<string></string>
 			</array>
@@ -2001,11 +2030,11 @@
 		<dict>
 			<key>Example Setting for MacPro6,1:</key>
 			<string>0x02</string>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
-				<string>SMBIOS.table3-&gt;Type</string>
+				<string>SMBIOS.table3&gt;Type</string>
 				<string></string>
-				<string>Automatically generated by the SMBIOS-&gt;ProductName Value, or</string>
+				<string>Automatically generated by the /SMBIOS/ProductName Key Value, or</string>
 				<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
 				<string></string>
 				<string>Used as an indirect indication for platform mobility. Clover will use a value</string>
@@ -2018,9 +2047,9 @@
 		<dict>
 			<key>Example Setting for MacPro6,1:</key>
 			<string>MacPro</string>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
-				<string>Automatically generated by the SMBIOS-&gt;ProductName Value, or</string>
+				<string>Automatically generated by the /SMBIOS/ProductName Key Value, or</string>
 				<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
 				<string></string>
 				<string>Equal to model without model number.</string>
@@ -2031,11 +2060,11 @@
 		<dict>
 			<key>Example Setting for MacPro6,1:</key>
 			<string>0xE80FE136</string>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
-				<string>SMBIOS.table128-&gt;FirmwareFeatures</string>
+				<string>SMBIOS.table128&gt;FirmwareFeatures</string>
 				<string></string>
-				<string>Automatically generated by the SMBIOS-&gt;ProductName Value, or</string>
+				<string>Automatically generated by the /SMBIOS/ProductName Key Value, or</string>
 				<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
 				<string></string>
 			</array>
@@ -2044,9 +2073,9 @@
 		<dict>
 			<key>Example Setting for MacPro6,1:</key>
 			<string>0xFF1FFF3F</string>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
-				<string>Automatically generated by the SMBIOS-&gt;ProductName Value, or</string>
+				<string>Automatically generated by the /SMBIOS/ProductName Key Value, or</string>
 				<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
 				<string></string>
 			</array>
@@ -2055,9 +2084,9 @@
 		<dict>
 			<key>Example Setting for MacPro6,1:</key>
 			<string>Part Component</string>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
-				<string>Automatically generated by the SMBIOS-&gt;ProductName Value, or</string>
+				<string>Automatically generated by the /SMBIOS/ProductName Key Value, or</string>
 				<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
 				<string></string>
 			</array>
@@ -2066,9 +2095,9 @@
 		<dict>
 			<key>Example Setting for MacPro6,1:</key>
 			<string>Apple Inc.</string>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
-				<string>Automatically generated by the SMBIOS-&gt;ProductName Value, or</string>
+				<string>Automatically generated by the /SMBIOS/ProductName Key Value, or</string>
 				<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
 				<string></string>
 			</array>
@@ -2077,9 +2106,9 @@
 		<dict>
 			<key>Example Setting for MacPro6,1:</key>
 			<string>0x04</string>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
-				<string>Automatically generated by the SMBIOS-&gt;ProductName Value, or</string>
+				<string>Automatically generated by the /SMBIOS/ProductName Key Value, or</string>
 				<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
 				<string></string>
 			</array>
@@ -2088,9 +2117,9 @@
 		<dict>
 			<key>Example Setting for MacPro6,1:</key>
 			<string>1.0</string>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
-				<string>Automatically generated by the SMBIOS-&gt;ProductName Value, or</string>
+				<string>Automatically generated by the /SMBIOS/ProductName Key Value, or</string>
 				<string>Can be automatically generated by Clover Configurator SMBIOS Selection.</string>
 				<string></string>
 			</array>
@@ -2104,12 +2133,12 @@
 			<true/>
 			<key>Default Setting:</key>
 			<true/>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
 				<string>Global Policy. This Key regulates Kext Injection.</string>
-				<string>Yes or &lt;true/&gt; - Always inject kexts from /EFI/CLOVER/kexts/</string>
+				<string>Yes or &lt;true/&gt; - Always inject kexts from EFI/CLOVER/kexts/</string>
 				<string>No or &lt;false/&gt; - Never inject kexts</string>
-				<string>Detect - Kexts from /EFI/CLOVER/kexts/ will be injected only if FakeSMC is not</string>
+				<string>Detect - Kexts from EFI/CLOVER/kexts/ will be injected only if FakeSMC is not</string>
 				<string>present in the kernelcache.</string>
 				<string></string>
 				<string>Any conflicting Value defined in any &quot;Custom Entries&quot; will</string>
@@ -2123,28 +2152,28 @@
 			<true/>
 			<key>Default Setting:</key>
 			<false/>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
 				<string>NOTE: This Key MUST be defined, and enabled, in order to use the Key:</string>
-				<string>SMBIOS-&gt;SmUUID.</string>
+				<string>/SMBIOS/SmUUID</string>
 				<string></string>
 				<string>The purpose of these two Keys are to provide an way for Users to specify, or</string>
 				<string>continue using thier existing (Chameleon) System UUID.</string>
 				<string></string>
 				<string>Use uuidgen in Terminal to generate a new random UUID to use for the</string>
-				<string>SMBIOS-&gt;SmUUID Value, or use your existing (Chamelon) System UUID.</string>
+				<string>/SMBIOS/SmUUID Value, or use your existing (Chamelon) System UUID.</string>
 				<string></string>
 				<string>This is the System UUID (Universally Unique Identifier), which is written into the</string>
 				<string>SMBIOS table. This Value found in registry at IODeviceTree:/efi/platform&gt;system-id.</string>
 				<string>***This Value IS NOT the Hardware UUID displayed in macOS System Information***</string>
 				<string></string>
-				<string>NOTE: iCloud / iMessage functionality requires each of the following Keys to be</string>
+				<string>NOTE: iCloud // iMessage functionality requires each of the following Keys to be</string>
 				<string>enabled with uniquely generated Values:</string>
-				<string>RtVariables-&gt;ROM = Platform / Hardware UUID</string>
-				<string>SMBIOS-&gt;BoardSerialNumber = Serial Number (processor tray)</string>
-				<string>SMBIOS-&gt;SerialNumber = Serial Number (system)</string>
-				<string>SMBIOS-&gt;SmUUID = System UUID</string>
-				<string>SystemParameters-&gt;InjectSystemID = System UUID</string>
+				<string>/RtVariables/ROM = Platform // Hardware UUID</string>
+				<string>/SMBIOS/BoardSerialNumber = Serial Number (processor tray)</string>
+				<string>/SMBIOS/SerialNumber = Serial Number (system)</string>
+				<string>/SMBIOS/SmUUID = System UUID</string>
+				<string>/SystemParameters/InjectSystemID = System UUID</string>
 				<string></string>
 			</array>
 		</dict>
@@ -2154,7 +2183,7 @@
 			<true/>
 			<key>Default Setting:</key>
 			<false/>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
 				<string>Global Policy. If enabled, this Key will force the Cache to be skipped during</string>
 				<string>each boot. Any conflicting Value defined in any &quot;Custom Entries&quot; will</string>
@@ -2168,7 +2197,7 @@
 			<true/>
 			<key>Default Setting:</key>
 			<false/>
-			<key>DEFINITION COMMENTS</key>
+			<key>KEY DEFINITION // COMMENTS</key>
 			<array>
 				<string>Global Policy. If enabled, this Key will enable macOS &gt;= 10.12 to load and use</string>
 				<string>NVIDIA&apos;s WebDriver Ketxts.</string>
