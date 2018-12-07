@@ -4,6 +4,8 @@
 <dict>
 	<key>#ACPI</key>
 	<dict>
+		<key>AutoMerge</key>
+		<true/>
 		<key>HaltEnabler</key>
 		<dict>
 			<key>Default Setting:</key>
@@ -15,8 +17,106 @@
 				<string></string>
 			</array>
 		</dict>
+		<key>FixHeaders</key>
+		<dict>
+			<key>Example Setting:</key>
+			<true/>
+			<key>KEY DEFINITION // COMMENTS</key>
+			<array>
+				<string>Rev 4427-4429</string>
+				<string></string>
+				<string>FixHeaders should be in common ACPI section, it is not DSDT-only fix.</string>
+				<string>The FIX is recommended to all users even if you are not going to fix DSDT.</string>
+				<string>Anyway the fix is safe.</string>
+				<string></string>
+				<string>Old setting inside DSDT fixes remains for backward compatibility</string>
+				<string>but I recommend to exclude it from those section.</string>
+				<string></string>
+				<string>Definition Credit: Slice</string>
+				<string>http://bit.ly/FixHeaders</string>
+				<string></string>
+			</array>
+		</dict>
+		<key>FixMCFG</key>
+		<true/>
+		<key>PatchAPIC</key>
+		<true/>
 		<key>DSDT</key>
 		<dict>
+			<key>Debug</key>
+			<false/>
+			<key>DropOEM_DSM</key>
+			<dict>
+				<key>KEY DEFINITION // COMMENTS</key>
+				<array>
+					<string>Some OEM DSDT already contains Method(_DSM...) for some devices.</string>
+					<string>It has another structure, another logic, and another results then we need.</string>
+					<string>But we can&apos;t modify this method, and we can&apos;t create own method with the</string>
+					<string>same name, so DropOEM_DSM was created to drop these OEM _DSM.</string>
+					<string></string>
+					<string>Default value is false if using a custom DSDT and true if using BIOS.aml.</string>
+					<string></string>
+					<string>Alternatively if you only need to drop the _DSM for certain devices, you</string>
+					<string>can select any of these individually:</string>
+					<string></string>
+				</array>
+				<key>Example Setting 0</key>
+				<false/>
+				<key>Example Setting 1</key>
+				<dict>
+					<key>ATI</key>
+					<true/>
+					<key>Firewire</key>
+					<true/>
+					<key>HDA</key>
+					<true/>
+					<key>HDMI</key>
+					<true/>
+					<key>IDE</key>
+					<true/>
+					<key>IntelGFX</key>
+					<true/>
+					<key>LAN</key>
+					<true/>
+					<key>LPC</key>
+					<true/>
+					<key>NVidia</key>
+					<true/>
+					<key>SATA</key>
+					<true/>
+					<key>SmBUS</key>
+					<true/>
+					<key>USB</key>
+					<true/>
+					<key>WIFI</key>
+					<true/>
+				</dict>
+			</dict>
+			<key>Name</key>
+			<dict>
+				<key>Example Setting:</key>
+				<string>DSDT.aml</string>
+				<key>KEY DEFINITION // COMMENTS</key>
+				<array>
+					<string>File name of the binary DSDT file to load and inject.</string>
+				</array>
+			</dict>
+			<key>ReuseFFFF</key>
+			<dict>
+				<key>Recommended Setting:</key>
+				<false/>
+				<key>Default Setting:</key>
+				<false/>
+				<key>KEY DEFINITION // COMMENTS</key>
+				<array>
+					<string>Some OEM DSDT contains some device with Name (_ADR, 0xFFFF).</string>
+					<string>This is a big problem as I can convert it to ADR=0 and inject properties</string>
+					<string>but this is dangerous patch, it may lead to panic on IOPCIFamily.kext.</string>
+					<string>So this key is proposed which will convert this device to (ADR, 0) and</string>
+					<string>reused for injection. (FakeID for example).</string>
+					<string></string>
+				</array>
+			</dict>
 			<key>#Fixes</key>
 			<dict>
 				<key>KEY DEFINITION // COMMENTS</key>
@@ -309,64 +409,6 @@
 					</array>
 				</dict>
 			</dict>
-			<key>Debug</key>
-			<false/>
-			<key>DropOEM_DSM</key>
-			<dict>
-				<key>KEY DEFINITION // COMMENTS</key>
-				<array>
-					<string>Some OEM DSDT already contains Method(_DSM...) for some devices.</string>
-					<string>It has another structure, another logic, and another results then we need.</string>
-					<string>But we can&apos;t modify this method, and we can&apos;t create own method with the</string>
-					<string>same name, so DropOEM_DSM was created to drop these OEM _DSM.</string>
-					<string></string>
-					<string>Default value is false if using a custom DSDT and true if using BIOS.aml.</string>
-					<string></string>
-					<string>Alternatively if you only need to drop the _DSM for certain devices, you</string>
-					<string>can select any of these individually:</string>
-					<string></string>
-				</array>
-				<key>Example Setting 0</key>
-				<false/>
-				<key>Example Setting 1</key>
-				<dict>
-					<key>ATI</key>
-					<true/>
-					<key>Firewire</key>
-					<true/>
-					<key>HDA</key>
-					<true/>
-					<key>HDMI</key>
-					<true/>
-					<key>IDE</key>
-					<true/>
-					<key>IntelGFX</key>
-					<true/>
-					<key>LAN</key>
-					<true/>
-					<key>LPC</key>
-					<true/>
-					<key>NVidia</key>
-					<true/>
-					<key>SATA</key>
-					<true/>
-					<key>SmBUS</key>
-					<true/>
-					<key>USB</key>
-					<true/>
-					<key>WIFI</key>
-					<true/>
-				</dict>
-			</dict>
-			<key>Name</key>
-			<dict>
-				<key>Example Setting:</key>
-				<string>DSDT.aml</string>
-				<key>KEY DEFINITION // COMMENTS</key>
-				<array>
-					<string>File name of the binary DSDT file to load and inject.</string>
-				</array>
-			</dict>
 			<key>Patches</key>
 			<dict>
 				<key>KEY DEFINITION // COMMENTS</key>
@@ -451,22 +493,6 @@
 					<data>SU1FSQ==</data>
 				</dict>
 			</dict>
-			<key>ReuseFFFF</key>
-			<dict>
-				<key>Recommended Setting:</key>
-				<false/>
-				<key>Default Setting:</key>
-				<false/>
-				<key>KEY DEFINITION // COMMENTS</key>
-				<array>
-					<string>Some OEM DSDT contains some device with Name (_ADR, 0xFFFF).</string>
-					<string>This is a big problem as I can convert it to ADR=0 and inject properties</string>
-					<string>but this is dangerous patch, it may lead to panic on IOPCIFamily.kext.</string>
-					<string>So this key is proposed which will convert this device to (ADR, 0) and</string>
-					<string>reused for injection. (FakeID for example).</string>
-					<string></string>
-				</array>
-			</dict>
 		</dict>
 		<key>DropTables</key>
 		<dict>
@@ -497,29 +523,21 @@
 					<string></string>
 				</array>
 			</dict>
+			<key>Item 2</key>
+			<dict>
+				<key>Signature</key>
+				<string>SSDT</string>
+				<key>TableId</key>
+				<string>CpuPm</string>
+			</dict>
+			<key>Item 3</key>
+			<dict>
+				<key>Signature</key>
+				<string>SSDT</string>
+				<key>TableId</key>
+				<string>Cpu0Ist</string>
+			</dict>
 		</dict>
-		<key>FixHeaders</key>
-		<dict>
-			<key>Example Setting:</key>
-			<true/>
-			<key>KEY DEFINITION // COMMENTS</key>
-			<array>
-				<string>Rev 4427-4429</string>
-				<string></string>
-				<string>FixHeaders should be in common ACPI section, it is not DSDT-only fix.</string>
-				<string>The FIX is recommended to all users even if you are not going to fix DSDT.</string>
-				<string>Anyway the fix is safe.</string>
-				<string></string>
-				<string>Old setting inside DSDT fixes remains for backward compatibility</string>
-				<string>but I recommend to exclude it from those section.</string>
-				<string></string>
-				<string>Definition Credit: Slice</string>
-				<string>http://bit.ly/FixHeaders</string>
-				<string></string>
-			</array>
-		</dict>
-		<key>PatchAPIC</key>
-		<true/>
 		<key>SSDT</key>
 		<dict>
 			<key>DropOem</key>
@@ -535,6 +553,10 @@
 					<string></string>
 				</array>
 			</dict>
+			<key>NoDynamicExtract</key>
+			<true/>
+			<key>NoOemTableId</key>
+			<true/>
 			<key>EnableC2</key>
 			<true/>
 			<key>EnableC4</key>
@@ -622,6 +644,8 @@
 				<key>darkwake=11</key>
 				<string>???</string>
 			</dict>
+			<key>debug=0x100</key>
+			<string></string>
 			<key>-gux_nosleep</key>
 			<string>Forces Sleep to always use the shutdown // reset method.</string>
 			<key>-gux_nomsi</key>
@@ -641,6 +665,8 @@
 				<string>Disables some feature for idle-mode on Intel&apos;s chip.</string>
 				<string>DEV NOTE: &quot;I couldn&apos;t test this, so I added an option to disable it.&quot;</string>
 			</array>
+			<key>keepsyms=1</key>
+			<string></string>
 			<key>kext-dev-mode=1</key>
 			<array>
 				<string>OBSOLETE for macOS &gt;= 10.11.</string>
@@ -779,6 +805,8 @@
 				<string></string>
 			</array>
 		</dict>
+		<key>Type</key>
+		<string></string>
 	</dict>
 	<key>#Devices</key>
 	<dict>
@@ -842,24 +870,6 @@
 		</dict>
 		<key>Language</key>
 		<string>en:0</string>
-		<key>Mouse</key>
-		<dict>
-			<key>Enabled</key>
-			<false/>
-			<key>Speed</key>
-			<integer>8</integer>
-		</dict>
-		<key>Scan</key>
-		<dict>
-			<key>Entries</key>
-			<true/>
-			<key>Legacy</key>
-			<true/>
-			<key>Linux</key>
-			<true/>
-			<key>Tool</key>
-			<false/>
-		</dict>
 		<key>Theme</key>
 		<dict>
 			<key>Example Setting:</key>
@@ -881,6 +891,24 @@
 				<string>http://bit.ly/EmbeddedThemeType</string>
 				<string></string>
 			</array>
+		</dict>
+		<key>Mouse</key>
+		<dict>
+			<key>Enabled</key>
+			<false/>
+			<key>Speed</key>
+			<integer>8</integer>
+		</dict>
+		<key>Scan</key>
+		<dict>
+			<key>Entries</key>
+			<true/>
+			<key>Legacy</key>
+			<true/>
+			<key>Linux</key>
+			<true/>
+			<key>Tool</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>#Graphics</key>
@@ -1124,17 +1152,6 @@
 				<string></string>
 			</array>
 		</dict>
-		<key>BootPatches</key>
-		<dict>
-			<key>KEY DEFINITION // COMMENTS</key>
-			<array>
-				<string>Optional Setting:</string>
-				<string>See #KernelAndKextPatches-EXAMPLES</string>
-				<string></string>
-				<string>NO DESCRIPTION ON WIKI (from config-sample.plist)</string>
-				<string></string>
-			</array>
-		</dict>
 		<key>Debug</key>
 		<dict>
 			<key>Recommended Setting:</key>
@@ -1285,6 +1302,17 @@
 				<string></string>
 			</array>
 		</dict>
+		<key>BootPatches</key>
+		<dict>
+			<key>KEY DEFINITION // COMMENTS</key>
+			<array>
+				<string>Optional Setting:</string>
+				<string>See #KernelAndKextPatches-EXAMPLES</string>
+				<string></string>
+				<string>NO DESCRIPTION ON WIKI (from config-sample.plist)</string>
+				<string></string>
+			</array>
+		</dict>
 		<key>ForceKextsToLoad</key>
 		<dict>
 			<key>KEY DEFINITION // COMMENTS</key>
@@ -1348,6 +1376,51 @@
 				<string>AMD6000Controller</string>
 				<key>Replace</key>
 				<data>BAAAABQCAAAAAQAAAAAEBAAEAAAEAwAAAAEAABECAQUAAAAAAAAAAAAAAAAAAAAA</data>
+			</dict>
+			<key>Patch Assertions</key>
+			<dict>
+				<key>Comment</key>
+				<string>Patch Assertions</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>U291bmQgYXNzZXJ0aW9uIA==</data>
+				<key>InfoPlistPatch</key>
+				<false/>
+				<key>Name</key>
+				<string>com.apple.driver.AppleMikeyDriver</string>
+				<key>Replace</key>
+				<data>AAAAAAAAAAAAAAAAAAAAAA==</data>
+			</dict>
+			<key>Prevent AGDP from loading</key>
+			<dict>
+				<key>Comment</key>
+				<string>Prevent AGDP from loading</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>ugUAAAA=</data>
+				<key>InfoPlistPatch</key>
+				<false/>
+				<key>Name</key>
+				<string>com.apple.driver.AppleGraphicsDevicePolicy</string>
+				<key>Replace</key>
+				<data>ugAAAAA=</data>
+			</dict>
+			<key>ALPM IO Error AppleAHCIPort</key>
+			<dict>
+				<key>Comment</key>
+				<string>ALPM IO Error AppleAHCIPort</string>
+				<key>Disabled</key>
+				<true/>
+				<key>Find</key>
+				<data>QGACAA==</data>
+				<key>InfoPlistPatch</key>
+				<false/>
+				<key>Name</key>
+				<string>com.apple.driver.AppleAHCIPort</string>
+				<key>Replace</key>
+				<data>AAAAAA==</data>
 			</dict>
 		</dict>
 	</dict>
@@ -1426,6 +1499,8 @@
 		<string></string>
 		<key>ChassisAssetTag</key>
 		<string></string>
+		<key>ProductName</key>
+		<string>MacPro6,1</string>
 		<key>Mobile</key>
 		<false/>
 		<key>Trust</key>
@@ -1457,6 +1532,8 @@
 		<dict>
 			<key>Channels</key>
 			<integer>4</integer>
+			<key>SlotCount</key>
+			<integer>8</integer>
 			<key>Modules</key>
 			<array>
 				<dict>
@@ -1572,11 +1649,7 @@
 					<string>Patriot</string>
 				</dict>
 			</array>
-			<key>SlotCount</key>
-			<integer>8</integer>
 		</dict>
-		<key>ProductName</key>
-		<string>MacPro6,1</string>
 	</dict>
 	<key>#SMBIOS-DEFINITIONS</key>
 	<dict>
@@ -1685,6 +1758,54 @@
 				<string></string>
 				<string>This field is never used with real Macs. We can use it for our own purposes.</string>
 				<string>e.g. in the HWSensors project.</string>
+				<string></string>
+			</array>
+		</dict>
+		<key>ProductName</key>
+		<dict>
+			<key>Example Setting:</key>
+			<string>MacPro6,1</string>
+			<key>KEY DEFINITION // COMMENTS</key>
+			<array>
+				<string>SMBIOS.table1&gt;ProductName</string>
+				<string></string>
+				<string>Setting this value will enable Clover to automatically generate dependent</string>
+				<string>parameters related to the model specified, so you can leave them out.</string>
+				<string></string>
+				<string>NOTE: Custom values will be preferred over generated ones.</string>
+				<string></string>
+				<string>Generated Values: BiosReleaseDate, BiosVendor, BiosVersion, Board-ID,</string>
+				<string>BoardManufacturer, BoardType, BoardVersion, ChassisManufacturer, ChassisType,</string>
+				<string>Family, FirmwareFeatures, FirmwareFeaturesMask, LocationInChassis,</string>
+				<string>Manufacturer, PlatformFeature, Version</string>
+				<string></string>
+				<string>Clover has built-in definitions for following models:</string>
+				<string>MacBook1,1   MacBook2,1   MacBook4,1   MacBook5,1   MacBook5,2</string>
+				<string>MacBook6,1   MacBook7,1   MacBook8,1   MacBook9,1 MacBook10,1</string>
+				<string></string>
+				<string>MacBookPro5,1   MacBookPro5,2   MacBookPro5,3   MacBookPro5,4</string>
+				<string>MacBookPro5,5   MacBookPro6,1   MacBookPro6,2   MacBookPro7,1</string>
+				<string>MacBookPro8,1   MacBookPro8,2   MacBookPro8,3   MacBookPro9,1</string>
+				<string>MacBookPro9,2   MacBookPro10,1   MacBookPro10,2   MacBookPro11,1</string>
+				<string>MacBookPro11,2   MacBookPro11,3   MacBookPro11,4   MacBookPro11,5</string>
+				<string>MacBookPro12,1   MacBookPro13,1   MacBookPro13,2   MacBookPro13,3</string>
+				<string>MacBookPro14,1   MacBookPro14,2   MacBookPro14,3   MacBookPro15,1</string>
+				<string>MacBookPro15,2</string>
+				<string></string>
+				<string>MacBookAir3,1   MacBookAir3,2   MacBookAir4,1   MacBookAir4,2</string>
+				<string>MacBookAir5,1   MacBookAir5,2   MacBookAir6,1   MacBookAir6,2</string>
+				<string>MacBookAir7,1   MacBookAir7,2</string>
+				<string></string>
+				<string>Macmini2,1   Macmini3,1   Macmini4,1   Macmini5,1   Macmini5,2   Macmini5,3</string>
+				<string>Macmini6,1   Macmini6,2   Macmini7,1</string>
+				<string></string>
+				<string>iMac8,1   iMac10,1   iMac11,1   iMac11,2   iMac11,3   iMac12,1   iMac12,2</string>
+				<string>iMac13,1   iMac13,2   iMac13,3   iMac14,1   iMac14,2   iMac14,3   iMac14,4</string>
+				<string>iMac15,1   iMac16,1   iMac16.2   iMac17,1   iMac18,1   iMac18,2   iMac18,3</string>
+				<string></string>
+				<string>iMacPro,1,</string>
+				<string></string>
+				<string>MacPro3,1   MacPro4,1   MacPro5,1   MacPro6,1</string>
 				<string></string>
 			</array>
 		</dict>
@@ -1797,6 +1918,16 @@
 					<string></string>
 				</array>
 			</dict>
+			<key>SlotCount</key>
+			<dict>
+				<key>Example Setting:</key>
+				<string>8</string>
+				<key>KEY DEFINITION // COMMENTS</key>
+				<array>
+					<string>Total count of memory slots in your system. Max 24 (for now).</string>
+					<string></string>
+				</array>
+			</dict>
 			<key>Modules</key>
 			<dict>
 				<key>KEY DEFINITION // COMMENTS</key>
@@ -1879,64 +2010,6 @@
 					</dict>
 				</dict>
 			</dict>
-			<key>SlotCount</key>
-			<dict>
-				<key>Example Setting:</key>
-				<string>8</string>
-				<key>KEY DEFINITION // COMMENTS</key>
-				<array>
-					<string>Total count of memory slots in your system. Max 24 (for now).</string>
-					<string></string>
-				</array>
-			</dict>
-		</dict>
-		<key>ProductName</key>
-		<dict>
-			<key>Example Setting:</key>
-			<string>MacPro6,1</string>
-			<key>KEY DEFINITION // COMMENTS</key>
-			<array>
-				<string>SMBIOS.table1&gt;ProductName</string>
-				<string></string>
-				<string>Setting this value will enable Clover to automatically generate dependent</string>
-				<string>parameters related to the model specified, so you can leave them out.</string>
-				<string></string>
-				<string>NOTE: Custom values will be preferred over generated ones.</string>
-				<string></string>
-				<string>Generated Values: BiosReleaseDate, BiosVendor, BiosVersion, Board-ID,</string>
-				<string>BoardManufacturer, BoardType, BoardVersion, ChassisManufacturer, ChassisType,</string>
-				<string>Family, FirmwareFeatures, FirmwareFeaturesMask, LocationInChassis,</string>
-				<string>Manufacturer, PlatformFeature, Version</string>
-				<string></string>
-				<string>Clover has built-in definitions for following models:</string>
-				<string>MacBook1,1   MacBook2,1   MacBook4,1   MacBook5,1   MacBook5,2</string>
-				<string>MacBook6,1   MacBook7,1   MacBook8,1   MacBook9,1 MacBook10,1</string>
-				<string></string>
-				<string>MacBookPro5,1   MacBookPro5,2   MacBookPro5,3   MacBookPro5,4</string>
-				<string>MacBookPro5,5   MacBookPro6,1   MacBookPro6,2   MacBookPro7,1</string>
-				<string>MacBookPro8,1   MacBookPro8,2   MacBookPro8,3   MacBookPro9,1</string>
-				<string>MacBookPro9,2   MacBookPro10,1   MacBookPro10,2   MacBookPro11,1</string>
-				<string>MacBookPro11,2   MacBookPro11,3   MacBookPro11,4   MacBookPro11,5</string>
-				<string>MacBookPro12,1   MacBookPro13,1   MacBookPro13,2   MacBookPro13,3</string>
-				<string>MacBookPro14,1   MacBookPro14,2   MacBookPro14,3   MacBookPro15,1</string>
-				<string>MacBookPro15,2</string>
-				<string></string>
-				<string>MacBookAir3,1   MacBookAir3,2   MacBookAir4,1   MacBookAir4,2</string>
-				<string>MacBookAir5,1   MacBookAir5,2   MacBookAir6,1   MacBookAir6,2</string>
-				<string>MacBookAir7,1   MacBookAir7,2</string>
-				<string></string>
-				<string>Macmini2,1   Macmini3,1   Macmini4,1   Macmini5,1   Macmini5,2   Macmini5,3</string>
-				<string>Macmini6,1   Macmini6,2   Macmini7,1</string>
-				<string></string>
-				<string>iMac8,1   iMac10,1   iMac11,1   iMac11,2   iMac11,3   iMac12,1   iMac12,2</string>
-				<string>iMac13,1   iMac13,2   iMac13,3   iMac14,1   iMac14,2   iMac14,3   iMac14,4</string>
-				<string>iMac15,1   iMac16,1   iMac16.2   iMac17,1   iMac18,1   iMac18,2   iMac18,3</string>
-				<string></string>
-				<string>iMacPro,1,</string>
-				<string></string>
-				<string>MacPro3,1   MacPro4,1   MacPro5,1   MacPro6,1</string>
-				<string></string>
-			</array>
 		</dict>
 		<key>BiosReleaseDate</key>
 		<dict>
