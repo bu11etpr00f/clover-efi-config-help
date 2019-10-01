@@ -736,6 +736,15 @@
 		</dict>
 		<key>NeverHibernate</key>
 		<false/>
+		<key>RtcHibernateAware</key>
+		<dict>
+			<key>Default Setting:</key>
+			<false/>
+			<key>KEY DEFINITION // COMMENTS</key>
+			<array>
+				<string></string>
+			</array>
+		</dict>
 		<key>Secure</key>
 		<false/>
 		<key>Timeout</key>
@@ -826,9 +835,25 @@
 		<key>USB</key>
 		<dict>
 			<key>AddClockID</key>
-			<array>
-				<string></string>
-			</array>
+			<dict>
+				<key>Recommended Setting:</key>
+				<true/>
+				<key>Default Setting:</key>
+				<string>NO</string>
+				<key>KEY DEFINITION // COMMENTS</key>
+				<array>
+					<string>YES - Enables a good, deep sleep, which cannot be exited by keyboard or</string>
+					<string>mouse input.</string>
+					<string>NO - The PC will possibly sleep and it can be woken up by keyboard or</string>
+					<string>mouse; or it will be automatically woken up by some attached device.</string>
+					<string></string>
+					<string>Injects the property &quot;AAPL,clock-id&quot; with a unique identifier for each device.</string>
+					<string>Set it to your liking.</string>
+					<string></string>
+					<string>Requires USBInjection to be enabled.</string>
+					<string></string>
+				</array>
+			</dict>
 			<key>FixOwnership</key>
 			<true/>
 			<key>HighCurrent</key>
