@@ -1,5 +1,5 @@
 # Clover EFI Bootloader config.plist Configuration Definitions, Help, & ReadMe Files
-2020.12.15
+2020.11.22
 Archiving this Repository. I have moved away from using Clover to using OpenCore. If you are still using Clover, and would like to convert to OpenCore, please see the following Guides:
 
 Getting started with OpenCore
